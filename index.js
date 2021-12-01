@@ -86,7 +86,7 @@ const sleep = async (ms) => {
 prefix = ''
 f = '_'
 blocked = []
-fake = '- 𝙎𝙀𝙇𝙁-𝘽𝙊𝙏 -'
+fake = '- _*NASA*_ -'
 fakeimage = fs.readFileSync(`./media/zitsraa.jpeg`)
 numbernye = '0'
 join = '\`\`\`New Member\`\`\` \n \`\`\`Nama :\`\`\` \n \`\`\`Askot : \`\`\` \n \`\`\`Umur :\`\`\` \n \`\`\`Status :\`\`\` \n\n - [ 𝙎𝙀𝙇𝙁 𝘽𝙊𝙏 ] -'
@@ -474,126 +474,58 @@ const uploadImages = (buffData, type) => {
 			  
 			     case 'help':
                 case 'menu':
-      menu =`┌──「 _*INI MHYCKA*_ 」───
-│
-├ ${f}${prefix}sticker Reply img${f}
-├ ${f}${prefix}rsticker Reply img${f}
-├ ${f}${prefix}stickergif Reply video${f}
-├ ${f}${prefix}stickerwa Query${f}
-├ ${f}${prefix}stickerwm Nama|Author${f}
-├ ${f}${prefix}nobg Reply img${f}
-├ ${f}${prefix}textmaker teks atas|teks bawah${f}
-├ ${f}${prefix}attp Text${f}
-├ ${f}${prefix}ttp Text${f}
-├ ${f}${prefix}take Nama|Author${f}
-├ ${f}${prefix}exif Nama|Author${f}
-├ ${f}${prefix}colong${f}
-├ ${f}${prefix}fdeface Url|title|desk${f}
-├ ${f}${prefix}togif Reply stickergif${f}
-├ ${f}${prefix}tovideo Reply sticker${f}
-├ ${f}${prefix}toimg Reply sticker${f}
-├ ${f}${prefix}nulis1${f}
-├ ${f}${prefix}tulis2${f}
-├ ${f}${prefix}tebakgambar${f}
-├ ${f}${prefix}caklontong${f}
-├ ${f}${prefix}tebakbendera${f}
-├ ${f}${prefix}slot${f}
-├ ${f}${prefix}slot2${f}
-├ ${f}${prefix}suit${f}
-├ ${f}${prefix}bakarnama${f}
-│
-├ ${f}${prefix}self${f}
-├ ${f}${prefix}public${f}
-├ ${f}${prefix}mute${f}
-├ ${f}${prefix}unmute${f}
-├ ${f}${prefix}runtime${f}
-├ ${f}${prefix}ping${f}
-├ ${f}${prefix}term${f}
-├ ${f}${prefix}blocklist${f}
-├ ${f}${prefix}run${f}
-├ ${f}${prefix}chatlist${f}
-├ ${f}${prefix}owner${f}
-├ ${f}${prefix}join Linkgroup${f}
-├ ${f}${prefix}getpic @tag${f}
-├ ${f}${prefix}getbio @tag${f}
-│
-├ ${f}${prefix}pin${f}
-├ ${f}${prefix}unpin${f}
-├ ${f}${prefix}archive${f}
-├ ${f}${prefix}unarchiveall${f}
-├ ${f}${prefix}readall${f}
-├ ${f}${prefix}delthischat${f}
-├ ${f}${prefix}shutdown${f}
-│
-├ ${f}${prefix}hidetag Text${f}
-├ ${f}${prefix}stctag Tag Stc${f}
-├ ${f}${prefix}imgtag Tag Img${f}
-├ ${f}${prefix}kontag Text${f}
-├ ${f}${prefix}kontak 6281xxx Nama${f}
-│
-├ ${f}${prefix}setthumb${f}
-├ ${f}${prefix}setreply${f}
-├ ${f}${prefix}setbodymenu${f}
-├ ${f}${prefix}setwelcome${f}
-├ ${f}${prefix}setleave${f}
-├ ${f}${prefix}setpromote${f}
-├ ${f}${prefix}setdemote${f}
-│
-├ ${f}${prefix}upswtext${f}
-├ ${f}${prefix}upswimg${f}
-├ ${f}${prefix}upswvideo${f}
-│
-├ ${f}${prefix}welcome 1/0${f}
-├ ${f}${prefix}linkgroup${f}
-├ ${f}${prefix}group tutup/buka${f}
-├ ${f}${prefix}add 6281xxx${f}
-├ ${f}${prefix}kick @tag${f}
-├ ${f}${prefix}promote @tag${f}
-├ ${f}${prefix}demote @tagadmin${f}
-├ ${f}${prefix}demoteall${f}
-├ ${f}${prefix}edotensei @tag${f}
-├ ${f}${prefix}listadmin${f}
-├ ${f}${prefix}online${f}
-├ ${f}${prefix}infoall${f}
-├ ${f}${prefix}notif${f}
-├ ${f}${prefix}leave${f}
-│
-├ ${f}${prefix}addstik Optional${f}
-├ ${f}${prefix}adimg Optional${f}
-├ ${f}${prefix}addvid Optional${f}
-├ ${f}${prefix}addvn Optional${f}
-├ ${f}${prefix}getstik Query${f}
-├ ${f}${prefix}getimg Query${f}
-├ ${f}${prefix}getvid Query${f}
-├ ${f}${prefix}getvn Query${f}
-├ ${f}${prefix}liststick${f}
-├ ${f}${prefix}listimg${f}
-├ ${f}${prefix}listvid${f}
-├ ${f}${prefix}listvn${f}
-│
-├ ${f}${prefix}play Query${f}
-├ ${f}${prefix}play2 Query${f}
-├ ${f}${prefix}ig Url${f}
-├ ${f}${prefix}fb Url${f}
-├ ${f}${prefix}tiktok Url${f}
-├ ${f}${prefix}ytmp3 Url${f}
-├ ${f}${prefix}ytmp4 Url${f}
-├ ${f}${prefix}tiktok${f}
-├ ${f}${prefix}tiktoknowm${f}
-│
-└──「 _*MHYCKA SELF*_  」───
+      menu =`_*Hai Kak Berikut Adalah Menu SelfNasaBot*_
 
-┌──「 _*SOSIAL MEDIA*_ 」───
+👑 *Owner Name : Mhycka*
+*🤖 Bot Name : SelfNasaBot*
+*👑 No Owner : 6285340409831*
+*🌐 Browser : Linux*
+*📊 Langauge : Javascript*
+*🐣My Birthday : 12-04-2006*
+
+╭──「 _*SELF NASA BOT*_」─── 
 │
+├ *sticker*
+├ *stickergif*
+├ *attp*
+├ *toimg*
+├ *runtime*
+├ *ping*
+├ *blocklist*
+├ *shutdown*
+├ *fdeface*
+├ *chatlist*
+├ *owner*
+├ *hidetag Text*
+├ *stctag Tag Stc*
+├ *imgtag Tag Img*
+├ *kontag Text*
+├ *upswtext*
+├ *upswimg*
+├ *upsvideo*
+├ *linkgroup*
+├ *group tutup/buka*
+├ *add 6281xxx*
+├ *headsot @tag*
+├ *promote @tag*
+├ *demote @tagadmin*
+├ *edotensei @tag*
+├ *listadmin*
+├ *infoall*
+│
+╰──「 _*SELF BY MHYCKA*_ 」───
+
+┌───「 _*SOSIAL MEDIA*_ 」────
 ├ *YouTube : Mhycka Herviananda*
 ├ *Instagram : mhyckaherviananda*
 ├ *Facebook : Mhycka Herviananda*
 ├ *All : bit.ly/MhyckaHervianandaa*
-└─────────────`
+╰────────────┈ ⳹
+`
 Zitsraa.sendMessage(from , menu, text,{quoted : freply})
                   break
                   
-                case '?':
+                case '-':
 					Zitsraa.sendMessage(from, help(prefix), text,{contextInfo: {forwardingScore : 508, isForwarded: true},quoted : freply})
 					break
 			  
@@ -697,7 +629,7 @@ Zitsraa.sendMessage(from , menu, text,{quoted : freply})
                 
                 case 'shutdown':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
-	        await Zitsraa.sendMessage(from, `Bye...\n_Rival off dulu yaa.._`, text,{quoted : freply})
+	        await Zitsraa.sendMessage(from, `Bye...\n_Mhycka off dulu yaa.._`, text,{quoted : freply})
 		await sleep(3000)
                 Zitsraa.close()
 		break
@@ -1607,7 +1539,6 @@ break
 					}
 					break 
 					
-										case 'online':
 										  case 'listonline':
                 if (!isGroup) return reply(`Only group`)
                 let ido = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : from
@@ -1627,7 +1558,7 @@ break
 						teks += `┣❥   @${mem.jid.split('@')[0]}\n`
 						members_id.push(mem.jid)
 					}
-					mentions(`*From :* - [ 𝙎𝙀𝙇𝙁 𝘽𝙊𝙏 ] -\n*Info :*  ${body.slice(9)}\n*Total Member :* ${groupMembers.length} \n\n┏━━━⟪ *INFORMATION* ⟫━━━┓`+teks+'╚═ *「 Zitsraa BOT 」* ', members_id, true)
+					mentions(`*From :* - [ 𝙎𝙀𝙇𝙁 𝘽𝙊𝙏 ] -\n*Info :*  ${body.slice(9)}\n*Total Member :* ${groupMembers.length} \n\n┏━━━⟪ *INFORMATION* ⟫━━━┓`+teks+'╚═ *「 By Mhycka 」* ', members_id, true)
 					break
 					
 					case 'edotensei':
