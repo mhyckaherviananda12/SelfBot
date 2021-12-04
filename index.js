@@ -931,13 +931,13 @@ Zitsraa.sendMessage(from, buff, image, {quoted: freply})
 break
 					
 case 'attp':
-				if (args.length < 1) return reply(`_Teksnya Mana Boss_\n*Contoh ${prefix}attp Zitsraa Ganteng*`)
+				if (args.length < 1) return reply(`_Teksnya Mana Boss_\n*Contoh ${prefix}attp Mhycka Ganteng*`)
 				attp2 = await getBuffer(`https://api.xteam.xyz/attp?file&text=${body.slice(6)}`)
 				Zitsraa.sendMessage(from, attp2, sticker, {quoted: freply})
 				break
 				
 		case 'ttp':
-				if (args.length < 1) return reply(`_Teksnya Mana Boss_\n*Contoh ${prefix}ttp Zitsraa Ganteng*`)
+				if (args.length < 1) return reply(`_Teksnya Mana Boss_\n*Contoh ${prefix}ttp Mhycka Ganteng*`)
 				ttp = await getBuffer(`http://lolhuman.herokuapp.com/api/ttp?apikey=${LolKey}&text=${body.slice(5)}`)
 				Zitsraa.sendMessage(from, ttp, sticker, {quoted: freply})
 				break
@@ -1229,7 +1229,6 @@ case 'attp':
 \`\`\` - [ ${Zitsraa.user.phone.wa_version} ] WA Version\`\`\`
 \`\`\` - [ Baileys ] Server\`\`\`
 \`\`\` - [ SELF ] MODE\`\`\`
-\`\`\` - [ ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / 4095 ] RAM\`\`\`
 
 \`\`\`Speed : ${latensi.toFixed(4)} Second\`\`\``
                 Zitsraa.sendMessage(from, p0, text, { quoted: freply})
@@ -1242,7 +1241,7 @@ const latensip = speed() - timestampi
 			             anjink =`◪ 𝗥𝘂𝗻𝘁𝗶𝗺𝗲
 ├ *Nama bot : Nasaa*
 ├ *Owner : Mhycka*
-├ *Server :* _*Baileys*_
+├ *Server :* _*linux*_
 ├ *Runtime :*
 ├   \`\`\`${kyun(uptime)}\`\`\`
 ├ *Speed :*
