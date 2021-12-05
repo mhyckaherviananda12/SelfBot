@@ -483,6 +483,7 @@ const uploadImages = (buffData, type) => {
 ├ *toimg*
 ├ *runtime*
 ├ *ping*
+├ *ssweb*
 ├ *blocklist*
 ├ *shutdown*
 ├ *fdeface*
@@ -800,7 +801,16 @@ Zitsraa.sendMessage(from , menu, text,{quoted : freply})
 		    exif.create(arg.split('|')[0], arg.split('|')[1])
 		    reply('sukses')
 	        break
-	        
+
+	    case 'screenshot':
+            case 'ssweb':
+            case 'ss':
+                if (args.length < 1) return reply('_*Urlnya mana om?*_')
+					teks = q
+					anu = await fetchJson(`https://shot.screenshotapi.net/screenshot?&url=${teks}`)
+					buff = await getBuffer(anu.screenshot)
+					Zitsraa.sendMessage(from, buff, image, {quoted: mek, caption : teks})
+					break
 	        case 'colong':
 		if (!isQuotedSticker) return reply(`Reply sticker dengan caption *${prefix}colong*`)
 		const encmediia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
