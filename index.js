@@ -802,7 +802,7 @@ Zitsraa.sendMessage(from , menu, text,{quoted : freply})
 		    reply('sukses')
 	        break
 
-	    case 'screenshot':
+	    case 'screenshotweb':
             case 'ssweb':
             case 'ss':
                 if (args.length < 1) return reply('_*Urlnya mana om?*_')
