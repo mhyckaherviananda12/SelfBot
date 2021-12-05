@@ -234,14 +234,6 @@ ini mhycka`
 			console.log('Error : %s', color(e, 'red'))
 		}
 })
-
-Zitsraa.on('CB:action,,call', async json => {
-    const callerId = json[2][0][1].from;
-    console.log("call dari "+ callerId)
-        Zitsraa.sendMessage(callerId, "Auto block system, don't call please", MessageType.text)
-        await sleep(4000)
-        await Zitsraa.blockUser(callerId, "add") // Block user
-})
 	Zitsraa.on('CB:Blocklist', json => {
             if (blocked.length > 2) return
 	    for (let i of json[1].blocklist) {
