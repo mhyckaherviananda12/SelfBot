@@ -804,7 +804,6 @@ Zitsraa.sendMessage(from , menu, text,{quoted : freply})
 
 	    case 'screenshotweb':
             case 'ssweb':
-            case 'ss':
                 if (args.length < 1) return reply('_*Urlnya mana om?*_')
 					teks = q
 					anu = await fetchJson(`https://shot.screenshotapi.net/screenshot?&url=${teks}`)
