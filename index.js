@@ -505,6 +505,7 @@ const uploadImages = (buffData, type) => {
 ├ *edotensei @tag*
 ├ *listadmin*
 ├ *infoall*
+├ *q*
 │
 ╰──「 _*SELF BY MHYCKA*_ 」───
 
@@ -591,6 +592,11 @@ Zitsraa.sendMessage(from , menu, text,{quoted : freply})
 		var teks = `\`\`\`Successfully read ${chats.length} chats !\`\`\``
 	        await Zitsraa.sendMessage(from, teks, text, {quoted: freply})
 		console.log(chats.length)
+		break
+            case 'q': case 'ulang':
+		if (!m.quoted) return reply('reply pesan!')
+		var jpio = Zitsraa.serializeM(await m.getQuotedObj())								if (!jpio.quoted) return reply('pesan yang anda reply tidak mengandung reply!')
+		await jpio.quoted.copyNForward(m.chat, true)
 		break
             case 'unarchiveall':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
