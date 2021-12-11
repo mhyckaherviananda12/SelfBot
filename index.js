@@ -506,16 +506,17 @@ const uploadImages = (buffData, type) => {
 			}
 			
 			switch(command) {
-			 
+			  
+			     case 'help':
                 case 'menu':
       menu =`_*Hai Kak Berikut Adalah Menu SelfNasaBot*_
 
-*👑 Owner Name : Mhycka*
+👑 *Owner Name : Mhycka*
 *🤖 Bot Name : SelfNasaBot*
 *👑 No Owner : 6285340409831*
 *🌐 Browser : Linux*
-*📊 language  : Javascript*
-*🐣 My Birthday : 12-04-2006*
+*📊 Langauge : Javascript*
+*🐣My Birthday : 12-04-2006*
 
 ╭──「 _*SELF NASA BOT*_」─── 
 │
@@ -559,10 +560,9 @@ const uploadImages = (buffData, type) => {
 `
 gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
-          { buttonId: `owner`, buttonText: { displayText: 'Owner' }, type: 1 }, { buttonId: `patnerbot`, buttonText: { displayText: 'Patner Bot' }, type: 1 },
+          { buttonId: `${prefix}owner`, buttonText: { displayText: 'Owner' }, type: 1 }, { buttonId: `${prefix}patnerbot`, buttonText: { displayText: 'Patner Bot' }, type: 1 },
         ]
- isButton = 'buttonresponse
-        sendButLocation(from, menu, "©BotWhatsapp By ᴹᴿ°᭄Mhyckaོ", gam, but)
+        sendButLocation(from, menu, "©BotWhatsapp By ArulGanz", gam, but)
 break
                 case '-':
 					Zitsraa.sendMessage(from, help(prefix), text,{contextInfo: {forwardingScore : 508, isForwarded: true},quoted : freply})
@@ -572,13 +572,13 @@ break
 			  case 'self':
 			  if (!mek.key.fromMe) return reply('*Kamu Owner?*')
 			    public = false
-			    Zitsraa.sendMessage(from, `「 *SELF-MODE* 」`, text,{quoted :freply})
+			    Zitsraa.sendMessage(from, `\`\`\`Status : SELF\`\`\``, text,{quoted :freply})
 			    break
 			    
 			  case 'public':
 			    if (!mek.key.fromMe) return reply('*Kamu Owner?*')
 			    public = true
-			    Zitsraa.sendMessage(from, `「 *PUBLIC-MODE* 」`, text,{quoted :freply})
+			    Zitsraa.sendMessage(from, `\`\`\`Status : PUBLIC\`\`\``, text,{quoted :freply})
 			    break
 			    
 			    case 'mute':
@@ -602,19 +602,20 @@ break
                         case 'patnerbot':
 teks =
 `┏━➤ 「 *Patner Bot*」
-┃┃✯ *1. Mhycka Herviananda*😎
-┃┃✯ *2. Aisyah Ahmad*😎
-┃┃✯ *3. Rizky Faisal*😎
-┃┃✯ *4. Adilla Paramita*😎
+┃┃✯ *1. Aril Dwi Indra Lesmana*😎
+┃┃✯ *2. Dimas Ari Saputra*😎
+┃┃✯ *3. ArulGanz*😎
+┃┃✯ *Kita Nob Bang Jangan Di Bully*
+┃┃✯ *Udah Jago Gak Boleh Sombong*
 ┗━━━━━━━
-┏━➤ 「 *Follow Instagram Owner*」
-┃┃➳ *http://bit.ly/instagramhycka*
+┏━➤ 「 *Follow Instagram Owner Botz*」
+┃┃✯ *https://bit.ly/3dT9725*
 ┗━━━━━━━`
 gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
           { buttonId: `${prefix}menu`, buttonText: { displayText: 'Back To Menu' }, type: 1 }, { buttonId: `${prefix}owner`, buttonText: { displayText: 'Owner' }, type: 1 },
         ]
-        sendButLocation(from, teks, "© BotWhatsapp By ᴹᴿ°᭄Mhyckaོ", gam, but)
+        sendButLocation(from, teks, "©BotWhatsapp By ArulGanz", gam, but)
 break
 			    case 'unpin':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
