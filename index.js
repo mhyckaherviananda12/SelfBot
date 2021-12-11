@@ -554,13 +554,12 @@ const uploadImages = (buffData, type) => {
 ┌───「 _*SOSIAL MEDIA*_ 」────
 ├ *YouTube : Mhycka Herviananda*
 ├ *Instagram : mhyckaherviananda*
-├ *Facebook : Mhycka Herviananda*
 ├ *All : bit.ly/MhyckaHervianandaa*
 ╰────────────┈ ⳹
 `
 gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
-          { buttonId: `${prefix}owner`, buttonText: { displayText: 'Owner' }, type: 1 }, { buttonId: `${prefix}patnerbot`, buttonText: { displayText: 'Patner Bot' }, type: 1 },
+          { buttonId: `owner`, buttonText: { displayText: 'Owner' }, type: 1 }, { buttonId: `thksto`, buttonText: { displayText: 'Thanks for' }, type: 1 },
         ]
         sendButLocation(from, menu, "© BotWhatsapp By ᴹᴿ°᭄Mhyckaོ", gam, but)
 break
@@ -572,13 +571,13 @@ break
 			  case 'self':
 			  if (!mek.key.fromMe) return reply('*Kamu Owner?*')
 			    public = false
-			    Zitsraa.sendMessage(from, `\`\`\`Status : SELF\`\`\``, text,{quoted :freply})
+			    Zitsraa.sendMessage(from, `「 *SELF-MODE* 」`, text,{quoted :freply})
 			    break
 			    
 			  case 'public':
 			    if (!mek.key.fromMe) return reply('*Kamu Owner?*')
 			    public = true
-			    Zitsraa.sendMessage(from, `\`\`\`Status : PUBLIC\`\`\``, text,{quoted :freply})
+			    Zitsraa.sendMessage(from, `「 *PUBLIC-MODE* 」`, text,{quoted :freply})
 			    break
 			    
 			    case 'mute':
@@ -599,20 +598,20 @@ break
                         txt += `\n🔖Hasil : ${result.hasil}\n`
                         txt += `🕹️Score : ${result.score}\n`
                         reply(txt)
-                        case 'patnerbot':
+                        case 'thksto':
 teks =
-`┏━➤ 「 *Patner Bot*」
+`┏━➤ 「 *Thanks To*」
 ┃┃✯ *1. Mhycka Herviananda*😎
 ┃┃✯ *2. Rizky Faisal*😎
 ┃┃✯ *3. Aisyah Ahmad*😎
 ┃┃✯ *4. Adilla Paramita*😎
 ┗━━━━━━━
-┏━➤ 「 *Follow Instagram Owner*」
+┏━➤ 「 *Follow Instagram*」
 ┃┃✯ *bit.ly/instagramhycka*
 ┗━━━━━━━`
 gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
-          { buttonId: `${prefix}menu`, buttonText: { displayText: 'Back To Menu' }, type: 1 }, { buttonId: `${prefix}owner`, buttonText: { displayText: 'Owner' }, type: 1 },
+          { buttonId: `menu`, buttonText: { displayText: 'Back To Menu' }, type: 1 }, { buttonId: `owner`, buttonText: { displayText: 'Owner' }, type: 1 },
         ]
         sendButLocation(from, teks, "© BotWhatsapp By ᴹᴿ°᭄Mhyckaོ", gam, but)
 break
