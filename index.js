@@ -47,7 +47,6 @@ const axios = require("axios")
 const speed = require('performance-now')
 const request = require('request')
 const imgbb = require('imgbb-uploader')
-const toMs = require('ms')
 const ms = require('parse-ms')
 const moment = require('moment-timezone')
 const fetch = require('node-fetch')
@@ -360,7 +359,51 @@ key: {
 				"businessOwnerJid": `0@s.whatsapp.net`
 		}
 	}
-}
+}      		
+        const sendButton = async (from, context, fortext, but, mek) => {
+        buttonMessages = {
+        contentText: context,
+        footerText: fortext,
+        buttons: but,
+        headerType: 1
+            }
+        Zitsraa.sendMessage(from, buttonMessages, buttonsMessage, {
+        quoted: fkontak
+        })
+        }
+        const sendButMessage = (id, text1, desc1, but = [], options = {}) => {
+        const buttonMessage = {
+        contentText: text1,
+        footerText: desc1,
+        buttons: but,
+        headerType: 1,
+        };
+        Zitsraa.sendMessage(
+        id,
+        buttonMessage,
+        MessageType.buttonsMessage,
+        options
+        );
+        };
+        const sendButImage = async (from, context, fortext, img, but, mek) => {
+        jadinya = await Zitsraa.prepareMessage(from, img, image)
+        buttonMessagesI = {
+        imageMessage: jadinya.message.imageMessage,
+        contentText: context,
+        footerText: fortext,
+        buttons: but,
+        headerType: 4
+        }
+        Zitsraa.sendMessage(from, buttonMessagesI, buttonsMessage, {
+        quoted: fkontak,
+        })
+        }
+        async function sendButLocation(id, text1, desc1, gam1, but = [], options = {}) {
+        const buttonMessages = { locationMessage: { jpegThumbnail: gam1 }, contentText: text1, footerText: desc1, buttons: but, headerType: 6 }
+        return Zitsraa.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+        }
+        body = (type === 'conversation' && mek.message.conversation.startsWith(prefix)) ? mek.message.conversation : (type == 'imageMessage') && mek.message[type].caption.startsWith(prefix) ? mek.message[type].caption : (type == 'videoMessage') && mek.message[type].caption.startsWith(prefix) ? mek.message[type].caption : (type == 'extendedTextMessage') && mek.message[type].text.startsWith(prefix) ? mek.message[type].text : (type == 'listResponseMessage') && mek.message[type].singleSelectReply.selectedRowId ? mek.message[type].singleSelectReply.selectedRowId : (type == 'buttonsResponseMessage') && mek.message[type].selectedButtonId ? mek.message[type].selectedButtonId : ''
+			budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
 const uploadImages = (buffData, type) => {
     // eslint-disable-next-line no-async-promise-executor
     return new Promise(async (resolve, reject) => {
@@ -515,9 +558,12 @@ const uploadImages = (buffData, type) => {
 ├ *All : bit.ly/MhyckaHervianandaa*
 ╰────────────┈ ⳹
 `
-Zitsraa.sendMessage(from , menu, text,{quoted : freply})
-                  break
-                  
+gam = fs.readFileSync('./media/gambar/patner.png')
+but = [
+          { buttonId: `owner`, buttonText: { displayText: 'Owner' }, type: 1 }, { buttonId: `patnerbot`, buttonText: { displayText: 'Patner Bot' }, type: 1 },
+        ]
+        sendButLocation(from, menu, "©BotWhatsapp By ArulGanz", gam, but)
+break
                 case '-':
 					Zitsraa.sendMessage(from, help(prefix), text,{contextInfo: {forwardingScore : 508, isForwarded: true},quoted : freply})
 					break
@@ -553,6 +599,24 @@ Zitsraa.sendMessage(from , menu, text,{quoted : freply})
                         txt += `\n🔖Hasil : ${result.hasil}\n`
                         txt += `🕹️Score : ${result.score}\n`
                         reply(txt)
+                        case 'patnerbot':
+teks =
+`┏━➤ 「 *Patner Bot*」
+┃┃✯ *1. Aril Dwi Indra Lesmana*😎
+┃┃✯ *2. Dimas Ari Saputra*😎
+┃┃✯ *3. ArulGanz*😎
+┃┃✯ *Kita Nob Bang Jangan Di Bully*
+┃┃✯ *Udah Jago Gak Boleh Sombong*
+┗━━━━━━━
+┏━➤ 「 *Follow Instagram Owner Botz*」
+┃┃✯ *https://bit.ly/3dT9725*
+┗━━━━━━━`
+gam = fs.readFileSync('./media/gambar/patner.png')
+but = [
+          { buttonId: `${prefix}menu`, buttonText: { displayText: 'Back To Menu' }, type: 1 }, { buttonId: `${prefix}owner`, buttonText: { displayText: 'Owner' }, type: 1 },
+        ]
+        sendButLocation(from, teks, "©BotWhatsapp By Mhycka", gam, but)
+break
 			    case 'unpin':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
                 Zitsraa.modifyChat(from, ChatModification.unpin)
