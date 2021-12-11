@@ -515,7 +515,7 @@ const uploadImages = (buffData, type) => {
 *🤖 Bot Name : SelfNasaBot*
 *👑 No Owner : 6285340409831*
 *🌐 Browser : Linux*
-*📊 Langauge : Javascript*
+*📊 Language : Javascript*
 *🐣My Birthday : 12-04-2006*
 
 ╭──「 _*SELF NASA BOT*_」─── 
@@ -562,7 +562,7 @@ gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
           { buttonId: `${prefix}owner`, buttonText: { displayText: 'Owner' }, type: 1 }, { buttonId: `${prefix}patnerbot`, buttonText: { displayText: 'Patner Bot' }, type: 1 },
         ]
-        sendButLocation(from, menu, "©BotWhatsapp By ArulGanz", gam, but)
+        sendButLocation(from, menu, "© BotWhatsapp By ᴹᴿ°᭄Mhyckaོ", gam, but)
 break
                 case '-':
 					Zitsraa.sendMessage(from, help(prefix), text,{contextInfo: {forwardingScore : 508, isForwarded: true},quoted : freply})
@@ -602,20 +602,19 @@ break
                         case 'patnerbot':
 teks =
 `┏━➤ 「 *Patner Bot*」
-┃┃✯ *1. Aril Dwi Indra Lesmana*😎
-┃┃✯ *2. Dimas Ari Saputra*😎
-┃┃✯ *3. ArulGanz*😎
-┃┃✯ *Kita Nob Bang Jangan Di Bully*
-┃┃✯ *Udah Jago Gak Boleh Sombong*
+┃┃✯ *1. Mhycka Herviananda*😎
+┃┃✯ *2. Rizky Faisal*😎
+┃┃✯ *3. Aisyah Ahmad*😎
+┃┃✯ *4. Adilla Paramita*😎
 ┗━━━━━━━
-┏━➤ 「 *Follow Instagram Owner Botz*」
-┃┃✯ *https://bit.ly/3dT9725*
+┏━➤ 「 *Follow Instagram Owner*」
+┃┃✯ *bit.ly/instagramhycka*
 ┗━━━━━━━`
 gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
           { buttonId: `${prefix}menu`, buttonText: { displayText: 'Back To Menu' }, type: 1 }, { buttonId: `${prefix}owner`, buttonText: { displayText: 'Owner' }, type: 1 },
         ]
-        sendButLocation(from, teks, "©BotWhatsapp By ArulGanz", gam, but)
+        sendButLocation(from, teks, "© BotWhatsapp By ᴹᴿ°᭄Mhyckaོ", gam, but)
 break
 			    case 'unpin':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
