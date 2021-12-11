@@ -506,17 +506,16 @@ const uploadImages = (buffData, type) => {
 			}
 			
 			switch(command) {
-			  
-			     case 'help':
+			 
                 case 'menu':
       menu =`_*Hai Kak Berikut Adalah Menu SelfNasaBot*_
 
-👑 *Owner Name : Mhycka*
+*👑 Owner Name : Mhycka*
 *🤖 Bot Name : SelfNasaBot*
 *👑 No Owner : 6285340409831*
 *🌐 Browser : Linux*
 *📊 language  : Javascript*
-*🐣My Birthday : 12-04-2006*
+*🐣 My Birthday : 12-04-2006*
 
 ╭──「 _*SELF NASA BOT*_」─── 
 │
@@ -554,6 +553,7 @@ const uploadImages = (buffData, type) => {
 ┌───「 _*SOSIAL MEDIA*_ 」────
 ├ *YouTube : Mhycka Herviananda*
 ├ *Instagram : mhyckaherviananda*
+├ *Facebook : Mhycka Herviananda*
 ├ *All : bit.ly/MhyckaHervianandaa*
 ╰────────────┈ ⳹
 `
@@ -561,7 +561,8 @@ gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
           { buttonId: `owner`, buttonText: { displayText: 'Owner' }, type: 1 }, { buttonId: `patnerbot`, buttonText: { displayText: 'Patner Bot' }, type: 1 },
         ]
-        sendButLocation(from, menu, "© BotWhatsapp By ᴹᴿ°᭄Mhyckaོ", gam, but)
+ isButton = 'buttonresponse
+        sendButLocation(from, menu, "©BotWhatsapp By ᴹᴿ°᭄Mhyckaོ", gam, but)
 break
                 case '-':
 					Zitsraa.sendMessage(from, help(prefix), text,{contextInfo: {forwardingScore : 508, isForwarded: true},quoted : freply})
@@ -577,12 +578,7 @@ break
 			  case 'public':
 			    if (!mek.key.fromMe) return reply('*Kamu Owner?*')
 			    public = true
-			    Zitsraa.sendMessage(from, `「 *PUBLIC-MODE* 」`
-gam = fs.readFileSync('./media/gambar/patner.png')
-but = [
-          { buttonId: `menu`, buttonText: { displayText: 'Back To Menu' }, type: 1 }, { buttonId: `owner`, buttonText: { displayText: 'Owner' }, type: 1 },
-        ]
-        sendButLocation(from, teks, "© BotWhatsapp By ᴹᴿ°᭄Mhyckaོ", gam, but), text,{quoted :freply})
+			    Zitsraa.sendMessage(from, `「 *PUBLIC-MODE* 」`, text,{quoted :freply})
 			    break
 			    
 			    case 'mute':
@@ -610,17 +606,13 @@ teks =
 ┃┃✯ *2. Aisyah Ahmad*😎
 ┃┃✯ *3. Rizky Faisal*😎
 ┃┃✯ *4. Adilla Paramita*😎
-┃┃✯ *Kita Nob Bang Jangan*
-┃┃✯  *Di Bully*
-┃┃✯ *Udah Jago Gak Boleh
-┃┃✯ *Sombong*
 ┗━━━━━━━
 ┏━➤ 「 *Follow Instagram Owner*」
-┃┃*instagram.com/mhyckaherviananda*
+┃┃➳ *http://bit.ly/instagramhycka*
 ┗━━━━━━━`
 gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
-          { buttonId: `menu`, buttonText: { displayText: 'Back To Menu' }, type: 1 }, { buttonId: `owner`, buttonText: { displayText: 'Owner' }, type: 1 },
+          { buttonId: `${prefix}menu`, buttonText: { displayText: 'Back To Menu' }, type: 1 }, { buttonId: `${prefix}owner`, buttonText: { displayText: 'Owner' }, type: 1 },
         ]
         sendButLocation(from, teks, "© BotWhatsapp By ᴹᴿ°᭄Mhyckaོ", gam, but)
 break
