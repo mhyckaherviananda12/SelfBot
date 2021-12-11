@@ -560,8 +560,9 @@ const uploadImages = (buffData, type) => {
 `
 gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
-          { buttonId: `owner`, buttonText: { displayText: 'Owner' }, type: RESPONSE }, { buttonId: `patnerbot`, buttonText: { displayText: 'Patner Bot' }, type: RESPONSE },
+          { buttonId: `owner`, buttonText: { displayText: 'Owner' }, type: 1 }, { buttonId: `patnerbot`, buttonText: { displayText: 'Patner Bot' }, type: 1 },
         ]
+ isButton = 'buttonresponse
         sendButLocation(from, menu, "©BotWhatsapp By ArulGanz", gam, but)
 break
                 case '-':
