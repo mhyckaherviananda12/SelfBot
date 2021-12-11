@@ -515,7 +515,7 @@ const uploadImages = (buffData, type) => {
 *🤖 Bot Name : SelfNasaBot*
 *👑 No Owner : 6285340409831*
 *🌐 Browser : Linux*
-*📊 Langauge : Javascript*
+*📊 language  : Javascript*
 *🐣My Birthday : 12-04-2006*
 
 ╭──「 _*SELF NASA BOT*_」─── 
@@ -554,7 +554,6 @@ const uploadImages = (buffData, type) => {
 ┌───「 _*SOSIAL MEDIA*_ 」────
 ├ *YouTube : Mhycka Herviananda*
 ├ *Instagram : mhyckaherviananda*
-├ *Facebook : Mhycka Herviananda*
 ├ *All : bit.ly/MhyckaHervianandaa*
 ╰────────────┈ ⳹
 `
@@ -562,7 +561,7 @@ gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
           { buttonId: `owner`, buttonText: { displayText: 'Owner' }, type: 1 }, { buttonId: `patnerbot`, buttonText: { displayText: 'Patner Bot' }, type: 1 },
         ]
-        sendButLocation(from, menu, "©BotWhatsapp By ArulGanz", gam, but)
+        sendButLocation(from, menu, "© BotWhatsapp By ᴹᴿ°᭄Mhyckaོ", gam, but)
 break
                 case '-':
 					Zitsraa.sendMessage(from, help(prefix), text,{contextInfo: {forwardingScore : 508, isForwarded: true},quoted : freply})
@@ -572,13 +571,13 @@ break
 			  case 'self':
 			  if (!mek.key.fromMe) return reply('*Kamu Owner?*')
 			    public = false
-			    Zitsraa.sendMessage(from, `\`\`\`Status : SELF\`\`\``, text,{quoted :freply})
+			    Zitsraa.sendMessage(from, `「 *SELF-MODE* 」`, text,{quoted :freply})
 			    break
 			    
 			  case 'public':
 			    if (!mek.key.fromMe) return reply('*Kamu Owner?*')
 			    public = true
-			    Zitsraa.sendMessage(from, `\`\`\`Status : PUBLIC\`\`\``, text,{quoted :freply})
+			    Zitsraa.sendMessage(from, `「 *PUBLIC-MODE* 」`, text,{quoted :freply})
 			    break
 			    
 			    case 'mute':
@@ -602,20 +601,21 @@ break
                         case 'patnerbot':
 teks =
 `┏━➤ 「 *Patner Bot*」
-┃┃✯ *1. Aril Dwi Indra Lesmana*😎
-┃┃✯ *2. Dimas Ari Saputra*😎
-┃┃✯ *3. ArulGanz*😎
+┃┃✯ *1. Mhycka Herviananda*😎
+┃┃✯ *2. Aisyah Ahmad*😎
+┃┃✯ *3. Rizky Faisal*😎
+┃┃✯ *4. Adilla Paramita*😎
 ┃┃✯ *Kita Nob Bang Jangan Di Bully*
 ┃┃✯ *Udah Jago Gak Boleh Sombong*
 ┗━━━━━━━
 ┏━➤ 「 *Follow Instagram Owner Botz*」
-┃┃✯ *https://bit.ly/3dT9725*
+┃┃✯ *instagram.com/mhyckaherviananda*
 ┗━━━━━━━`
 gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
           { buttonId: `${prefix}menu`, buttonText: { displayText: 'Back To Menu' }, type: 1 }, { buttonId: `${prefix}owner`, buttonText: { displayText: 'Owner' }, type: 1 },
         ]
-        sendButLocation(from, teks, "©BotWhatsapp By Mhycka", gam, but)
+        sendButLocation(from, teks, "© BotWhatsapp By Mhycka", gam, but)
 break
 			    case 'unpin':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
