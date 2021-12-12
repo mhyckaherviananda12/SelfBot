@@ -67,8 +67,8 @@ const { fetchJson, fetchText } = require('./lib/fetcher')
 const { recognize } = require('./lib/ocr')
 const { exec } = require('child_process')
 const { uploadimg } = require('./lib/uploadimg')
-const isBtMsg = (type == 'buttonsResponseMessage') ? mek.message.buttonsResponseMessage.selectedDisplayText : ''
-const isStMsg = (type == 'listResponseMessage') ? mek.message.listResponseMessage.title : ''
+const isBtMsg = (type == 'buttonsResponseMessage')
+const isStMsg = (type == 'listResponseMessage') 
 
 //********** DATABASE **********//
 const welkom = JSON.parse(fs.readFileSync('./src/welkom.json'))
@@ -511,7 +511,7 @@ const uploadImages = (buffData, type) => {
 			  
 			     case 'help':
                 case 'menu':
-                menu = `©BotWa By Mhycka`
+                menu = `© *BotWa By Mhycka*`
 gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
           { buttonId: `owner`, buttonText: { displayText: 'Owner' }, type: 1 }, { buttonId: `thksto`, buttonText: { displayText: 'Thanks for' }, type: 1 },
