@@ -511,57 +511,13 @@ const uploadImages = (buffData, type) => {
                 case 'menu':
       menu =`_*Hai Kak Berikut Adalah Menu SelfNasaBot*_
 
-👑 *Owner Name : Mhycka*
-*🤖 Bot Name : SelfNasaBot*
-*👑 No Owner : 6285340409831*
-*🌐 Browser : Linux*
-*📊 Language : Javascript*
-*🐣My Birthday : 12-04-2006*
 
-╭──「 _*SELF NASA BOT*_」─── 
-│
-├ *sticker*
-├ *stickergif*
-├ *attp*
-├ *toimg*
-├ *runtime*
-├ *ping*
-├ *ssweb*
-├ *blocklist*
-├ *shutdown*
-├ *fdeface*
-├ *chatlist*
-├ *owner*
-├ *hidetag Text*
-├ *stctag Tag Stc*
-├ *imgtag Tag Img*
-├ *kontag Text*
-├ *upswtext*
-├ *upswimg*
-├ *upsvideo*
-├ *linkgroup*
-├ *group tutup/buka*
-├ *add 6281xxx*
-├ *headsot @tag*
-├ *promote @tag*
-├ *demote @tagadmin*
-├ *edotensei @tag*
-├ *listadmin*
-├ *infoall*
-│
-╰──「 _*SELF BY MHYCKA*_ 」───
-
-┌───「 _*SOSIAL MEDIA*_ 」────
-├ *YouTube : Mhycka Herviananda*
-├ *Instagram : mhyckaherviananda*
-├ *All : bit.ly/MhyckaHervianandaa*
-╰────────────┈ ⳹
 `
 gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
           { buttonId: `owner`, buttonText: { displayText: 'Owner' }, type: 1 }, { buttonId: `thksto`, buttonText: { displayText: 'Thanks for' }, type: 1 },
         ]
-        sendButLocation(from, menu, "© BotWhatsapp By ᴹᴿ°᭄Mhyckaོ", gam, but)
+        sendButLocation(from, menu, "_*Hai Kak Berikut Adalah Menu SelfNasaBot*_\n\n👑 *Owner Name : Mhycka*\n*🤖 Bot Name : SelfNasaBot*\n*👑 No Owner : 6285340409831*\n*🌐 Browser : Linux*\n*📊 Langauge : Javascript*\n*🐣My Birthday : 12-04-2006*\n\n╭──「 _*SELF NASA BOT*_」─── \n│\n├ *sticker*\n├ *stickergif*\n├ *attp*\n├ *toimg*\n├ *runtime*\n├ *ping*\n├ *ssweb*\n├ *blocklist*\n├ *shutdown*\n├ *fdeface*\n├ *chatlist*\n├ *owner*\n├ *hidetag Text*\n├ *stctag Tag Stc*\n├ *imgtag Tag Img*\n├ *kontag Text*\n├ *upswtext*\n├ *upswimg*\n├ *upsvideo*\n├ *linkgroup*\n├ *group tutup/buka*\n├ *add 6281xxx*\n├ *headsot @tag*\n├ *promote @tag*\n├ *demote @tagadmin*\n├ *edotensei @tag*\n├ *listadmin*\n├ *infoall*\n│\n╰──「 _*SELF BY MHYCKA*_ 」───\n\n\n© BotWhatsApp By ᴹᴿ°᭄Mhyckaོ", gam, but)
 break
                 case '-':
 					Zitsraa.sendMessage(from, help(prefix), text,{contextInfo: {forwardingScore : 508, isForwarded: true},quoted : freply})
