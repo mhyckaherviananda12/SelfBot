@@ -67,8 +67,6 @@ const { fetchJson, fetchText } = require('./lib/fetcher')
 const { recognize } = require('./lib/ocr')
 const { exec } = require('child_process')
 const { uploadimg } = require('./lib/uploadimg')
-const isBtMsg = (type == 'buttonsResponseMessage')
-const isStMsg = (type == 'listResponseMessage') 
 
 //********** DATABASE **********//
 const welkom = JSON.parse(fs.readFileSync('./src/welkom.json'))
