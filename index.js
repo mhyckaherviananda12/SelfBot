@@ -509,8 +509,7 @@ const uploadImages = (buffData, type) => {
 			  
 			     case 'help':
                 case 'menu':
-      menu =``
-gam = fs.readFileSync('./media/gambar/patner.png')
+      gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
           { buttonId: `owner`, buttonText: { displayText: 'Owner' }, type: 1 }, { buttonId: `thksto`, buttonText: { displayText: 'Thanks for' }, type: 1 },
         ]
