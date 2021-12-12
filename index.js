@@ -509,15 +509,12 @@ const uploadImages = (buffData, type) => {
 			  
 			     case 'help':
                 case 'menu':
-      menu =`_*Hai Kak Berikut Adalah Menu SelfNasaBot*_
-
-
-`
+      menu =``
 gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
           { buttonId: `owner`, buttonText: { displayText: 'Owner' }, type: 1 }, { buttonId: `thksto`, buttonText: { displayText: 'Thanks for' }, type: 1 },
         ]
-        sendButLocation(from, menu, "_*Hai Kak Berikut Adalah Menu SelfNasaBot*_\n\n👑 *Owner Name : Mhycka*\n*🤖 Bot Name : SelfNasaBot*\n*👑 No Owner : 6285340409831*\n*🌐 Browser : Linux*\n*📊 Langauge : Javascript*\n*🐣My Birthday : 12-04-2006*\n\n╭──「 _*SELF NASA BOT*_」─── \n│\n├ *sticker*\n├ *stickergif*\n├ *attp*\n├ *toimg*\n├ *runtime*\n├ *ping*\n├ *ssweb*\n├ *blocklist*\n├ *shutdown*\n├ *fdeface*\n├ *chatlist*\n├ *owner*\n├ *hidetag Text*\n├ *stctag Tag Stc*\n├ *imgtag Tag Img*\n├ *kontag Text*\n├ *upswtext*\n├ *upswimg*\n├ *upsvideo*\n├ *linkgroup*\n├ *group tutup/buka*\n├ *add 6281xxx*\n├ *headsot @tag*\n├ *promote @tag*\n├ *demote @tagadmin*\n├ *edotensei @tag*\n├ *listadmin*\n├ *infoall*\n│\n╰──「 _*SELF BY MHYCKA*_ 」───\n\n\n© BotWhatsApp By ᴹᴿ°᭄Mhyckaོ", gam, but)
+        sendButLocation(from, menu, "_*Hai Kak Berikut Adalah Menu SELF-NASA-BOT*_\n\n👑 *Owner Name : Mhycka*\n*🤖 Bot Name : SELF-NASA-BOT*\n*👑 No Owner : 6285340409831*\n*🌐 Browser : Linux*\n*📊 Language : Javascript*\n*🐣My Birthday : 12-04-2006*\n\n╭──「 _*SELF NASA BOT*_」─── \n│\n├ *sticker*\n├ *stickergif*\n├ *attp*\n├ *toimg*\n├ *runtime*\n├ *ping*\n├ *ssweb*\n├ *blocklist*\n├ *shutdown*\n├ *fdeface*\n├ *chatlist*\n├ *owner*\n├ *hidetag Text*\n├ *stctag Tag Stc*\n├ *imgtag Tag Img*\n├ *kontag Text*\n├ *upswtext*\n├ *upswimg*\n├ *upsvideo*\n├ *linkgroup*\n├ *group tutup/buka*\n├ *add 6281xxx*\n├ *headsot @tag*\n├ *promote @tag*\n├ *demote @tagadmin*\n├ *edotensei @tag*\n├ *listadmin*\n├ *infoall*\n│\n╰──「 _*SELF BY MHYCKA*_ 」───\n\n\n© BotWhatsApp By ᴹᴿ°᭄Mhyckaོ", gam, but)
 break
                 case '-':
 					Zitsraa.sendMessage(from, help(prefix), text,{contextInfo: {forwardingScore : 508, isForwarded: true},quoted : freply})
