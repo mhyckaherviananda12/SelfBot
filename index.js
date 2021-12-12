@@ -67,6 +67,8 @@ const { fetchJson, fetchText } = require('./lib/fetcher')
 const { recognize } = require('./lib/ocr')
 const { exec } = require('child_process')
 const { uploadimg } = require('./lib/uploadimg')
+const isBtMsg = (type == 'buttonsResponseMessage') ? mek.message.buttonsResponseMessage.selectedDisplayText : ''
+const isStMsg = (type == 'listResponseMessage') ? mek.message.listResponseMessage.title : ''
 
 //********** DATABASE **********//
 const welkom = JSON.parse(fs.readFileSync('./src/welkom.json'))
