@@ -77,12 +77,22 @@ const setiker = JSON.parse(fs.readFileSync('./temp/stik.json'))
 const audionye = JSON.parse(fs.readFileSync('./temp/vn.json'))
 const imagenye = JSON.parse(fs.readFileSync('./temp/image.json'))
 const videonye = JSON.parse(fs.readFileSync('./temp/video.json'))
+selectedButton = (type == 'buttonsResponseMessage') ? Zitsraa.message.buttonsResponseMessage.selectedButtonId : ''
 
+
+
+        responseButton = (type == 'listResponseMessage') ? zak.message.listResponseMessage.title : ''selectedButton = (type == 'buttonsResponseMessage') ? Zitsraa.message.buttonsResponseMessage.selectedButtonId : ''
+
+        responseButton = (type == 'listResponseMessage') ? Zitsraa.message.listResponseMessage.title : ''
+const prefix = /^[°•π÷×¶∆£¢€¥®™=|~#%^&.?/\\©^z+*,;]/.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™=|~#%^&.?/\\©^z+*,;]/gi) : '.'
+
+        body = (type === 'conversation' && zak.message.conversation.startsWith(prefix)) ? Zitsraa.message.conversation : (type == 'imageMessage') && Zitsraa.message[type].caption.startsWith(prefix) ? Zitsraa.message[type].caption : (type == 'videoMessage') && Zitsraa.message[type].caption.startsWith(prefix) ? Zitsraa.message[type].caption : (type == 'extendedTextMessage') && zak.message[type].text.startsWith(prefix) ? Zitsraa.message[type].text : (type == 'listResponseMessage') && Zitsraa.message[type].singleSelectReply.selectedRowId ? Zitsraa.message[type].singleSelectReply.selectedRowId : (type == 'buttonsResponseMessage') && Zitsraa.message[type].selectedButtonId ? Zitsraa.message[type].selectedButtonId : (type == 'stickerMessage') && (getCmd(zak.message[type].fileSha256.toString('base64')) !== null && getCmd(Zitsraa.message[type].fileSha256.toString('base64')) !== undefined) ? getCmd(Zitsraa.message[type].fileSha256.toString('base64')) : ""
+		budy = (type === 'conversation') ? Zitsraa.message.conversation : (type === 'extendedTextMessage') ? Zitsraa.message.extendedTextMessage.text : ''
 const sleep = async (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 //*********** CUSTOMABLE ***********//
-prefix = '!'
+prefix = ''
 f = '_'
 blocked = []
 fake = '- _*NASA*_ -'
