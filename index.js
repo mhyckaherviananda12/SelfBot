@@ -538,14 +538,14 @@ break
                 reply('*succes mute this chat*')
                 console.log('succes mute chat = ' + from)
                 break
-case'on':
+case 'on':
 		            if (isBanned) return reply(ind.baned())
 				     if (!isRegistered) return reply(ind.noregis())
 					if (!isOwner && !mek.key.fromMe && !isAdmin) return reply(ind.ownerb())
 		            offline = false
 		            fakeitem(' ```ONLINE MODE``` ')
 		            break       
-		    case'off':
+		    case 'off':
 		            if (isBanned) return reply(ind.baned())
 				    if (!isRegistered) return reply(ind.noregis())
 					if (!isOwner && !mek.key.fromMe && !isAdmin) return reply(ind.ownerb()) 
