@@ -541,7 +541,7 @@ break
 case 'on':
 		if (!isOwner && !mek.key.fromMe && !isAdmin) return reply(ind.ownerb())
 		            offline = false
-		            fakeitem(' ```ONLINE MODE``` ')
+		            fake (' ```ONLINE MODE``` ')
 		            break       
 		    case 'off':
 					if (!isOwner && !mek.key.fromMe && !isAdmin) return reply(ind.ownerb()) 
@@ -549,7 +549,7 @@ case 'on':
 		            waktu = Date.now()
 		            anuu = args.join(' ') ? args.join(' ') : '-'
 		            alasan = anuu
-		            fakeitem(' ```OFFLINE MODE``` ')
+		            fake (' ```OFFLINE MODE``` ')
 		            break
             case 'unmute':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
