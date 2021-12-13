@@ -538,6 +538,36 @@ break
                 reply('*succes mute this chat*')
                 console.log('succes mute chat = ' + from)
                 break
+case'on':
+		            if (isBanned) return reply(ind.baned())
+				     if (!isRegistered) return reply(ind.noregis())
+					if (!isOwner && !mek.key.fromMe && !isAdmin) return reply(ind.ownerb())
+		            offline = false
+		            fakeitem(' ```ONLINE MODE``` ')
+		            break       
+		    case'off':
+		            if (isBanned) return reply(ind.baned())
+				    if (!isRegistered) return reply(ind.noregis())
+					if (!isOwner && !mek.key.fromMe && !isAdmin) return reply(ind.ownerb()) 
+		            offline = true
+		            waktu = Date.now()
+		            anuu = args.join(' ') ? args.join(' ') : '-'
+		            alasan = anuu
+		            fakeitem(' ```OFFLINE MODE``` ')
+		            break
+case 'mediafire':
+if (args.length < 1) return reply('Link Nya Mana?')
+if(!isUrl(args[0]) && !args[0].includes('mediafire')) return reply(mess.error)
+reply(monospace(mess.wait))
+teks = args.join(' ')
+rescun = await mediafiredl(teks)
+result = `❒「MediaFire Download」
+├ Nama : ${rescun[0].nama}
+├ Ukuran : ${rescun[0].size}
+└ Link : ${rescun[0].link}`
+reply(result)
+Zitsraa.sendMessage(from, {url: `${rescun[0].link}` }, document, { mimetype: `${rescun[0].mime}`, filename:`${rescun[0].nama}`})
+break
             case 'unmute':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
                 Zitsraa.modifyChat(from, ChatModification.unmute)
