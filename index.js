@@ -77,17 +77,6 @@ const setiker = JSON.parse(fs.readFileSync('./temp/stik.json'))
 const audionye = JSON.parse(fs.readFileSync('./temp/vn.json'))
 const imagenye = JSON.parse(fs.readFileSync('./temp/image.json'))
 const videonye = JSON.parse(fs.readFileSync('./temp/video.json'))
-selectedButton = (type == 'buttonsResponseMessage') ? Zitsraa.message.buttonsResponseMessage.selectedButtonId : ''
-
-
-
-        responseButton = (type == 'listResponseMessage') ? zak.message.listResponseMessage.title : ''selectedButton = (type == 'buttonsResponseMessage') ? Zitsraa.message.buttonsResponseMessage.selectedButtonId : ''
-
-        responseButton = (type == 'listResponseMessage') ? Zitsraa.message.listResponseMessage.title : ''
-const prefix = /^[°•π÷×¶∆£¢€¥®™=|~#%^&.?/\\©^z+*,;]/.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™=|~#%^&.?/\\©^z+*,;]/gi) : '.'
-
-        body = (type === 'conversation' && zak.message.conversation.startsWith(prefix)) ? Zitsraa.message.conversation : (type == 'imageMessage') && Zitsraa.message[type].caption.startsWith(prefix) ? Zitsraa.message[type].caption : (type == 'videoMessage') && Zitsraa.message[type].caption.startsWith(prefix) ? Zitsraa.message[type].caption : (type == 'extendedTextMessage') && zak.message[type].text.startsWith(prefix) ? Zitsraa.message[type].text : (type == 'listResponseMessage') && Zitsraa.message[type].singleSelectReply.selectedRowId ? Zitsraa.message[type].singleSelectReply.selectedRowId : (type == 'buttonsResponseMessage') && Zitsraa.message[type].selectedButtonId ? Zitsraa.message[type].selectedButtonId : (type == 'stickerMessage') && (getCmd(zak.message[type].fileSha256.toString('base64')) !== null && getCmd(Zitsraa.message[type].fileSha256.toString('base64')) !== undefined) ? getCmd(Zitsraa.message[type].fileSha256.toString('base64')) : ""
-		budy = (type === 'conversation') ? Zitsraa.message.conversation : (type === 'extendedTextMessage') ? Zitsraa.message.extendedTextMessage.text : ''
 const sleep = async (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -107,7 +96,7 @@ public = false
 //*********** VCARD  ***********//
 const vcard = 'BEGIN:VCARD\n'
             + 'VERSION:3.0\n'
-            + 'FN:Mhyckaシ︎\n'
+            + 'FN:ᴹᴿ°᭄Mhyckaོ\n'
             + 'ORG:Owner Mhycka;\n'
             + 'TEL;type=CELL;type=VOICE;waid=6285340409831:+62 853 4040 9831\n'
             + 'END:VCARD'
