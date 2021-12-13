@@ -82,7 +82,7 @@ const sleep = async (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 //*********** CUSTOMABLE ***********//
-prefix = ''
+prefix = '!'
 f = '_'
 blocked = []
 fake = '- _*NASA*_ -'
