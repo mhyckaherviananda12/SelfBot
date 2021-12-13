@@ -513,7 +513,7 @@ gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
           { buttonId: `$(prefix)owner`, buttonText: { displayText: 'INSTAGRAM\n_Follow bit.ly/instagramhycka :)_' }, type: 1 },
         ]
-        sendButLocation(from, menu, "_*Hai Kak Berikut Adalah Menu SELF-NASA-BOT*_\n\n👑 *Owner Name : Mhycka*\n*🤖 Bot Name : SELF-NASA-BOT*\n*👑 No Owner : 6285340409831*\n*🌐 Browser : Linux*\n*📊 Language : Javascript*\n*🐣My Birthday : 12-04-2006*\n\n╭──「 _*SELF NASA BOT*_」─── \n│\n├ *sticker*\n├ *stickergif*\n├ *attp*\n├ *toimg*\n├ *runtime*\n├ *ping*\n├ *ssweb*\n├ *blocklist*\n├ *shutdown*\n├ *fdeface*\n├ *chatlist*\n├ *owner*\n├ *hidetag Text*\n├ *stctag Tag Stc*\n├ *imgtag Tag Img*\n├ *kontag Text*\n├ *upswtext*\n├ *upswimg*\n├ *upsvideo*\n├ *linkgroup*\n├ *group tutup/buka*\n├ *add 6281xxx*\n├ *headsot @tag*\n├ *promote @tag*\n├ *demote @tagadmin*\n├ *edotensei @tag*\n├ *listadmin*\n├ *infoall*\n├ *thksto*\n│\n╰──「 _*SELF BY MHYCKA*_ 」───\n\n\n© BotWhatsApp By ᴹᴿ°᭄Mhyckaོ", gam, but)
+        sendButLocation(from, menu, "_*Hai Kak Berikut Adalah Menu SELF-NASA-BOT*_\n\n👑 *Owner Name : Mhycka*\n*🤖 Bot Name : SELF-NASA-BOT*\n*👑 No Owner : 6285340409831*\n*🌐 Browser : Linux*\n*📊 Language : Javascript*\n*🐣My Birthday : 12-04-2006*\n\n╭──「 _*SELF NASA BOT*_」─── \n│\n├ *sticker*\n├ *stickergif*\n├ *attp*\n├ *toimg*\n├ *runtime*\n├ *ping*\n├ *ssweb*\n├ *blocklist*\n├ *shutdown*\n├ *fdeface*\n├ *chatlist*\n├ *owner*\n├ *hidetag Text*\n├ *stctag Tag Stc*\n├ *imgtag Tag Img*\n├ *kontag Text*\n├ *upswtext*\n├ *upswimg*\n├ *upsvideo*\n├ *linkgroup*\n├ *group tutup/buka*\n├ *add 6281xxx*\n├ *headsot @tag*\n├ *promote @tag*\n├ *demote @tagadmin*\n├ *edotensei @tag*\n├ *listadmin*\n├ *infoall*\n├ *thksto*\n├ *artinama*\n│\n╰──「 _*SELF BY MHYCKA*_ 」───\n\n\n© BotWhatsApp By ᴹᴿ°᭄Mhyckaོ", gam, but)
 break
                 case '-':
 					Zitsraa.sendMessage(from, help(prefix), text,{contextInfo: {forwardingScore : 508, isForwarded: true},quoted : freply})
@@ -539,15 +539,11 @@ break
                 console.log('succes mute chat = ' + from)
                 break
 case 'on':
-		            if (isBanned) return reply(ind.baned())
-				     if (!isRegistered) return reply(ind.noregis())
-					if (!isOwner && !mek.key.fromMe && !isAdmin) return reply(ind.ownerb())
+		if (!isOwner && !mek.key.fromMe && !isAdmin) return reply(ind.ownerb())
 		            offline = false
 		            fakeitem(' ```ONLINE MODE``` ')
 		            break       
 		    case 'off':
-		            if (isBanned) return reply(ind.baned())
-				    if (!isRegistered) return reply(ind.noregis())
 					if (!isOwner && !mek.key.fromMe && !isAdmin) return reply(ind.ownerb()) 
 		            offline = true
 		            waktu = Date.now()
@@ -555,19 +551,6 @@ case 'on':
 		            alasan = anuu
 		            fakeitem(' ```OFFLINE MODE``` ')
 		            break
-case 'mediafire':
-if (args.length < 1) return reply('Link Nya Mana?')
-if(!isUrl(args[0]) && !args[0].includes('mediafire')) return reply(mess.error)
-reply(monospace(mess.wait))
-teks = args.join(' ')
-rescun = await mediafiredl(teks)
-result = `❒「MediaFire Download」
-├ Nama : ${rescun[0].nama}
-├ Ukuran : ${rescun[0].size}
-└ Link : ${rescun[0].link}`
-reply(result)
-Zitsraa.sendMessage(from, {url: `${rescun[0].link}` }, document, { mimetype: `${rescun[0].mime}`, filename:`${rescun[0].nama}`})
-break
             case 'unmute':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
                 Zitsraa.modifyChat(from, ChatModification.unmute)
@@ -593,7 +576,7 @@ teks =
 ┗━━━━━━━`
 gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
-          { buttonId: `owner`, buttonText: { displayText: 'All Creators\n\n┏━➤ 「 *Creators NASA*」\n┃┃✯ *1. Mhycka Herviananda*😎\n┃┃✯ *2. Rizky Faisal*😎\n┃┃✯ *3. Aisyah Ahmad*😎\n┃┃✯ *4. Adilla Paramita*\n┗━━━━━━\n\n┏━➤ 「 *Follow Instagram*」\n┃┃✯ *bit.ly/instagramhycka*\n┗━━━━━━━' }, type: 1 },
+          { buttonId: `owner`, buttonText: { displayText: '~Oke\n' }, type: 1 },
         ]
         sendButLocation(from, teks, "© BotWhatsapp By ᴹᴿ°᭄Mhyckaོ", gam, but)
 break
@@ -609,6 +592,12 @@ break
 				ct = body.slice(11)
 				dapuhy = await getBuffer(`http://zekais-api.herokuapp.com/sbburn?text=${ct}`)
 				Zitsraa.sendMessage(from, dapuhy, image, { quoted: freply, caption: 'Nih Ngab' })
+				break
+case 'artinama':
+                if (args.length < 1) return reply('*Example :*\n*artinama "Mhycka"*')
+                teks = q
+					anu = await fetchJson(`https://mnazria.herokuapp.com/api/arti?nama=${teks}`, {method: 'get'})
+					reply(`Arti Nama ${teks}\n\n`+anu.result)
 				break
             case 'pin':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
