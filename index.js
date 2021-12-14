@@ -47,7 +47,6 @@ const axios = require("axios")
 const speed = require('performance-now')
 const request = require('request')
 const imgbb = require('imgbb-uploader')
-const toMs = require('ms')
 const ms = require('parse-ms')
 const moment = require('moment-timezone')
 const fetch = require('node-fetch')
@@ -78,7 +77,6 @@ const setiker = JSON.parse(fs.readFileSync('./temp/stik.json'))
 const audionye = JSON.parse(fs.readFileSync('./temp/vn.json'))
 const imagenye = JSON.parse(fs.readFileSync('./temp/image.json'))
 const videonye = JSON.parse(fs.readFileSync('./temp/video.json'))
-
 const sleep = async (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -86,7 +84,7 @@ const sleep = async (ms) => {
 prefix = ''
 f = '_'
 blocked = []
-fake = '- 𝙎𝙀𝙇𝙁-𝘽𝙊𝙏 -'
+fake = '- _*NASA*_ -'
 fakeimage = fs.readFileSync(`./media/zitsraa.jpeg`)
 numbernye = '0'
 join = '\`\`\`New Member\`\`\` \n \`\`\`Nama :\`\`\` \n \`\`\`Askot : \`\`\` \n \`\`\`Umur :\`\`\` \n \`\`\`Status :\`\`\` \n\n - [ 𝙎𝙀𝙇𝙁 𝘽𝙊𝙏 ] -'
@@ -98,7 +96,7 @@ public = false
 //*********** VCARD  ***********//
 const vcard = 'BEGIN:VCARD\n'
             + 'VERSION:3.0\n'
-            + 'FN:Mhyckaシ︎\n'
+            + 'FN:ᴹᴿ°᭄Mhyckaོ\n'
             + 'ORG:Owner Mhycka;\n'
             + 'TEL;type=CELL;type=VOICE;waid=6285340409831:+62 853 4040 9831\n'
             + 'END:VCARD'
@@ -234,14 +232,6 @@ ini mhycka`
 			console.log('Error : %s', color(e, 'red'))
 		}
 })
-
-Zitsraa.on('CB:action,,call', async json => {
-    const callerId = json[2][0][1].from;
-    console.log("call dari "+ callerId)
-        Zitsraa.sendMessage(callerId, "Auto block system, don't call please", MessageType.text)
-        await sleep(4000)
-        await Zitsraa.blockUser(callerId, "add") // Block user
-})
 	Zitsraa.on('CB:Blocklist', json => {
             if (blocked.length > 2) return
 	    for (let i of json[1].blocklist) {
@@ -287,11 +277,11 @@ Zitsraa.on('CB:action,,call', async json => {
 					Iv: '❌ Link tidak valid ❌'
 				},
 				only: {
-					group: '❌ Perintah ini hanya bisa di gunakan dalam group! ❌',
-					ownerG: '❌ Perintah ini hanya bisa di gunakan oleh owner group! ❌',
-					ownerB: '❌ Perintah ini hanya bisa di gunakan oleh owner bot! ❌',
-					admin: '❌ Perintah ini hanya bisa di gunakan oleh admin group! ❌',
-					Badmin: '❌ Perintah ini hanya bisa di gunakan ketika bot menjadi admin! ❌'
+					group: 'Perintah ini hanya bisa di gunakan dalam group!',
+					ownerG: 'Perintah ini hanya bisa di gunakan oleh owner group!',
+					ownerB: 'Perintah ini hanya bisa di gunakan oleh owner bot!',
+					admin: 'Perintah ini hanya bisa di gunakan oleh admin group!',
+					Badmin: 'Perintah ini hanya bisa di gunakan ketika bot menjadi admin!'
 				}
 			}
       const totalchat = await Zitsraa.chats.all()
@@ -368,7 +358,51 @@ key: {
 				"businessOwnerJid": `0@s.whatsapp.net`
 		}
 	}
-}
+}      		
+        const sendButton = async (from, context, fortext, but, mek) => {
+        buttonMessages = {
+        contentText: context,
+        footerText: fortext,
+        buttons: but,
+        headerType: 1
+            }
+        Zitsraa.sendMessage(from, buttonMessages, buttonsMessage, {
+        quoted: fkontak
+        })
+        }
+        const sendButMessage = (id, text1, desc1, but = [], options = {}) => {
+        const buttonMessage = {
+        contentText: text1,
+        footerText: desc1,
+        buttons: but,
+        headerType: 1,
+        };
+        Zitsraa.sendMessage(
+        id,
+        buttonMessage,
+        MessageType.buttonsMessage,
+        options
+        );
+        };
+        const sendButImage = async (from, context, fortext, img, but, mek) => {
+        jadinya = await Zitsraa.prepareMessage(from, img, image)
+        buttonMessagesI = {
+        imageMessage: jadinya.message.imageMessage,
+        contentText: context,
+        footerText: fortext,
+        buttons: but,
+        headerType: 4
+        }
+        Zitsraa.sendMessage(from, buttonMessagesI, buttonsMessage, {
+        quoted: fkontak,
+        })
+        }
+        async function sendButLocation(id, text1, desc1, gam1, but = [], options = {}) {
+        const buttonMessages = { locationMessage: { jpegThumbnail: gam1 }, contentText: text1, footerText: desc1, buttons: but, headerType: 6 }
+        return Zitsraa.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+        }
+        body = (type === 'conversation' && mek.message.conversation.startsWith(prefix)) ? mek.message.conversation : (type == 'imageMessage') && mek.message[type].caption.startsWith(prefix) ? mek.message[type].caption : (type == 'videoMessage') && mek.message[type].caption.startsWith(prefix) ? mek.message[type].caption : (type == 'extendedTextMessage') && mek.message[type].text.startsWith(prefix) ? mek.message[type].text : (type == 'listResponseMessage') && mek.message[type].singleSelectReply.selectedRowId ? mek.message[type].singleSelectReply.selectedRowId : (type == 'buttonsResponseMessage') && mek.message[type].selectedButtonId ? mek.message[type].selectedButtonId : ''
+			budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
 const uploadImages = (buffData, type) => {
     // eslint-disable-next-line no-async-promise-executor
     return new Promise(async (resolve, reject) => {
@@ -472,128 +506,15 @@ const uploadImages = (buffData, type) => {
 			
 			switch(command) {
 			  
-			     case 'help':
                 case 'menu':
-      menu =`┌──「 _*INI MHYCKA*_ 」───
-│
-├ ${f}${prefix}sticker Reply img${f}
-├ ${f}${prefix}rsticker Reply img${f}
-├ ${f}${prefix}stickergif Reply video${f}
-├ ${f}${prefix}stickerwa Query${f}
-├ ${f}${prefix}stickerwm Nama|Author${f}
-├ ${f}${prefix}nobg Reply img${f}
-├ ${f}${prefix}textmaker teks atas|teks bawah${f}
-├ ${f}${prefix}attp Text${f}
-├ ${f}${prefix}ttp Text${f}
-├ ${f}${prefix}take Nama|Author${f}
-├ ${f}${prefix}exif Nama|Author${f}
-├ ${f}${prefix}colong${f}
-├ ${f}${prefix}fdeface Url|title|desk${f}
-├ ${f}${prefix}togif Reply stickergif${f}
-├ ${f}${prefix}tovideo Reply sticker${f}
-├ ${f}${prefix}toimg Reply sticker${f}
-├ ${f}${prefix}nulis1${f}
-├ ${f}${prefix}tulis2${f}
-├ ${f}${prefix}tebakgambar${f}
-├ ${f}${prefix}caklontong${f}
-├ ${f}${prefix}tebakbendera${f}
-├ ${f}${prefix}slot${f}
-├ ${f}${prefix}slot2${f}
-├ ${f}${prefix}suit${f}
-├ ${f}${prefix}bakarnama${f}
-│
-├ ${f}${prefix}self${f}
-├ ${f}${prefix}public${f}
-├ ${f}${prefix}mute${f}
-├ ${f}${prefix}unmute${f}
-├ ${f}${prefix}runtime${f}
-├ ${f}${prefix}ping${f}
-├ ${f}${prefix}term${f}
-├ ${f}${prefix}blocklist${f}
-├ ${f}${prefix}run${f}
-├ ${f}${prefix}chatlist${f}
-├ ${f}${prefix}owner${f}
-├ ${f}${prefix}join Linkgroup${f}
-├ ${f}${prefix}getpic @tag${f}
-├ ${f}${prefix}getbio @tag${f}
-│
-├ ${f}${prefix}pin${f}
-├ ${f}${prefix}unpin${f}
-├ ${f}${prefix}archive${f}
-├ ${f}${prefix}unarchiveall${f}
-├ ${f}${prefix}readall${f}
-├ ${f}${prefix}delthischat${f}
-├ ${f}${prefix}shutdown${f}
-│
-├ ${f}${prefix}hidetag Text${f}
-├ ${f}${prefix}stctag Tag Stc${f}
-├ ${f}${prefix}imgtag Tag Img${f}
-├ ${f}${prefix}kontag Text${f}
-├ ${f}${prefix}kontak 6281xxx Nama${f}
-│
-├ ${f}${prefix}setthumb${f}
-├ ${f}${prefix}setreply${f}
-├ ${f}${prefix}setbodymenu${f}
-├ ${f}${prefix}setwelcome${f}
-├ ${f}${prefix}setleave${f}
-├ ${f}${prefix}setpromote${f}
-├ ${f}${prefix}setdemote${f}
-│
-├ ${f}${prefix}upswtext${f}
-├ ${f}${prefix}upswimg${f}
-├ ${f}${prefix}upswvideo${f}
-│
-├ ${f}${prefix}welcome 1/0${f}
-├ ${f}${prefix}linkgroup${f}
-├ ${f}${prefix}group tutup/buka${f}
-├ ${f}${prefix}add 6281xxx${f}
-├ ${f}${prefix}kick @tag${f}
-├ ${f}${prefix}promote @tag${f}
-├ ${f}${prefix}demote @tagadmin${f}
-├ ${f}${prefix}demoteall${f}
-├ ${f}${prefix}edotensei @tag${f}
-├ ${f}${prefix}listadmin${f}
-├ ${f}${prefix}online${f}
-├ ${f}${prefix}infoall${f}
-├ ${f}${prefix}notif${f}
-├ ${f}${prefix}leave${f}
-│
-├ ${f}${prefix}addstik Optional${f}
-├ ${f}${prefix}adimg Optional${f}
-├ ${f}${prefix}addvid Optional${f}
-├ ${f}${prefix}addvn Optional${f}
-├ ${f}${prefix}getstik Query${f}
-├ ${f}${prefix}getimg Query${f}
-├ ${f}${prefix}getvid Query${f}
-├ ${f}${prefix}getvn Query${f}
-├ ${f}${prefix}liststick${f}
-├ ${f}${prefix}listimg${f}
-├ ${f}${prefix}listvid${f}
-├ ${f}${prefix}listvn${f}
-│
-├ ${f}${prefix}play Query${f}
-├ ${f}${prefix}play2 Query${f}
-├ ${f}${prefix}ig Url${f}
-├ ${f}${prefix}fb Url${f}
-├ ${f}${prefix}tiktok Url${f}
-├ ${f}${prefix}ytmp3 Url${f}
-├ ${f}${prefix}ytmp4 Url${f}
-├ ${f}${prefix}tiktok${f}
-├ ${f}${prefix}tiktoknowm${f}
-│
-└──「 _*MHYCKA SELF*_  」───
-
-┌──「 _*SOSIAL MEDIA*_ 」───
-│
-├ *YouTube : Mhycka Herviananda*
-├ *Instagram : mhyckaherviananda*
-├ *Facebook : Mhycka Herviananda*
-├ *All : bit.ly/MhyckaHervianandaa*
-└─────────────`
-Zitsraa.sendMessage(from , menu, text,{quoted : freply})
-                  break
-                  
-                case '?':
+                menu = `_*mhyckanasabot*_`
+gam = fs.readFileSync('./media/gambar/patner.png')
+but = [
+          { buttonId: `$(prefix)owner`, buttonText: { displayText: '𝐈𝐍𝐒𝐓𝐀𝐆𝐑𝐀𝐌\n_*instagram.com/mhyckaherviananda*_' }, type: 1 },
+        ]
+        sendButLocation(from, menu, "_*Hai Kak Berikut Adalah Menu SELF-NASA-BOT*_\n\n👑 *Owner Name : Mhycka*\n*🤖 Bot Name : SELF-NASA-BOT*\n*👑 No Owner : 6285340409831*\n*🌐 Browser : Linux*\n*📊 Language : Javascript*\n*🐣My Birthday : 12-04-2006*\n\n╭──「 _*SELF NASA BOT*_」─── \n│\n├ *sticker*\n├ *stickergif*\n├ *attp*\n├ *toimg*\n├ *runtime*\n├ *ping*\n├ *ssweb*\n├ *blocklist*\n├ *shutdown*\n├ *fdeface*\n├ *chatlist*\n├ *owner*\n├ *hidetag Text*\n├ *stctag Tag Stc*\n├ *imgtag Tag Img*\n├ *kontag Text*\n├ *upswtext*\n├ *upswimg*\n├ *upsvideo*\n├ *linkgroup*\n├ *group tutup/buka*\n├ *add 6281xxx*\n├ *headsot @tag*\n├ *promote @tag*\n├ *demote @tagadmin*\n├ *edotensei @tag*\n├ *listadmin*\n├ *infoall*\n├ *thxto*\n├ *artinama*\n│\n╰──「 _*SELF BY MHYCKA*_ 」───\n\n\n© BotWhatsApp By ᴹᴿ°᭄Mhyckaོ", gam, but)
+break
+                case '-':
 					Zitsraa.sendMessage(from, help(prefix), text,{contextInfo: {forwardingScore : 508, isForwarded: true},quoted : freply})
 					break
 			  
@@ -601,13 +522,13 @@ Zitsraa.sendMessage(from , menu, text,{quoted : freply})
 			  case 'self':
 			  if (!mek.key.fromMe) return reply('*Kamu Owner?*')
 			    public = false
-			    Zitsraa.sendMessage(from, `\`\`\`Status : SELF\`\`\``, text,{quoted :freply})
+			    Zitsraa.sendMessage(from, `「 *SELF-MODE* 」`, text,{quoted :freply})
 			    break
 			    
 			  case 'public':
 			    if (!mek.key.fromMe) return reply('*Kamu Owner?*')
 			    public = true
-			    Zitsraa.sendMessage(from, `\`\`\`Status : PUBLIC\`\`\``, text,{quoted :freply})
+			    Zitsraa.sendMessage(from, `「 *PUBLIC-MODE* 」`, text,{quoted :freply})
 			    break
 			    
 			    case 'mute':
@@ -622,25 +543,42 @@ Zitsraa.sendMessage(from , menu, text,{quoted : freply})
                 reply('*succes unmute this chat*')
                 console.log('succes unmute chat = ' + from)
                 break
-                case 'slot2':
-                    result = await fetchJson(`https://api.xteam.xyz/game/virtualslot?APIKEY=AkiraBotWa`)
-                        txt = `*🎰Slot didapatkan🎰* \n\n${result.map}\n`
-                        txt += `\n🔖Hasil : ${result.hasil}\n`
-                        txt += `🕹️Score : ${result.score}\n`
-                        reply(txt)
+                        case 'thxto':
+teks =
+`┏━➤ 「 *Thanks To*」
+┃┃✯ *1. Mhycka Herviananda*😼
+┃┃✯ *2. Rizky Faisal*😼
+┃┃✯ *3. Aisyah Ahmad*😼 
+┃┃✯ *4. Adilla Paramita*😼 
+┗━━━━━━━
+┏━➤ 「 *Follow Instagram*」
+┃┃✯ *bit.ly/instagramhycka*
+┗━━━━━━━`
+gam = fs.readFileSync('./media/gambar/patner.png')
+but = [
+          { buttonId: `owner`, buttonText: { displayText: 'Oke😉' }, type: 1 },
+        ]
+        sendButLocation(from, teks, "© BotWhatsapp By ᴹᴿ°᭄Mhyckaོ", gam, but)
+break
 			    case 'unpin':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
                 Zitsraa.modifyChat(from, ChatModification.unpin)
                 reply('*succes unpin this chat*')
                 console.log('unpin chat = ' + from)
                 break
-                case 'bakarnama': 				
-				if (args.length < 1) return reply(`Textnya Mana Cuy?\n*Contoh ${prefix}anakharamserti DappaGanz*`)
-				reply(ind.wait())
-				ct = body.slice(11)
-				dapuhy = await getBuffer(`http://zekais-api.herokuapp.com/sbburn?text=${ct}`)
-				Zitsraa.sendMessage(from, dapuhy, image, { quoted: freply, caption: 'Nih Ngab' })
+          
+case 'artinama':
+                if (args.length < 1) return reply('*Example :*\n*artinama "Mhycka"*')
+                teks = q
+					anu = await fetchJson(`https://mnazria.herokuapp.com/api/arti?nama=${teks}`, {method: 'get'})
+					reply(`Arti Nama ${teks}\n\n`+anu.result)
 				break
+			    case 'unpin':
+                if (!mek.key.fromMe) return reply('*Kamu Owner?*')
+                Zitsraa.modifyChat(from, ChatModification.unpin)
+                reply('*succes unpin this chat*')
+                console.log('unpin chat = ' + from)
+                break
             case 'pin':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
                 Zitsraa.modifyChat(from, ChatModification.pin)
@@ -676,10 +614,6 @@ Zitsraa.sendMessage(from , menu, text,{quoted : freply})
                 Zitsraa.modifyChat(_.jid, ChatModification.unarchive)
                 }
                 break
-                case 'slot':
-            const somtoy = sotoy[Math.floor(Math.random() * sotoy.length)]
-            Zitsraa.sendMessage(from, `[  🎰 | SLOTS ]\n-----------------\n🍋 : 🍌 : 🍍\n${somtoy}<=====\n🍋 : 🍌 : 🍍\n[  🎰 | SLOTS ]\n\nKeterangan : Jika anda Mendapatkan 3Buah Sama Berarti Kamu Win\n\nContoh : 🍌 : 🍌 : 🍌<=====`, text, { quoted: freply })
-            break
             case 'archive':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
                 reply('*okey wait..*')
@@ -697,7 +631,7 @@ Zitsraa.sendMessage(from , menu, text,{quoted : freply})
                 
                 case 'shutdown':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
-	        await Zitsraa.sendMessage(from, `Bye...\n_Rival off dulu yaa.._`, text,{quoted : freply})
+	        await Zitsraa.sendMessage(from, `Bye...\n_Mhycka off dulu yaa.._`, text,{quoted : freply})
 		await sleep(3000)
                 Zitsraa.close()
 		break
@@ -802,10 +736,6 @@ Zitsraa.sendMessage(from , menu, text,{quoted : freply})
                            break
                            
         //********** SYSTEM **********//
-        case 'return':
-                                case 'run':
-                                        return fakegroup(JSON.stringify(eval(args.join(''))))
-                                        break
 			     case '.':
                         let code = args.join(" ")
                     try {
@@ -862,7 +792,7 @@ Zitsraa.sendMessage(from , menu, text,{quoted : freply})
 				  case 'listblock':
 					teks = 'This is list of blocked number :\n'
 					for (let block of blocked) {
-						teks += `┣❥  @${block.split('@')[0]}\n`
+						teks += `➳  @${block.split('@')[0]}\n`
 					}
 					teks += `Total : ${blocked.length}`
 					Zitsraa.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": blocked}})
@@ -876,74 +806,6 @@ Zitsraa.sendMessage(from , menu, text,{quoted : freply})
 		    exif.create(arg.split('|')[0], arg.split('|')[1])
 		    reply('sukses')
 	        break
-	        
-	        case 'colong':
-		if (!isQuotedSticker) return reply(`Reply sticker dengan caption *${prefix}colong*`)
-		const encmediia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-	        const meidia = await Zitsraa.downloadAndSaveMediaMessage(encmediia, `./sticker/${sender}`)
-		    exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
-		    if (error) return reply('error')
-		    Zitsraa.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), MessageType.sticker, {quoted: freply})
-					fs.unlinkSync(media)
-					fs.unlinkSync(`./sticker/takestick_${sender}.exif`)
-				})
-				break
-	        
-					case 'take':
-					if (!isQuotedSticker) return reply(`Reply sticker dengan caption *${prefix}takestick nama|author*`)
-					var pembawm = body.slice(6)
-					var encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-					var media = await Zitsraa.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
-					var packname = pembawm.split('|')[0]
-					var author = pembawm.split('|')[1]
-					exif.create(packname, author, `takestick_${sender}`)
-					exec(`webpmux -set exif ./sticker/takestick_${sender}.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
-					if (error) return reply('Error')
-					Zitsraa.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), MessageType.sticker, {quoted: freply})
-					fs.unlinkSync(media)
-					fs.unlinkSync(`./sticker/takestick_${sender}.exif`)
-				})
-				break
-				
-				case 'togif':
-                                        if (!isQuotedSticker) return reply('Reply stiker nya')
-                                        reply(mess.wait)
-                                        if (mek.message.extendedTextMessage.contextInfo.quotedMessage.stickerMessage.isAnimated === true){
-                                        const encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-                                        const media = await Zitsraa.downloadAndSaveMediaMessage(encmedia)
-                                        const upload = await uploadimg(media, Date.now() + '.webp')
-                                        const rume = await axios.get(`http://nzcha-apii.herokuapp.com/webp-to-mp4?url=${upload.result.image}`)
-                                        const buff = await getBuffer(rume.data.result)
-                                        Zitsraa.sendMessage(from, buff, video, { mimetype: Mimetype.gif, caption: 'Nih', quoted: freply})
-                                }
-                                break
-				
-				case 'tovideo':
-                    if ((isMedia && !mek.message.videoMessage || isQuotedSticker)) {
-                        const encmedia = isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-                        filePath = await Zitsraa.downloadAndSaveMediaMessage(encmedia, filename = getRandom());
-                        file_name = getRandom(".gif")
-                        ini_txt = args.join(" ").split("|")
-                        request({
-                            url: `https://api.lolhuman.xyz/api/convert/togif?apikey=${LolKey}`,
-                            method: 'POST',
-                            formData: {
-                                "img": fs.createReadStream(filePath),
-                            },
-                            encoding: "binary"
-                        }, function(error, response, body) {
-                            fs.unlinkSync(filePath)
-                            fs.writeFileSync(file_name, body, "binary")
-                            ini_buff = fs.readFileSync(file_name)
-                            Zitsraa.sendMessage(from, ini_buff, video, { quoted: freply, mimetype: "video/gif", filename: file_name }).then(() => {
-                                fs.unlinkSync(file_name)
-                            })
-                        });
-                    } else {
-                        reply(`Kirim gambar dengan caption ${prefix + command} atau tag gambar yang sudah dikirim`)
-                    }
-                    break
-					
 					case 'fdeface':
 					var nn = body.slice(9)
 					var urlnye = nn.split("|")[0];
@@ -970,228 +832,11 @@ Zitsraa.sendMessage(from , menu, text,{quoted : freply})
 						jpegThumbnail: ddatae
 					}, 'extendedTextMessage', { detectLinks: false })
 					break
-					
-					case 'nobg':
-if ((isMedia && !mek.videoMessage || isQuotedImage)) {
-    reply(mess.wait)
-var encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace("quotedM", "m")).message.extendedTextMessage.contextInfo : mek
-var media = await Zitsraa.downloadAndSaveMediaMessage(encmedia)
-anu = await imgbb("3ea1465ef91578a90ee81f7d41c59a1f", media)
-getUrl = `${anu.display_url}`
-buff = await getBuffer(`https://api.zeks.xyz/api/removebg?apikey=apivinz&url=${getUrl}`)
-Zitsraa.sendMessage(from, buff, image, {quoted: freply})
-}
-break
-					
-					case 'textmaker':
-if ((isMedia && !mek.videoMessage || isQuotedImage)) {
-var tex1 = body.slice(11).split('|')[0]
-var tex2 = body.slice(11).split('|')[1]
-if (!tex2) return reply('Format salah!')
-    reply(mess.wait)
-var encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace("quotedM", "m")).message.extendedTextMessage.contextInfo : mek
-var media = await Zitsraa.downloadAndSaveMediaMessage(encmedia)
-anu = await imgbb("3ea1465ef91578a90ee81f7d41c59a1f", media)
-getUrl = `${anu.display_url}`
-buff = await getBuffer(`http://lolhuman.herokuapp.com/api/memegen?apikey=${LolKey}&texttop=${tex1}&textbottom=${tex2}&img=${getUrl}`)
-Zitsraa.sendMessage(from, buff, image, {quoted: freply})
-}
-break
-					
 case 'attp':
 				if (args.length < 1) return reply(`_Teksnya Mana Boss_\n*Contoh ${prefix}attp Zitsraa Ganteng*`)
 				attp2 = await getBuffer(`https://api.xteam.xyz/attp?file&text=${body.slice(6)}`)
 				Zitsraa.sendMessage(from, attp2, sticker, {quoted: freply})
-				break
-				
-		case 'ttp':
-				if (args.length < 1) return reply(`_Teksnya Mana Boss_\n*Contoh ${prefix}ttp Zitsraa Ganteng*`)
-				ttp = await getBuffer(`http://lolhuman.herokuapp.com/api/ttp?apikey=${LolKey}&text=${body.slice(5)}`)
-				Zitsraa.sendMessage(from, ttp, sticker, {quoted: freply})
-				break
-					case 'tiktoknowm':
-                if (args.length < 1) return reply('Urlnya mana sayang?')
-                if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(mess.error.lv)
-                ige = body.slice(12)
-                anu = await fetchJson(`http://lolhuman.herokuapp.com/api/tiktok?apikey=${lolhuman}&url=${args[0]}`, { method: 'get' })
-                reply('*Proses Dulu Sabar*')
-                if (anu.error) return reply(anu.error)
-                buffer = await getBuffer(anu.result.link)
-                Zitsraa.sendMessage(from, buffer, video, {quoted: freply, caption: 'Nih cuk, Sewa Bot Asu'})
-                break
-            case 'tiktod':
-            case 'tiktok':
-                if (args.length < 1) return reply('Urlnya mana um?')
-                if (!isUrl(args[0]) && !args[0].includes('youtu')) return reply('URL NYA TIDAK VALID KAK')
-                anu = await fetchJson(`https://api.xteam.xyz/dl/tiktok?url=${args[0]}&APIKEY=${XteamKey}`, )
-                reply('[WAIT] Proses Dumlu Yakan')
-                buffer = await getBuffer(anu.result.video)
-                Zitsraa.sendMessage(from, buffer, video, { mimetype: 'video/mp4', quoted: freply })
-                break
-                case 'nulis2':
-            case 'tulis2':
-                if (args.length < 1) return reply('Teksnya mana kak? Contoh : ${prefix}nulis2 IKY baik hati')
-                laysha = body.slice(8)
-                reply('WAIT BRO GUE NULIS DUMLU YAKAN')
-                buff = await getBuffer(`https://api.xteam.xyz/magernulis3?text=${laysha}&APIKEY=${XteamKey}`)
-                Zitsraa.sendMessage(from, buff, image, { quoted: freply, caption: 'Lebih baik nulis sendiri ya kak :*' })
-                break
-            case 'nulis1':
-            case 'tulis1':
-                if (args.length < 1) return reply('Teksnya mana kak? Contoh : ${prefix}nulis2 ITS baik hati')
-                laysha = body.slice(8)
-                reply('WAIT BRO GUE NULIS DUMLU YAKAN')
-                buff = await getBuffer(`https://api.xteam.xyz/magernulis6?text=${laysha}&APIKEY=${XteamKey}`)
-                Zitsraa.sendMessage(from, buff, image, { quoted: freply, caption: 'Lebih baik nulis sendiri ya kak :*' })
-                break
-                case 'tebakbendera':
-					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/tebak/bendera?apikey=${LolKey}`, {method: 'get'})
-					tebakbender = `*bendera apa ini?*\n${anu.result.flag}`
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '*Jawaban :* '+anu.result.name, text, {quoted: freply}) // ur cods
-					}, 30000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_10 Detik lagi_', text) // ur cods
-					}, 20000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_20 Detik lagi_', text) // ur cods
-					}, 10000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_30 Detik lagi_', text) // ur cods
-					}, 2500) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, tebakbender, text, {quoted: freply}) // ur cods
-					}, 0) // 1000 = 1s,
-					break 
-                case 'tebakgambar':
-					anu = await fetchJson(`http://api.lolhuman.xyz/api/tebak/gambar?apikey=${LolKey}`, {method: 'get'})
-					bufferkkk = await getBuffer(anu.result.image)
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '*Jawaban :* '+anu.result.answer, text, {quoted: freply}) // ur cods
-					}, 30000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_10 Detik lagi_', text) // ur cods
-					}, 20000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_20 Detik lagi_', text) // ur cods
-					}, 10000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_30 Detik lagi_', text) // ur cods
-					}, 2500) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, bufferkkk, image, { caption: '_Jelaskan Apa Maksud Gambar Ini_', quoted: freply}) // ur cods
-					}, 0) // 1000 = 1s,
-					break  
-				case 'family100':
-					anu = await fetchJson(`http://api.lolhuman.xyz/api/tebak/family100?apikey=${LolKey}`, {method: 'get'})
-					family = `*${anu.result.question}*`
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '*Jawaban :* '+anu.result.aswer, text, {quoted: freply}) // ur cods
-					}, 30000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_10 Detik lagi_', text) // ur cods
-					}, 20000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_20 Detik lagi_', text) // ur cods
-					}, 10000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_30 Detik lagi_', text) // ur cods
-					}, 2500) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, family, text, {quoted: lol}) // ur cods
-					}, 0) // 1000 = 1s,
-					break
-					case 'caklontong':
-					anu = await fetchJson(`http://api.lolhuman.xyz/api/tebak/caklontong?apikey=${LolKey}`, {method: 'get'})
-					caklontong = `*${anu.result.question}*`
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '*Jawaban :* '+anu.result.answer, text, {quoted: freply}) // ur cods
-					}, 30000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_10 Detik lagi_', text) // ur cods
-					}, 20000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_20 Detik lagi_', text) // ur cods
-					}, 10000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_30 Detik lagi_', text) // ur cods
-					}, 2500) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, caklontong, text, {quoted: freply}) // ur cods
-					}, 0) // 1000 = 1s,
-					break 
-					case 'meme': 
-				if (!isRegistered) return reply(ind.noregis())
-				buffer = await getBuffer(`http://lolhuman.herokuapp.com/api/random/meme?apikey=${LolKey}`, {method: 'get'})
-				Zitsraa.sendMessage(from, buffer, image, {quoted: lol})
-                break
-                    case 'stickerwa':
-                    if (args.length == 0) return reply(`Example: ${prefix + command} Koceng Imot`)
-                    query = args.join(" ")
-                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/stickerwa?apikey=${LolKey}&query=${query}`)
-                    get_result = get_result.result[0].stickers
-                    for (var x of get_result) {
-                        ini_buffer = await getBuffer(`http://api.lolhuman.xyz/api/convert/towebp?apikey=${LolKey}&img=${x}`)
-                        Zitsraa.sendMessage(from, ini_buffer, sticker)
-                    }
-                    break
-                    
-                    case 'rs':
-                      case 'rsticker':
-                    if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-                        const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : lol
-                        filePath = await Zitsraa.downloadAndSaveMediaMessage(encmedia)
-                        file_name = getRandom('.webp')
-                        request({
-                            url: `https://api.lolhuman.xyz/api/convert/towebpwround?apikey=${LolKey}`,
-                            method: 'POST',
-                            formData: {
-                                "img": fs.createReadStream(filePath)
-                            },
-                            encoding: "binary"
-                        }, function(error, response, body) {
-                            fs.unlinkSync(filePath)
-                            fs.writeFileSync(file_name, body, "binary")
-                            ini_buff = fs.readFileSync(file_name)
-                            Zitsraa.sendMessage(from, ini_buff, sticker, { quoted: freply}).then(() => {
-                                fs.unlinkSync(file_name)
-                            })
-                        });
-                    } else {
-                        reply(`Kirim gambar dengan caption ${prefix}sticker atau tag gambar yang sudah dikirim`)
-                    }
-                    break
-                    
-                    case 'swm':
-                    case 'stickerwm':
-                    if ((isMedia && !mek.message.videoMessage || isQuotedImage)) {
-                        if (args.length == 0) return reply(`Example: ${prefix + command} Zitsraa|Rapayee`)
-                        const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : lol
-                        filePath = await Zitsraa.downloadAndSaveMediaMessage(encmedia, filename = getRandom());
-                        file_name = getRandom(".webp")
-                        ini_txt = args.join(" ").split("|")
-                        request({
-                            url: `https://api.lolhuman.xyz/api/convert/towebpauthor?apikey=${LolKey}`,
-                            method: 'POST',
-                            formData: {
-                                "img": fs.createReadStream(filePath),
-                                "package": ini_txt[0],
-                                "author": ini_txt[1]
-                            },
-                            encoding: "binary"
-                        }, function(error, response, body) {
-                            fs.unlinkSync(filePath)
-                            fs.writeFileSync(file_name, body, "binary")
-                            ini_buff = fs.readFileSync(file_name)
-                            Zitsraa.sendMessage(from, ini_buff, sticker, { quoted: freply }).then(() => {
-                                fs.unlinkSync(file_name)
-                            })
-                        });
-                    } else {
-                        reply(`Kirim gambar dengan caption ${prefix + command} atau tag gambar yang sudah dikirim`)
-                    }
-                    break
-                    
+				break                 
 		case 'gifstiker':
 				case 's':
 			case 'stickergif':  
@@ -1294,10 +939,8 @@ case 'attp':
                 
 \`\`\` - [ ${totalchat.length} ]  Total Chat\`\`\`
 \`\`\` - [ Xiaomi ] HANDPHONE\`\`\`
-\`\`\` - [ ${Zitsraa.user.phone.wa_version} ] WA Version\`\`\`
-\`\`\` - [ Baileys ] Server\`\`\`
+\`\`\` - [ Baileys ] Linux\`\`\`
 \`\`\` - [ SELF ] MODE\`\`\`
-\`\`\` - [ ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / 4095 ] RAM\`\`\`
 
 \`\`\`Speed : ${latensi.toFixed(4)} Second\`\`\``
                 Zitsraa.sendMessage(from, p0, text, { quoted: freply})
@@ -1344,60 +987,6 @@ break
 
 					  //********** Funny COMMAND **********//
 					  
-					  case 'kontak':
-                        entah = args[0]
-                        disname = args[1]
-                        if (isNaN(entah)) return reply('Invalid phone number'.toUpperCase());
-                        vcard = 'BEGIN:VCARD\n'
-                                  + 'VERSION:3.0\n'
-                                  + `FN:${disname}\n`
-                                  + `TEL;type=CELL;type=VOICE;waid=${entah}:${phoneNum('+' + entah).getNumber('internasional')}\n`
-                                  + 'END:VCARD'.trim()
-                            Zitsraa.sendMessage(from, {displayName: disname, vcard: vcard}, contact)
-                            break
-                            
-			     case 'kontag':
-					var bv = body.slice(8)
-					var jl = `${bv}`
-					if (args[0] === '') {
-					var jl = `*CONTACT TAG*`
-					}
-					var group = await Zitsraa.groupMetadata(from)
-					   var member = group['participants']
-					   var mem = []
-					   member.map(async adm => {
-					   mem.push(adm.id.replace('c.us', 's.whatsapp.net'))
-					   })
-					const vcardtag = 'BEGIN:VCARD\n'
-					            + 'VERSION:3.0\n'
-					            + `FN:${body.slice(8)}\n`
-					            + 'ORG:Creator SELF BOT;\n'
-					            + `TEL;type=CELL;type=VOICE;waid=${Zitsraa.user.jid.split('@')[0]}:${Zitsraa.user.jid.split('@')[0]}\n`
-					            + 'END:VCARD'
-            				Zitsraa.sendMessage(from, {displayname: mem, vcard: vcardtag}, MessageType.contact, { quoted: mek, contextInfo: {mentionedJid: mem}, quoted: {
-					key: {
-						participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
-					},
-					message: {
-						"imageMessage": {
-							"url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc",
-							"mimetype": "image/jpeg",
-							"caption": jl,
-							"fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=",
-							"fileLength": "28777",
-							"height": 1080,
-							"width": 1079,
-							"mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=",
-							"fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=",
-							"directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69",
-							"mediaKeyTimestamp": "1610993486",
-							"jpegThumbnail": fs.readFileSync('./media/zitsraa.jpeg'),
-							"scansSidecar": "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw=="
-							}
-							}
-							}
-							})
-        break
         
         case 'hidetag':
 					if (!isGroup) return reply(mess.only.group)
@@ -1624,7 +1213,7 @@ break
 					members_id = []
 					teks = '\n'
 					for (let mem of groupMembers) {
-						teks += `┣❥   @${mem.jid.split('@')[0]}\n`
+						teks += `➳   @${mem.jid.split('@')[0]}\n`
 						members_id.push(mem.jid)
 					}
 					mentions(`*From :* - [ 𝙎𝙀𝙇𝙁 𝘽𝙊𝙏 ] -\n*Info :*  ${body.slice(9)}\n*Total Member :* ${groupMembers.length} \n\n┏━━━⟪ *INFORMATION* ⟫━━━┓`+teks+'╚═ *「 Zitsraa BOT 」* ', members_id, true)
@@ -1648,270 +1237,11 @@ break
 					}
 					break
 					
-					case 'notif':
-if (!isGroup) return reply(mess.only.group)
-teks = `Notif dari @${sender.split("@")[0]}\n*Pesan : ${body.slice(7)}*`
-group = await Zitsraa.groupMetadata(from);
-member = group['participants']
-jids = [];
-member.map(async adm => {
-  jids.push(adm.id.replace('c.us', 's.whatsapp.net'));
-})
-options = {
-  text: teks,
-  contextInfo: {
-mentionedJid: jids
-  },
-  quoted: freply
-}
-await Zitsraa.sendMessage(from, options, text)
-break
-
-      case 'leave': 
-				    if (!isGroup) return reply(mess.only.group)
-			    	anu = await Zitsraa.groupLeave(from, `Bye All Member *${groupMetadata.subject}*`, groupId)
-	                break
-
 
 
 				
 					  //********** STORAGE **********//
-case 'addstik':
-				if (!isQuotedSticker) return reply('Reply stiker nya')
-				svst = body.slice(9)
-				if (!svst) return reply('Nama sticker nya apa?')
-				boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
-				delb = await Zitsraa.downloadMediaMessage(boij)
-				setiker.push(`${svst}`)
-				fs.writeFileSync(`./temp/stick/${svst}.webp`, delb)
-				fs.writeFileSync('./temp/stik.json', JSON.stringify(setiker))
-				Zitsraa.sendMessage(from, `Sukses Menambahkan Sticker\nCek dengan cara ${prefix}liststik`, MessageType.text, { quoted: freply })
-				break
-				
-case 'getstik':
-				namastc = body.slice(9)
-				try {
-				result = fs.readFileSync(`./temp/stick/${namastc}.webp`)
-				Zitsraa.sendMessage(from, result, sticker,{quoted:freply})
-				} catch {
-				  reply('Pack tidak terdaftar')
-				}
-				break
-			
-			case 'liststik':
-				teks = '*Sticker list :*\n\n'
-				for (let awokwkwk of setiker) {
-					teks += `- ${awokwkwk}\n`
-				}
-				teks += `\n*Total : ${setiker.length}*`
-				Zitsraa.sendMessage(from, teks.trim(), extendedText, { quoted: freply, contextInfo: { "mentionedJid": setiker } })
-				break
-				
-				case 'addimg':
-				if (!isQuotedImage) return reply('Reply imagenya')
-				svst = body.slice(8)
-				if (!svst) return reply('Nama imagenya apa')
-				boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
-				delb = await Zitsraa.downloadMediaMessage(boij)
-				imagenye.push(`${svst}`)
-				fs.writeFileSync(`./temp/foto/${svst}.jpeg`, delb)
-				fs.writeFileSync('./temp/image.json', JSON.stringify(imagenye))
-				Zitsraa.sendMessage(from, `Sukses Menambahkan image\nCek dengan cara ${prefix}listimg`, MessageType.text, { quoted: freply })
-				break
-
-			case 'getimg':
-				namastc = body.slice(8)
-				try {
-				buffer = fs.readFileSync(`./temp/foto/${namastc}.jpeg`)
-				Zitsraa.sendMessage(from, buffer, image, { quoted: freply, caption: `Result From Database : ${namastc}.jpeg` })
-				} catch {
-				  reply('Pack tidak terdaftar')
-				}
-				break
-				case 'listimg':
-				teks = '*Image list :*\n\n'
-				for (let awokwkwk of imagenye) {
-					teks += `- ${awokwkwk}\n`
-				}
-				teks += `\n*Total : ${imagenye.length}*`
-				Zitsraa.sendMessage(from, teks.trim(), extendedText, { quoted: freply, contextInfo: { "mentionedJid": setiker } })
-				break
-				case 'addvid':
-				if (!isQuotedVideo) return reply('Reply vidionya')
-				svst = body.slice(8)
-				if (!svst) return reply('Nama vidionya apa')
-				boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
-				delb = await Zitsraa.downloadMediaMessage(boij)
-				imagenye.push(`${svst}`)
-				fs.writeFileSync(`./temp/video/${svst}.mp4`, delb)
-				fs.writeFileSync('./temp/video.json', JSON.stringify(imagenye))
-				Zitsraa.sendMessage(from, `Sukses Menambahkan video\nCek dengan cara ${prefix}listvideo`, MessageType.text, { quoted: freply })
-				break
-case 'listvid':
-				teks = '*List Video :*\n\n'
-				for (let awokwkwk of videonye) {
-					teks += `- ${awokwkwk}\n`
-				}
-				teks += `\n*Total : ${videonye.length}* `
-				Zitsraa.sendMessage(from, teks.trim(), extendedText, { quoted: freply, contextInfo: { "mentionedJid": imagenye } })
-				break
-			case 'getvid':
-				namastc = body.slice(8)
-				try {
-				buffer = fs.readFileSync(`./temp/video/${namastc}.mp4`)
-				Zitsraa.sendMessage(from, buffer, video, { quoted: freply, caption: `Result From Database : ${namastc}.mp4` })
-				} catch {
-				  reply('Pack tidak terdaftar')
-				}
-				break
-				case 'addvn':
-				if (!isQuotedAudio) return reply('Reply vnnya')
-				svst = body.slice(7)
-				if (!svst) return reply('Nama audionya apa')
-				boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
-				delb = await Zitsraa.downloadMediaMessage(boij)
-				audionye.push(`${svst}`)
-				fs.writeFileSync(`./temp/audio/${svst}.mp3`, delb)
-				fs.writeFileSync('./temp/vn.json', JSON.stringify(audionye))
-				Zitsraa.sendMessage(from, `Sukses Menambahkan Audio\nCek dengan cara ${prefix}listvn`, MessageType.text, { quoted: freply })
-				break
-case 'getvn':
-				namastc = body.slice(7)
-				try {
-				buffer = fs.readFileSync(`./temp/audio/${namastc}.mp3`)
-				Zitsraa.sendMessage(from, buffer, audio, { mimetype: 'audio/mp4', quoted: freply, ptt: true })
-				} catch {
-				  reply('Pack tidak terdaftar')
-				}
-				break
-				case 'listvn':
-			case 'vnlist':
-				teks = '*List Vn:*\n\n'
-				for (let awokwkwk of audionye) {
-					teks += `- ${awokwkwk}\n`
-				}
-				teks += `\n*Total : ${audionye.length}*`
-				Zitsraa.sendMessage(from, teks.trim(), extendedText, { quoted: freply, contextInfo: { "mentionedJid": audionye } })
-				break
 				//********** DOWNLOAD **********//
-				
-				
-				
-				case 'play':   
-				  if (args.length < 1) return reply('*Masukan judul lagu nya?*')
-                Zitsraa.sendMessage(from, mess.wait, text,{quoted : freply})
-				play = args.join(" ")
-				anu = await fetchJson(`https://api.xteam.xyz/dl/play?lagu=${play}&APIKEY=${XteamKey}`)
-				if (anu.error) return reply(anu.error)
-				infomp3   =`*「 Play To Mp3 」*
-				
-Judul : ${anu.judul}
-Size : ${anu.size}
-Source : ${anu.source}
-				
-*_Tunggu Sebentar.._* `
-				buffer = await getBuffer(anu.thumbnail)
-				Zitsraa.sendMessage(from, buffer, image, {quoted: freply, caption: infomp3})
-        lagu = await getBuffer(anu.url)
-				Zitsraa.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', filename: `${anu.url}.mp3`, quoted: freply})
-				break
-				
-				case 'play2':   
-				  if (args.length < 1) return reply('*Masukan judul nya?*')
-                Zitsraa.sendMessage(from, mess.wait, text,{quoted : freply})
-				play = args.join(" ")
-				anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp4?q=${play}&apikey=apivinz`)
-				if (anu.error) return reply(anu.error)
-				infomp3 = ` *Video Ditemukan!!!*
-				
-Judul : ${anu.result.title}
-Source : ${anu.result.source}
-				
-*_Tunggu Sebentar.._*`
-				buffer = await getBuffer(anu.result.thumbnail)
-				buffer1 = await getBuffer(anu.result.url_video)
-				Zitsraa.sendMessage(from, buffer, image, {quoted: freply, caption: infomp3})
-				Zitsraa.sendMessage(from, buffer1, video, {mimetype: 'video/mp4', filename: `${anu.result.video}.mp4`, quoted:freply, caption: 'Nih Gan'})
-					break 
-				
-        case 'ig':
-          if (args.length < 1) return reply('*Masukan Url nya?*')
-          query = args.join(" ")
-					anu = await fetchJson(`https://api.zeks.xyz/api/ig?url=${query}&apikey=apivinz`, {method: 'get'})
-					tods = ` Instagram DOWNLOADER
-
-Username : ${anu.owner}
-Caption : ${anu.caption}
-`
-					Zitsraa.sendMessage(from, mess.wait, text,{quoted : freply})
-					buffer = await getBuffer(anu.result[0].url)
-					Zitsraa.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.result[0].url}.mp4`, quoted: freply, caption : tods})
-					break 
-					
-case 'fb':
-  if (args.length < 1) return reply('*Masukan Url nya?*')
-  query = args.join(" ")
-					anu = await fetchJson(`https://videfikri.com/api/fbdl/?urlfb=${query}`, {method: 'get'})
-					wing = ` *F A C E B O O K DOWNLOADER*
-					
-*Judul :* ${anu.result.judul}`
-					
-					Zitsraa.sendMessage(from, mess.wait, text,{quoted : freply})
-					buffer = await getBuffer(anu.result.url)
-					Zitsraa.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.result.url}.mp4`, quoted: freply, caption: wing})
-					break 
-					
-case 'tiktok':
-  if (args.length < 1) return reply('*Masukan Url nya?*')
-					query = args.join(" ")
-					anu = await fetchJson(`https://api.zeks.xyz/api/tiktok?url=${query}&apikey=apivinz`, {method: 'get'})
-					
-					Zitsraa.sendMessage(from, mess.wait, text,{quoted : freply})
-					pyu = `*TIKTOK DOWNLOADER*
-					
-Author : ${anu.author}
-Title : ${anu.title}	`
-					buffer = await getBuffer(anu.no_watermark)
-					buff = await getBuffer(anu.audio)
-					Zitsraa.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.no_watermark}.mp4`, quoted: freply, caption: pyu})
-					Zitsraa.sendMessage(from, buff, audio, {quoted : freply})
-					break
-				
-				case 'ytmp4':
-				  if (args.length < 1) return reply('*Masukan Url nya?*')
-ini_link = args[0]
-					anu = await fetchJson(`https://api.xteam.xyz/dl/ytmp4?url=${ini_link}&APIKEY=${XteamKey}`, {method: 'get'})
-					if (anu.error) return reply(anu.error)
-					ytt = `「 *YOUTUBE MP4* 」
-					
-*Judul:* ${anu.judul}
-*Size:* ${anu.size}
-					 
- Tunggu Sebentar kak...`
-					 buff = await getBuffer(anu.thumbnail)
-					Zitsraa.sendMessage(from, mess.wait, text,{quoted : freply})
-					buffer = await getBuffer(anu.url)
-					Zitsraa.sendMessage(from, buff, image, {quoted: freply, caption: ytt})
-					Zitsraa.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.url}.mp4`, quoted: freply, caption: 'Nih Gan'})
-					break 
-
-				case 'ytmp3':
-				  if (args.length < 1) return reply('*Masukan Url nya?*')
-                    ini_link = args[0]
-                    anu = await fetchJson(`https://api.xteam.xyz/dl/ytmp3?url=${ini_link}&APIKEY=${XteamKey}`)
-                    					ytt = `「 *YOUTUBE MP3* 」
-					
-*Judul:* ${anu.judul}
-*Size:* ${anu.size}
-					 
- Tunggu Sebentar kak...`
-					 buff = await getBuffer(anu.thumbnail)
-					Zitsraa.sendMessage(from, mess.wait, text,{quoted : freply})
-					buffer = await getBuffer(anu.url)
-					Zitsraa.sendMessage(from, buff, image, {quoted: freply, caption: ytt})
-					Zitsraa.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.url}.mp3`, quoted: freply})
-				break
-
 //********** UPLOAD **********
 case 'upswtext':
 					Zitsraa.updatePresence(from, Presence.composing)
