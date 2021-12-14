@@ -510,7 +510,7 @@ const uploadImages = (buffData, type) => {
                 menu = `_*mhyckanasabot*_`
 gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
-          { buttonId: `$(prefix)owner`, buttonText: { displayText: 'INSTAGRAM\n_*Follow bit.ly/instagramhycka :)*_' }, type: 1 },
+          { buttonId: `$(prefix)owner`, buttonText: { displayText: '𝐈𝐍𝐒𝐓𝐀𝐆𝐑𝐀𝐌\n_*instagram.com/mhyckaherviananda :)*_' }, type: 1 },
         ]
         sendButLocation(from, menu, "_*Hai Kak Berikut Adalah Menu SELF-NASA-BOT*_\n\n👑 *Owner Name : Mhycka*\n*🤖 Bot Name : SELF-NASA-BOT*\n*👑 No Owner : 6285340409831*\n*🌐 Browser : Linux*\n*📊 Language : Javascript*\n*🐣My Birthday : 12-04-2006*\n\n╭──「 _*SELF NASA BOT*_」─── \n│\n├ *sticker*\n├ *stickergif*\n├ *attp*\n├ *toimg*\n├ *runtime*\n├ *ping*\n├ *ssweb*\n├ *blocklist*\n├ *shutdown*\n├ *fdeface*\n├ *chatlist*\n├ *owner*\n├ *hidetag Text*\n├ *stctag Tag Stc*\n├ *imgtag Tag Img*\n├ *kontag Text*\n├ *upswtext*\n├ *upswimg*\n├ *upsvideo*\n├ *linkgroup*\n├ *group tutup/buka*\n├ *add 6281xxx*\n├ *headsot @tag*\n├ *promote @tag*\n├ *demote @tagadmin*\n├ *edotensei @tag*\n├ *listadmin*\n├ *infoall*\n├ *thksto*\n├ *artinama*\n│\n╰──「 _*SELF BY MHYCKA*_ 」───\n\n\n© BotWhatsApp By ᴹᴿ°᭄Mhyckaོ", gam, but)
 break
@@ -556,7 +556,7 @@ teks =
 ┗━━━━━━━`
 gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
-          { buttonId: `owner`, buttonText: { displayText: '~Oke\n\n\n\n' }, type: 1 },
+          { buttonId: `owner`, buttonText: { displayText: 'Oke😉' }, type: 1 },
         ]
         sendButLocation(from, teks, "© BotWhatsapp By ᴹᴿ°᭄Mhyckaོ", gam, but)
 break
@@ -566,13 +566,7 @@ break
                 reply('*succes unpin this chat*')
                 console.log('unpin chat = ' + from)
                 break
-                case 'bakarnama': 				
-				if (args.length < 1) return reply(`Textnya Mana Cuy?\n*Contoh ${prefix}anakharamserti DappaGanz*`)
-				reply(ind.wait())
-				ct = body.slice(11)
-				dapuhy = await getBuffer(`http://zekais-api.herokuapp.com/sbburn?text=${ct}`)
-				Zitsraa.sendMessage(from, dapuhy, image, { quoted: freply, caption: 'Nih Ngab' })
-				break
+          
 case 'artinama':
                 if (args.length < 1) return reply('*Example :*\n*artinama "Mhycka"*')
                 teks = q
@@ -614,10 +608,6 @@ case 'artinama':
                 Zitsraa.modifyChat(_.jid, ChatModification.unarchive)
                 }
                 break
-                case 'slot':
-            const somtoy = sotoy[Math.floor(Math.random() * sotoy.length)]
-            Zitsraa.sendMessage(from, `[  🎰 | SLOTS ]\n-----------------\n🍋 : 🍌 : 🍍\n${somtoy}<=====\n🍋 : 🍌 : 🍍\n[  🎰 | SLOTS ]\n\nKeterangan : Jika anda Mendapatkan 3Buah Sama Berarti Kamu Win\n\nContoh : 🍌 : 🍌 : 🍌<=====`, text, { quoted: freply })
-            break
             case 'archive':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
                 reply('*okey wait..*')
@@ -807,17 +797,7 @@ case 'artinama':
 					buff = await getBuffer(anu.screenshot)
 					Zitsraa.sendMessage(from, buff, image, {quoted: mek, caption : teks})
 					break
-	        case 'colong':
-		if (!isQuotedSticker) return reply(`Reply sticker dengan caption *${prefix}colong*`)
-		const encmediia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-	        const meidia = await Zitsraa.downloadAndSaveMediaMessage(encmediia, `./sticker/${sender}`)
-		    exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
-		    if (error) return reply('error')
-		    Zitsraa.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), MessageType.sticker, {quoted: freply})
-					fs.unlinkSync(media)
-					fs.unlinkSync(`./sticker/takestick_${sender}.exif`)
-				})
-				break
+	    
 	        
 					case 'take':
 					if (!isQuotedSticker) return reply(`Reply sticker dengan caption *${prefix}takestick nama|author*`)
@@ -847,32 +827,6 @@ case 'artinama':
                                         Zitsraa.sendMessage(from, buff, video, { mimetype: Mimetype.gif, caption: 'Nih', quoted: freply})
                                 }
                                 break
-				
-				case 'tovideo':
-                    if ((isMedia && !mek.message.videoMessage || isQuotedSticker)) {
-                        const encmedia = isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-                        filePath = await Zitsraa.downloadAndSaveMediaMessage(encmedia, filename = getRandom());
-                        file_name = getRandom(".gif")
-                        ini_txt = args.join(" ").split("|")
-                        request({
-                            url: `https://api.lolhuman.xyz/api/convert/togif?apikey=${LolKey}`,
-                            method: 'POST',
-                            formData: {
-                                "img": fs.createReadStream(filePath),
-                            },
-                            encoding: "binary"
-                        }, function(error, response, body) {
-                            fs.unlinkSync(filePath)
-                            fs.writeFileSync(file_name, body, "binary")
-                            ini_buff = fs.readFileSync(file_name)
-                            Zitsraa.sendMessage(from, ini_buff, video, { quoted: freply, mimetype: "video/gif", filename: file_name }).then(() => {
-                                fs.unlinkSync(file_name)
-                            })
-                        });
-                    } else {
-                        reply(`Kirim gambar dengan caption ${prefix + command} atau tag gambar yang sudah dikirim`)
-                    }
-                    break
 					
 					case 'fdeface':
 					var nn = body.slice(9)
@@ -900,33 +854,6 @@ case 'artinama':
 						jpegThumbnail: ddatae
 					}, 'extendedTextMessage', { detectLinks: false })
 					break
-					
-					case 'nobg':
-if ((isMedia && !mek.videoMessage || isQuotedImage)) {
-    reply(mess.wait)
-var encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace("quotedM", "m")).message.extendedTextMessage.contextInfo : mek
-var media = await Zitsraa.downloadAndSaveMediaMessage(encmedia)
-anu = await imgbb("3ea1465ef91578a90ee81f7d41c59a1f", media)
-getUrl = `${anu.display_url}`
-buff = await getBuffer(`https://api.zeks.xyz/api/removebg?apikey=apivinz&url=${getUrl}`)
-Zitsraa.sendMessage(from, buff, image, {quoted: freply})
-}
-break
-					
-					case 'textmaker':
-if ((isMedia && !mek.videoMessage || isQuotedImage)) {
-var tex1 = body.slice(11).split('|')[0]
-var tex2 = body.slice(11).split('|')[1]
-if (!tex2) return reply('Format salah!')
-    reply(mess.wait)
-var encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace("quotedM", "m")).message.extendedTextMessage.contextInfo : mek
-var media = await Zitsraa.downloadAndSaveMediaMessage(encmedia)
-anu = await imgbb("3ea1465ef91578a90ee81f7d41c59a1f", media)
-getUrl = `${anu.display_url}`
-buff = await getBuffer(`http://lolhuman.herokuapp.com/api/memegen?apikey=${LolKey}&texttop=${tex1}&textbottom=${tex2}&img=${getUrl}`)
-Zitsraa.sendMessage(from, buff, image, {quoted: freply})
-}
-break
 					
 case 'attp':
 				if (args.length < 1) return reply(`_Teksnya Mana Boss_\n*Contoh ${prefix}attp Mhycka Ganteng*`)
@@ -1413,123 +1340,11 @@ break
 						Zitsraa.groupRemove(from, mentioned)
 					}
 					break
-					
-					case 'notif':
-if (!isGroup) return reply(mess.only.group)
-teks = `Notif dari @${sender.split("@")[0]}\n*Pesan : ${body.slice(7)}*`
-group = await Zitsraa.groupMetadata(from);
-member = group['participants']
-jids = [];
-member.map(async adm => {
-  jids.push(adm.id.replace('c.us', 's.whatsapp.net'));
-})
-options = {
-  text: teks,
-  contextInfo: {
-mentionedJid: jids
-  },
-  quoted: freply
-}
-await Zitsraa.sendMessage(from, options, text)
-break
 
       case 'leave': 
 				    if (!isGroup) return reply(mess.only.group)
 			    	anu = await Zitsraa.groupLeave(from, `Bye All Member *${groupMetadata.subject}*`, groupId)
-	                break
-
-
-
-				
-					  //********** STORAGE **********//
-case 'addstik':
-				if (!isQuotedSticker) return reply('Reply stiker nya')
-				svst = body.slice(9)
-				if (!svst) return reply('Nama sticker nya apa?')
-				boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
-				delb = await Zitsraa.downloadMediaMessage(boij)
-				setiker.push(`${svst}`)
-				fs.writeFileSync(`./temp/stick/${svst}.webp`, delb)
-				fs.writeFileSync('./temp/stik.json', JSON.stringify(setiker))
-				Zitsraa.sendMessage(from, `Sukses Menambahkan Sticker\nCek dengan cara ${prefix}liststik`, MessageType.text, { quoted: freply })
-				break
-				
-case 'getstik':
-				namastc = body.slice(9)
-				try {
-				result = fs.readFileSync(`./temp/stick/${namastc}.webp`)
-				Zitsraa.sendMessage(from, result, sticker,{quoted:freply})
-				} catch {
-				  reply('Pack tidak terdaftar')
-				}
-				break
-			
-			case 'liststik':
-				teks = '*Sticker list :*\n\n'
-				for (let awokwkwk of setiker) {
-					teks += `- ${awokwkwk}\n`
-				}
-				teks += `\n*Total : ${setiker.length}*`
-				Zitsraa.sendMessage(from, teks.trim(), extendedText, { quoted: freply, contextInfo: { "mentionedJid": setiker } })
-				break
-				
-				case 'addimg':
-				if (!isQuotedImage) return reply('Reply imagenya')
-				svst = body.slice(8)
-				if (!svst) return reply('Nama imagenya apa')
-				boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
-				delb = await Zitsraa.downloadMediaMessage(boij)
-				imagenye.push(`${svst}`)
-				fs.writeFileSync(`./temp/foto/${svst}.jpeg`, delb)
-				fs.writeFileSync('./temp/image.json', JSON.stringify(imagenye))
-				Zitsraa.sendMessage(from, `Sukses Menambahkan image\nCek dengan cara ${prefix}listimg`, MessageType.text, { quoted: freply })
-				break
-
-			case 'getimg':
-				namastc = body.slice(8)
-				try {
-				buffer = fs.readFileSync(`./temp/foto/${namastc}.jpeg`)
-				Zitsraa.sendMessage(from, buffer, image, { quoted: freply, caption: `Result From Database : ${namastc}.jpeg` })
-				} catch {
-				  reply('Pack tidak terdaftar')
-				}
-				break
-				case 'listimg':
-				teks = '*Image list :*\n\n'
-				for (let awokwkwk of imagenye) {
-					teks += `- ${awokwkwk}\n`
-				}
-				teks += `\n*Total : ${imagenye.length}*`
-				Zitsraa.sendMessage(from, teks.trim(), extendedText, { quoted: freply, contextInfo: { "mentionedJid": setiker } })
-				break
-				case 'addvid':
-				if (!isQuotedVideo) return reply('Reply vidionya')
-				svst = body.slice(8)
-				if (!svst) return reply('Nama vidionya apa')
-				boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
-				delb = await Zitsraa.downloadMediaMessage(boij)
-				imagenye.push(`${svst}`)
-				fs.writeFileSync(`./temp/video/${svst}.mp4`, delb)
-				fs.writeFileSync('./temp/video.json', JSON.stringify(imagenye))
-				Zitsraa.sendMessage(from, `Sukses Menambahkan video\nCek dengan cara ${prefix}listvideo`, MessageType.text, { quoted: freply })
-				break
-case 'listvid':
-				teks = '*List Video :*\n\n'
-				for (let awokwkwk of videonye) {
-					teks += `- ${awokwkwk}\n`
-				}
-				teks += `\n*Total : ${videonye.length}* `
-				Zitsraa.sendMessage(from, teks.trim(), extendedText, { quoted: freply, contextInfo: { "mentionedJid": imagenye } })
-				break
-			case 'getvid':
-				namastc = body.slice(8)
-				try {
-				buffer = fs.readFileSync(`./temp/video/${namastc}.mp4`)
-				Zitsraa.sendMessage(from, buffer, video, { quoted: freply, caption: `Result From Database : ${namastc}.mp4` })
-				} catch {
-				  reply('Pack tidak terdaftar')
-				}
-				break
+	                break 
 			
 				//********** DOWNLOAD **********//
 
