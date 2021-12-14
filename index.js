@@ -57,29 +57,6 @@ const lolis = require('lolis.life')
 const loli = new lolis()
 const Exif = require('./lib/exif');
 const exif = new Exif();
-const off = require('./lib/afk.js')
-
-//FUNCTION
-            cekafk(afk)
-            if (!mek.key.remoteJid.endsWith('@g.us') && offline){
-            if (!mek.key.fromMe){
-            if (isAfk(mek.key.remoteJid)) return
-            addafk(mek.key.remoteJid)
-            heheh = ms(Date.now() - waktu) 
-            Zitsraa.sendMessage(mek.key.remoteJid,`@${owner} Sedang Offline!\n\n*Alasan :* ${alasan}\n*Sejak :* ${heheh.hours} Jam, ${heheh.minutes} Menit, ${heheh.seconds} Detik lalu\n\nSilahkan Hubungi Lagi Nanti`, MessageType.text,{contextInfo:{ mentionedJid: [`${owner}@s.whatsapp.net`],'stanzaId': "B826873620DD5947E683E3ABE663F263", 'participant': "0@s.whatsapp.net", 'remoteJid': 'status@broadcast', 'quotedMessage': {"imageMessage": {"caption": "*OFFLINE*", 'jpegThumbnail': fs.readFileSync(`image/${thumbnail}`)}}}})
-            }
-            }   
-        if (mek.key.remoteJid.endsWith('@g.us') && offline) {
-        if (!mek.key.fromMe){
-        if (mek.message.extendedTextMessage != undefined){
-        if (mek.message.extendedTextMessage.contextInfo != undefined){
-        if (mek.message.extendedTextMessage.contextInfo.mentionedJid != undefined){
-        for (let ment of mek.message.extendedTextMessage.contextInfo.mentionedJid) {
-        if (ment === `${owner}@s.whatsapp.net`){
-        if (isAfk(mek.key.remoteJid)) return
-        addafk(mek.key.remoteJid)
-        heheh = ms(Date.now() - waktu)
-        Zitsraa.sendMessage(mek.key.remoteJid,`@${owner} Sedang Offline!\n\n *Alasan :* ${alasan}\n *Sejak :* ${heheh.hours} Jam, ${heheh.minutes} Menit, ${heheh.seconds} Detik lalu\n\nSilahkan Hubungi Lagi Nanti`, MessageType.text,{contextInfo:{ mentionedJid: [`${owner}@s.whatsapp.net`],'stanzaId': "B826873620DD5947E683E3ABE663F263", 'participant': "0@s.whatsapp.net", 'remoteJid': 'status@broadcast', 'quotedMessage': {"imageMessage": {"caption": "*OFFLINE*", 'jpegThumbnail': fs.readFileSync(`image/${thumbnail}`)}}}})
 
 //********** FUNCTIONS **********//
 const { removeBackgroundFromImageFile } = require('remove.bg')
@@ -609,19 +586,6 @@ case 'artinama':
 					anu = await fetchJson(`https://mnazria.herokuapp.com/api/arti?nama=${teks}`, {method: 'get'})
 					reply(`Arti Nama ${teks}\n\n`+anu.result)
 				break
-case 'on':
-		            if (!mek.key.fromMe && !isOwner && !isCreator) return 
-		            offline = false
-		            fakeitem(lang.ownerOn())
-		            break       
-		    case 'off':
-		            if (!mek.key.fromMe && !isOwner && !isCreator) return 
-		            offline = true
-		            waktu = Date.now()
-		            anuu = args.join(' ') ? args.join(' ') : '-'
-		            alasan = anuu
-		            fakeitem(lang.ownerOff())
-		            break
             case 'pin':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
                 Zitsraa.modifyChat(from, ChatModification.pin)
@@ -1002,13 +966,17 @@ case 'attp':
                 Zitsraa.sendMessage(from, buffer, video, { mimetype: 'video/mp4', quoted: freply })
                 break
                 case 'nulis2':
-            case 'tulis2':
-                if (args.length < 1) return reply('Teksnya mana kak? Contoh : ${prefix}nulis2 IKY baik hati')
-                laysha = body.slice(8)
-                reply('WAIT BRO GUE NULIS DUMLU YAKAN')
-                buff = await getBuffer(`https://api.xteam.xyz/magernulis3?text=${laysha}&APIKEY=${XteamKey}`)
-                Zitsraa.sendMessage(from, buff, image, { quoted: freply, caption: 'Lebih baik nulis sendiri ya kak :*' })
-                break
+if (args.length < 1) return reply(`*Usage*: nulis2 nama&kelas&nomor&kata\n*Example*: nulis2 udin&20&17&blablabla`)
+var bodi = args.join(" ")
+var nama = bodi.split("&")[0];
+var kelas = bodi.split("&")[1];
+var no = bodi.split("&")[2];
+var aksarane = bodi.split("&")[3];
+reply('membuat bos...')
+                 rakz = await getBuffer(`https://ferdiz-afk.my.id//api/tulis?nama=${nama}&no=${no}&kelas=${kelas}&text=${aksarane}`)
+                 Zitsraa.sendMessage(from, rakz, image, { quoted: mek ,thumbnail: Buffer.alloc(0) });
+
+                 break
             case 'nulis1':
             case 'tulis1':
                 if (args.length < 1) return reply('Teksnya mana kak? Contoh : ${prefix}nulis2 ITS baik hati')
@@ -1282,7 +1250,7 @@ const latensip = speed() - timestampi
 			             anjink =`◪ 𝗥𝘂𝗻𝘁𝗶𝗺𝗲
 ├ *Nama bot : Nasaa*
 ├ *Owner : Mhycka*
-├ *Server :* _*linux*_
+├ *Server :* _*Linux (Mhycka)*_
 ├ *Runtime :*
 ├   \`\`\`${kyun(uptime)}\`\`\`
 ├ *Speed :*
@@ -1595,7 +1563,7 @@ break
 					members_id = []
 					teks = '\n'
 					for (let mem of groupMembers) {
-						teks += `┣❥   @${mem.jid.split('@')[0]}\n`
+						teks += `│➳  @${mem.jid.split('@')[0]}\n`
 						members_id.push(mem.jid)
 					}
 					mentions(`*From :* - [ 𝙎𝙀𝙇𝙁 𝘽𝙊𝙏 ] -\n*Info :*  ${body.slice(9)}\n*Total Member :* ${groupMembers.length} \n\n┏━━━⟪ *INFORMATION* ⟫━━━┓`+teks+'╚═ *「 By Mhycka 」* ', members_id, true)
