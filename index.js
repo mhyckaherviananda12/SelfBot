@@ -538,19 +538,6 @@ break
                 reply('*succes mute this chat*')
                 console.log('succes mute chat = ' + from)
                 break
-case 'brainly':
-					if (args.length < 1) return reply('Pertanyaan apa')
-		          	brien = args.join(' ')
-					brainly(`${brien}`).then(res => {
-					teks = '❉───────────────────────❉\n'
-					for (let Y of res.data) {
-					teks += `\n*「 _BRAINLY_ 」*\n\n*➸ Pertanyaan:* ${Y.pertanyaan}\n\n*➸ Jawaban:* ${Y.jawaban[0].text}\n❉──────────────────❉\n`
-					}
-					Zitsraa.sendMessage(from, teks, text,{quoted:mek,detectLinks: false})                        
-		            }).catch(e => {
-					reply('Terjadi kesalahan, coba beberapa saat lagi')
-					})             
-					break
             case 'unmute':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
                 Zitsraa.modifyChat(from, ChatModification.unmute)
@@ -692,23 +679,7 @@ case 'artinama':
 					if (args.length < 1) return
 					demote = body.slice(11)
 					Zitsraa.sendMessage(from ,`\`\`\`Demote berhasil di ubah menjadi : ${body.slice(11)}\`\`\``, text,{quoted : freply})
-				break 
-				
-				case 'setbodymenu':
-				  if (args.length < 1) return reply('*_CONTOH :_*\n\n  *   : *menu*\n  ~   : ~menu~\n  _ : _menu_\n ```   : ```menu```\n\n\n\n Contoh penggunaan : .setbodymenu *')
-                    Zitsraa.updatePresence(from, Presence.composing) 
-					if (args.length < 1) return
-					f = body.slice(13)
-					Zitsraa.sendMessage(from ,`\`\`\`Body menu berhasil di ubah menjadi : ${body.slice(13)}\`\`\``, text,{quoted : freply})
-				break 
-				
-					case 'setwelcome':
-					  if (args.length < 1) return reply('*Teks nya mana gan?*')
-                    Zitsraa.updatePresence(from, Presence.composing) 
-					if (args.length < 1) return
-					join = body.slice(11)
-					Zitsraa.sendMessage(from ,`\`\`\`Welcome berhasil di ubah menjadi : ${body.slice(11)}\`\`\``, text,{quoted : freply})
-				break 
+				break
 				
 			  case 'setreply':
 			    if (args.length < 1) return reply('*Teks nya mana gan?*')
@@ -1728,155 +1699,10 @@ case 'listvid':
 				  reply('Pack tidak terdaftar')
 				}
 				break
-				case 'addvn':
-				if (!isQuotedAudio) return reply('Reply vnnya')
-				svst = body.slice(7)
-				if (!svst) return reply('Nama audionya apa')
-				boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
-				delb = await Zitsraa.downloadMediaMessage(boij)
-				audionye.push(`${svst}`)
-				fs.writeFileSync(`./temp/audio/${svst}.mp3`, delb)
-				fs.writeFileSync('./temp/vn.json', JSON.stringify(audionye))
-				Zitsraa.sendMessage(from, `Sukses Menambahkan Audio\nCek dengan cara ${prefix}listvn`, MessageType.text, { quoted: freply })
-				break
-case 'getvn':
-				namastc = body.slice(7)
-				try {
-				buffer = fs.readFileSync(`./temp/audio/${namastc}.mp3`)
-				Zitsraa.sendMessage(from, buffer, audio, { mimetype: 'audio/mp4', quoted: freply, ptt: true })
-				} catch {
-				  reply('Pack tidak terdaftar')
-				}
-				break
-				case 'listvn':
-			case 'vnlist':
-				teks = '*List Vn:*\n\n'
-				for (let awokwkwk of audionye) {
-					teks += `- ${awokwkwk}\n`
-				}
-				teks += `\n*Total : ${audionye.length}*`
-				Zitsraa.sendMessage(from, teks.trim(), extendedText, { quoted: freply, contextInfo: { "mentionedJid": audionye } })
-				break
+			
 				//********** DOWNLOAD **********//
-				
-				
-				
-				case 'play':   
-				  if (args.length < 1) return reply('*Masukan judul lagu nya?*')
-                Zitsraa.sendMessage(from, mess.wait, text,{quoted : freply})
-				play = args.join(" ")
-				anu = await fetchJson(`https://api.xteam.xyz/dl/play?lagu=${play}&APIKEY=${XteamKey}`)
-				if (anu.error) return reply(anu.error)
-				infomp3   =`*「 Play To Mp3 」*
-				
-Judul : ${anu.judul}
-Size : ${anu.size}
-Source : ${anu.source}
-				
-*_Tunggu Sebentar.._* `
-				buffer = await getBuffer(anu.thumbnail)
-				Zitsraa.sendMessage(from, buffer, image, {quoted: freply, caption: infomp3})
-        lagu = await getBuffer(anu.url)
-				Zitsraa.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', filename: `${anu.url}.mp3`, quoted: freply})
-				break
-				
-				case 'play2':   
-				  if (args.length < 1) return reply('*Masukan judul nya?*')
-                Zitsraa.sendMessage(from, mess.wait, text,{quoted : freply})
-				play = args.join(" ")
-				anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp4?q=${play}&apikey=apivinz`)
-				if (anu.error) return reply(anu.error)
-				infomp3 = ` *Video Ditemukan!!!*
-				
-Judul : ${anu.result.title}
-Source : ${anu.result.source}
-				
-*_Tunggu Sebentar.._*`
-				buffer = await getBuffer(anu.result.thumbnail)
-				buffer1 = await getBuffer(anu.result.url_video)
-				Zitsraa.sendMessage(from, buffer, image, {quoted: freply, caption: infomp3})
-				Zitsraa.sendMessage(from, buffer1, video, {mimetype: 'video/mp4', filename: `${anu.result.video}.mp4`, quoted:freply, caption: 'Nih Gan'})
-					break 
-				
-        case 'ig':
-          if (args.length < 1) return reply('*Masukan Url nya?*')
-          query = args.join(" ")
-					anu = await fetchJson(`https://api.zeks.xyz/api/ig?url=${query}&apikey=apivinz`, {method: 'get'})
-					tods = ` Instagram DOWNLOADER
 
-Username : ${anu.owner}
-Caption : ${anu.caption}
-`
-					Zitsraa.sendMessage(from, mess.wait, text,{quoted : freply})
-					buffer = await getBuffer(anu.result[0].url)
-					Zitsraa.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.result[0].url}.mp4`, quoted: freply, caption : tods})
-					break 
-					
-case 'fb':
-  if (args.length < 1) return reply('*Masukan Url nya?*')
-  query = args.join(" ")
-					anu = await fetchJson(`https://videfikri.com/api/fbdl/?urlfb=${query}`, {method: 'get'})
-					wing = ` *F A C E B O O K DOWNLOADER*
-					
-*Judul :* ${anu.result.judul}`
-					
-					Zitsraa.sendMessage(from, mess.wait, text,{quoted : freply})
-					buffer = await getBuffer(anu.result.url)
-					Zitsraa.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.result.url}.mp4`, quoted: freply, caption: wing})
-					break 
-					
-case 'tiktok':
-  if (args.length < 1) return reply('*Masukan Url nya?*')
-					query = args.join(" ")
-					anu = await fetchJson(`https://api.zeks.xyz/api/tiktok?url=${query}&apikey=apivinz`, {method: 'get'})
-					
-					Zitsraa.sendMessage(from, mess.wait, text,{quoted : freply})
-					pyu = `*TIKTOK DOWNLOADER*
-					
-Author : ${anu.author}
-Title : ${anu.title}	`
-					buffer = await getBuffer(anu.no_watermark)
-					buff = await getBuffer(anu.audio)
-					Zitsraa.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.no_watermark}.mp4`, quoted: freply, caption: pyu})
-					Zitsraa.sendMessage(from, buff, audio, {quoted : freply})
-					break
-				
-				case 'ytmp4':
-				  if (args.length < 1) return reply('*Masukan Url nya?*')
-ini_link = args[0]
-					anu = await fetchJson(`https://api.xteam.xyz/dl/ytmp4?url=${ini_link}&APIKEY=${XteamKey}`, {method: 'get'})
-					if (anu.error) return reply(anu.error)
-					ytt = `「 *YOUTUBE MP4* 」
-					
-*Judul:* ${anu.judul}
-*Size:* ${anu.size}
-					 
- Tunggu Sebentar kak...`
-					 buff = await getBuffer(anu.thumbnail)
-					Zitsraa.sendMessage(from, mess.wait, text,{quoted : freply})
-					buffer = await getBuffer(anu.url)
-					Zitsraa.sendMessage(from, buff, image, {quoted: freply, caption: ytt})
-					Zitsraa.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.url}.mp4`, quoted: freply, caption: 'Nih Gan'})
-					break 
-
-				case 'ytmp3':
-				  if (args.length < 1) return reply('*Masukan Url nya?*')
-                    ini_link = args[0]
-                    anu = await fetchJson(`https://api.xteam.xyz/dl/ytmp3?url=${ini_link}&APIKEY=${XteamKey}`)
-                    					ytt = `「 *YOUTUBE MP3* 」
-					
-*Judul:* ${anu.judul}
-*Size:* ${anu.size}
-					 
- Tunggu Sebentar kak...`
-					 buff = await getBuffer(anu.thumbnail)
-					Zitsraa.sendMessage(from, mess.wait, text,{quoted : freply})
-					buffer = await getBuffer(anu.url)
-					Zitsraa.sendMessage(from, buff, image, {quoted: freply, caption: ytt})
-					Zitsraa.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.url}.mp3`, quoted: freply})
-				break
-
-//********** UPLOAD **********
+                               //********** UPLOAD **********//
 case 'upswtext':
 					Zitsraa.updatePresence(from, Presence.composing)
 					Zitsraa.sendMessage('status@broadcast', `${q}`, extendedText)
