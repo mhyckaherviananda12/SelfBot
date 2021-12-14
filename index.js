@@ -555,7 +555,7 @@ teks =
 `┏━➤ 「 *Thanks To*」
 ┃┃✯ *1. Mhycka Herviananda*😎
 ┃┃✯ *2. Rizky Faisal*😎
-┃┃✯ *3. Aisyah Ahmad*😎
+┃┃✯ *3. Aisyah Ahmad*??
 ┃┃✯ *4. Adilla Paramita*😎
 ┗━━━━━━━
 ┏━➤ 「 *Follow Instagram*」
@@ -940,142 +940,6 @@ case 'attp':
 				attp2 = await getBuffer(`https://api.xteam.xyz/attp?file&text=${body.slice(6)}`)
 				Zitsraa.sendMessage(from, attp2, sticker, {quoted: freply})
 				break
-				
-		case 'ttp':
-				if (args.length < 1) return reply(`_Teksnya Mana Boss_\n*Contoh ${prefix}ttp Mhycka Ganteng*`)
-				ttp = await getBuffer(`http://lolhuman.herokuapp.com/api/ttp?apikey=${LolKey}&text=${body.slice(5)}`)
-				Zitsraa.sendMessage(from, ttp, sticker, {quoted: freply})
-				break
-					case 'tiktoknowm':
-                if (args.length < 1) return reply('Urlnya mana sayang?')
-                if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(mess.error.lv)
-                ige = body.slice(12)
-                anu = await fetchJson(`http://lolhuman.herokuapp.com/api/tiktok?apikey=${lolhuman}&url=${args[0]}`, { method: 'get' })
-                reply('*Proses Dulu Sabar*')
-                if (anu.error) return reply(anu.error)
-                buffer = await getBuffer(anu.result.link)
-                Zitsraa.sendMessage(from, buffer, video, {quoted: freply, caption: 'Nih cuk, Sewa Bot Asu'})
-                break
-            case 'tiktod':
-            case 'tiktok':
-                if (args.length < 1) return reply('Urlnya mana um?')
-                if (!isUrl(args[0]) && !args[0].includes('youtu')) return reply('URL NYA TIDAK VALID KAK')
-                anu = await fetchJson(`https://api.xteam.xyz/dl/tiktok?url=${args[0]}&APIKEY=${XteamKey}`, )
-                reply('[WAIT] Proses Dumlu Yakan')
-                buffer = await getBuffer(anu.result.video)
-                Zitsraa.sendMessage(from, buffer, video, { mimetype: 'video/mp4', quoted: freply })
-                break
-                case 'nulis2':
-if (args.length < 1) return reply(`*Usage*: nulis2 nama&kelas&nomor&kata\n*Example*: nulis2 udin&20&17&blablabla`)
-var bodi = args.join(" ")
-var nama = bodi.split("&")[0];
-var kelas = bodi.split("&")[1];
-var no = bodi.split("&")[2];
-var aksarane = bodi.split("&")[3];
-reply('membuat bos...')
-                 rakz = await getBuffer(`https://ferdiz-afk.my.id//api/tulis?nama=${nama}&no=${no}&kelas=${kelas}&text=${aksarane}`)
-                 Zitsraa.sendMessage(from, rakz, image, { quoted: mek ,thumbnail: Buffer.alloc(0) });
-
-                 break
-            case 'nulis1':
-            case 'tulis1':
-                if (args.length < 1) return reply('Teksnya mana kak? Contoh : ${prefix}nulis2 ITS baik hati')
-                laysha = body.slice(8)
-                reply('WAIT BRO GUE NULIS DUMLU YAKAN')
-                buff = await getBuffer(`https://api.xteam.xyz/magernulis6?text=${laysha}&APIKEY=${XteamKey}`)
-                Zitsraa.sendMessage(from, buff, image, { quoted: freply, caption: 'Lebih baik nulis sendiri ya kak :*' })
-                break
-                case 'tebakbendera':
-					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/tebak/bendera?apikey=${LolKey}`, {method: 'get'})
-					tebakbender = `*bendera apa ini?*\n${anu.result.flag}`
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '*Jawaban :* '+anu.result.name, text, {quoted: freply}) // ur cods
-					}, 30000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_10 Detik lagi_', text) // ur cods
-					}, 20000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_20 Detik lagi_', text) // ur cods
-					}, 10000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_30 Detik lagi_', text) // ur cods
-					}, 2500) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, tebakbender, text, {quoted: freply}) // ur cods
-					}, 0) // 1000 = 1s,
-					break 
-                case 'tebakgambar':
-					anu = await fetchJson(`http://api.lolhuman.xyz/api/tebak/gambar?apikey=${LolKey}`, {method: 'get'})
-					bufferkkk = await getBuffer(anu.result.image)
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '*Jawaban :* '+anu.result.answer, text, {quoted: freply}) // ur cods
-					}, 30000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_10 Detik lagi_', text) // ur cods
-					}, 20000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_20 Detik lagi_', text) // ur cods
-					}, 10000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_30 Detik lagi_', text) // ur cods
-					}, 2500) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, bufferkkk, image, { caption: '_Jelaskan Apa Maksud Gambar Ini_', quoted: freply}) // ur cods
-					}, 0) // 1000 = 1s,
-					break  
-				case 'family100':
-					anu = await fetchJson(`http://api.lolhuman.xyz/api/tebak/family100?apikey=${LolKey}`, {method: 'get'})
-					family = `*${anu.result.question}*`
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '*Jawaban :* '+anu.result.aswer, text, {quoted: freply}) // ur cods
-					}, 30000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_10 Detik lagi_', text) // ur cods
-					}, 20000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_20 Detik lagi_', text) // ur cods
-					}, 10000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_30 Detik lagi_', text) // ur cods
-					}, 2500) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, family, text, {quoted: lol}) // ur cods
-					}, 0) // 1000 = 1s,
-					break
-					case 'caklontong':
-					anu = await fetchJson(`http://api.lolhuman.xyz/api/tebak/caklontong?apikey=${LolKey}`, {method: 'get'})
-					caklontong = `*${anu.result.question}*`
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '*Jawaban :* '+anu.result.answer, text, {quoted: freply}) // ur cods
-					}, 30000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_10 Detik lagi_', text) // ur cods
-					}, 20000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_20 Detik lagi_', text) // ur cods
-					}, 10000) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, '_30 Detik lagi_', text) // ur cods
-					}, 2500) // 1000 = 1s,
-					setTimeout( () => {
-					Zitsraa.sendMessage(from, caklontong, text, {quoted: freply}) // ur cods
-					}, 0) // 1000 = 1s,
-					break 
-					case 'meme': 
-				if (!isRegistered) return reply(ind.noregis())
-				buffer = await getBuffer(`http://lolhuman.herokuapp.com/api/random/meme?apikey=${LolKey}`, {method: 'get'})
-				Zitsraa.sendMessage(from, buffer, image, {quoted: lol})
-                break
-                    case 'stickerwa':
-                    if (args.length == 0) return reply(`Example: ${prefix + command} Koceng Imot`)
-                    query = args.join(" ")
-                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/stickerwa?apikey=${LolKey}&query=${query}`)
-                    get_result = get_result.result[0].stickers
-                    for (var x of get_result) {
-                        ini_buffer = await getBuffer(`http://api.lolhuman.xyz/api/convert/towebp?apikey=${LolKey}&img=${x}`)
-                        Zitsraa.sendMessage(from, ini_buffer, sticker)
-                    }
-                    break
                     
                     case 'rs':
                       case 'rsticker':
@@ -1103,35 +967,56 @@ reply('membuat bos...')
                     }
                     break
                     
-                    case 'swm':
-                    case 'stickerwm':
-                    if ((isMedia && !mek.message.videoMessage || isQuotedImage)) {
-                        if (args.length == 0) return reply(`Example: ${prefix + command} Zitsraa|Rapayee`)
-                        const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : lol
-                        filePath = await Zitsraa.downloadAndSaveMediaMessage(encmedia, filename = getRandom());
-                        file_name = getRandom(".webp")
-                        ini_txt = args.join(" ").split("|")
-                        request({
-                            url: `https://api.lolhuman.xyz/api/convert/towebpauthor?apikey=${LolKey}`,
-                            method: 'POST',
-                            formData: {
-                                "img": fs.createReadStream(filePath),
-                                "package": ini_txt[0],
-                                "author": ini_txt[1]
-                            },
-                            encoding: "binary"
-                        }, function(error, response, body) {
-                            fs.unlinkSync(filePath)
-                            fs.writeFileSync(file_name, body, "binary")
-                            ini_buff = fs.readFileSync(file_name)
-                            Zitsraa.sendMessage(from, ini_buff, sticker, { quoted: freply }).then(() => {
-                                fs.unlinkSync(file_name)
-                            })
-                        });
-                    } else {
-                        reply(`Kirim gambar dengan caption ${prefix + command} atau tag gambar yang sudah dikirim`)
-                    }
-                    break
+                   case 'ytmp4':
+if (!isGroup && !itsMe && !isOwner)return reply(mess.only.group)
+if (args.length === 0) return reply(`Kirim perintah *${prefix}ytmp4 [linkYt]*`)
+let isLinks2 = args[0].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
+if (!isLinks2) return reply('Link Invalid')
+try {
+reply(monospace(mess.wait))
+ytv(args[0])
+.then((res) => {
+const { dl_link, thumb, title, filesizeF, filesize } = res
+axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
+.then(async (a) => {
+if (Number(filesize) >= 40000) return reply(`YOUTUBE MP4
+
+Data Berhasil Didapatkan!
+▢ Title : ${title}\
+▢ Ext : MP4
+▢ Filesize : ${filesizeF}
+▢ Link : ${a.data}
+
+Untuk durasi lebih dari batas disajikan dalam bentuk link`)
+				const captionsYtmp4 = `YOUTUBE MP4
+				
+Data Berhasil Didapatkan!
+▢ Title : ${title}
+▢ Ext : MP4
+▢ Size : ${filesizeF}
+
+Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit`
+bvidt3 = await getBuffer(thumb)
+reply(captionsYtmp4)
+bvid3 = await getBuffer(dl_link)
+await Zitsraa.sendMessage(from, bvid3, video, {
+contextInfo: {
+externalAdReply: {
+"title": fake,
+"body": `🎧 PLAY VIDEO 🎧`,
+"mediaType": "VIDEO",
+"mediaType": 2,
+"thumbnailUrl": `https://i.ibb.co/6mLsrTb/59fb052184fd.jpg`,
+"mediaUrl": args[0]
+}
+}, quoted:rep
+})
+})		
+})
+} catch (err) {
+reply(mess.error.api)
+}
+break
                     
 		case 'gifstiker':
 				case 's':
