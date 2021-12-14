@@ -506,12 +506,11 @@ const uploadImages = (buffData, type) => {
 			
 			switch(command) {
 			  
-			     case 'help':
                 case 'menu':
-                menu = `© *BotWa By Mhycka*`
+                menu = `_*mhyckanasabot*_`
 gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
-          { buttonId: `$(prefix)owner`, buttonText: { displayText: 'INSTAGRAM\n_Follow bit.ly/instagramhycka :)_' }, type: 1 },
+          { buttonId: `$(prefix)owner`, buttonText: { displayText: 'INSTAGRAM\n_*Follow bit.ly/instagramhycka :)*_' }, type: 1 },
         ]
         sendButLocation(from, menu, "_*Hai Kak Berikut Adalah Menu SELF-NASA-BOT*_\n\n👑 *Owner Name : Mhycka*\n*🤖 Bot Name : SELF-NASA-BOT*\n*👑 No Owner : 6285340409831*\n*🌐 Browser : Linux*\n*📊 Language : Javascript*\n*🐣My Birthday : 12-04-2006*\n\n╭──「 _*SELF NASA BOT*_」─── \n│\n├ *sticker*\n├ *stickergif*\n├ *attp*\n├ *toimg*\n├ *runtime*\n├ *ping*\n├ *ssweb*\n├ *blocklist*\n├ *shutdown*\n├ *fdeface*\n├ *chatlist*\n├ *owner*\n├ *hidetag Text*\n├ *stctag Tag Stc*\n├ *imgtag Tag Img*\n├ *kontag Text*\n├ *upswtext*\n├ *upswimg*\n├ *upsvideo*\n├ *linkgroup*\n├ *group tutup/buka*\n├ *add 6281xxx*\n├ *headsot @tag*\n├ *promote @tag*\n├ *demote @tagadmin*\n├ *edotensei @tag*\n├ *listadmin*\n├ *infoall*\n├ *thksto*\n├ *artinama*\n│\n╰──「 _*SELF BY MHYCKA*_ 」───\n\n\n© BotWhatsApp By ᴹᴿ°᭄Mhyckaོ", gam, but)
 break
@@ -544,12 +543,6 @@ break
                 reply('*succes unmute this chat*')
                 console.log('succes unmute chat = ' + from)
                 break
-                case 'slot2':
-                    result = await fetchJson(`https://api.xteam.xyz/game/virtualslot?APIKEY=AkiraBotWa`)
-                        txt = `*🎰Slot didapatkan🎰* \n\n${result.map}\n`
-                        txt += `\n🔖Hasil : ${result.hasil}\n`
-                        txt += `🕹️Score : ${result.score}\n`
-                        reply(txt)
                         case 'thksto':
 teks =
 `┏━➤ 「 *Thanks To*」
@@ -563,7 +556,7 @@ teks =
 ┗━━━━━━━`
 gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
-          { buttonId: `owner`, buttonText: { displayText: '~Oke\n' }, type: 1 },
+          { buttonId: `owner`, buttonText: { displayText: '~Oke\n\n\n\n' }, type: 1 },
         ]
         sendButLocation(from, teks, "© BotWhatsapp By ᴹᴿ°᭄Mhyckaོ", gam, but)
 break
@@ -586,35 +579,6 @@ case 'artinama':
 					anu = await fetchJson(`https://mnazria.herokuapp.com/api/arti?nama=${teks}`, {method: 'get'})
 					reply(`Arti Nama ${teks}\n\n`+anu.result)
 				break
-case "colongsw": 
-        if (!mek.key.fromMe) return
-        if ((isMedia && !mek.message.videoMessage) || isQuotedImage) {
-          ger = isQuotedImage
-            ? JSON.parse(JSON.stringify(mek).replace("quotedM", "m")).message
-                .extendedTextMessage.contextInfo
-            : mek;
-          owgi = await Zitsraa.downloadAndSaveMediaMessage(ger);
-          alpha.sendMessage(sender, fs.readFileSync(owgi), "imageMessage", {
-            caption: q,
-          });
-          reply("Sukses");
-          fs.unlinkSync(owgi);
-        } else if ((isMedia && !mek.message.videoMessage) || isQuotedVideo) {
-          ger = isQuotedVideo
-            ? JSON.parse(JSON.stringify(mek).replace("quotedM", "m")).message
-                .extendedTextMessage.contextInfo
-            : mek;
-          owgi = await Z
-Zitsraa.downloadAndSaveMediaMessage(ger);
-          Zitsraa.sendMessage(sender, fs.readFileSync(owgi), "videoMessage", {
-            caption: q,
-          });
-          reply("Sukses");
-          fs.unlinkSync(owgi);
-        } else {
-          reply("Reply sw foto / video yg mau dicolong")
-        }
-        break
             case 'pin':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
                 Zitsraa.modifyChat(from, ChatModification.pin)
