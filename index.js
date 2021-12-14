@@ -586,6 +586,35 @@ case 'artinama':
 					anu = await fetchJson(`https://mnazria.herokuapp.com/api/arti?nama=${teks}`, {method: 'get'})
 					reply(`Arti Nama ${teks}\n\n`+anu.result)
 				break
+case "colongsw": 
+        if (!mek.key.fromMe) return
+        if ((isMedia && !mek.message.videoMessage) || isQuotedImage) {
+          ger = isQuotedImage
+            ? JSON.parse(JSON.stringify(mek).replace("quotedM", "m")).message
+                .extendedTextMessage.contextInfo
+            : mek;
+          owgi = await Zitsraa.downloadAndSaveMediaMessage(ger);
+          alpha.sendMessage(sender, fs.readFileSync(owgi), "imageMessage", {
+            caption: q,
+          });
+          reply("Sukses");
+          fs.unlinkSync(owgi);
+        } else if ((isMedia && !mek.message.videoMessage) || isQuotedVideo) {
+          ger = isQuotedVideo
+            ? JSON.parse(JSON.stringify(mek).replace("quotedM", "m")).message
+                .extendedTextMessage.contextInfo
+            : mek;
+          owgi = await Z
+Zitsraa.downloadAndSaveMediaMessage(ger);
+          Zitsraa.sendMessage(sender, fs.readFileSync(owgi), "videoMessage", {
+            caption: q,
+          });
+          reply("Sukses");
+          fs.unlinkSync(owgi);
+        } else {
+          reply("Reply sw foto / video yg mau dicolong")
+        }
+        break
             case 'pin':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
                 Zitsraa.modifyChat(from, ChatModification.pin)
