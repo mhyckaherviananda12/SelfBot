@@ -939,7 +939,7 @@ case 'attp':
                 
 \`\`\` - [ ${totalchat.length} ]  Total Chat\`\`\`
 \`\`\` - [ Xiaomi ] HANDPHONE\`\`\`
-\`\`\` - [ Baileys ] Linux\`\`\`
+\`\`\` - [ Linux ] Browser\`\`\`
 \`\`\` - [ SELF ] MODE\`\`\`
 
 \`\`\`Speed : ${latensi.toFixed(4)} Second\`\`\``
@@ -953,7 +953,7 @@ const latensip = speed() - timestampi
 			             anjink =`◪ 𝗥𝘂𝗻𝘁𝗶𝗺𝗲
 ├ *Nama bot : Nasaa*
 ├ *Owner : Mhycka*
-├ *Server :* _*Baileys*_
+├ *Server :* _*Linux*_
 ├ *Runtime :*
 ├   \`\`\`${kyun(uptime)}\`\`\`
 ├ *Speed :*
