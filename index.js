@@ -277,11 +277,11 @@ ini mhycka`
 					Iv: '❌ Link tidak valid ❌'
 				},
 				only: {
-					group: '❌ Perintah ini hanya bisa di gunakan dalam group! ❌',
-					ownerG: '❌ Perintah ini hanya bisa di gunakan oleh owner group! ❌',
-					ownerB: '❌ Perintah ini hanya bisa di gunakan oleh owner bot! ❌',
-					admin: '❌ Perintah ini hanya bisa di gunakan oleh admin group! ❌',
-					Badmin: '❌ Perintah ini hanya bisa di gunakan ketika bot menjadi admin! ❌'
+					group: 'Perintah ini hanya bisa di gunakan dalam group!',
+					ownerG: 'Perintah ini hanya bisa di gunakan oleh owner group!',
+					ownerB: 'Perintah ini hanya bisa di gunakan oleh owner bot!',
+					admin: 'Perintah ini hanya bisa di gunakan oleh admin group!',
+					Badmin: 'Perintah ini hanya bisa di gunakan ketika bot menjadi admin!'
 				}
 			}
       const totalchat = await Zitsraa.chats.all()
@@ -510,9 +510,9 @@ const uploadImages = (buffData, type) => {
                 menu = `_*mhyckanasabot*_`
 gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
-          { buttonId: `$(prefix)owner`, buttonText: { displayText: '𝐈𝐍𝐒𝐓𝐀𝐆𝐑𝐀𝐌\n_*instagram.com/mhyckaherviananda :)*_' }, type: 1 },
+          { buttonId: `$(prefix)owner`, buttonText: { displayText: '𝐈𝐍𝐒𝐓𝐀𝐆𝐑𝐀𝐌\n_*instagram.com/mhyckaherviananda*_' }, type: 1 },
         ]
-        sendButLocation(from, menu, "_*Hai Kak Berikut Adalah Menu SELF-NASA-BOT*_\n\n👑 *Owner Name : Mhycka*\n*🤖 Bot Name : SELF-NASA-BOT*\n*👑 No Owner : 6285340409831*\n*🌐 Browser : Linux*\n*📊 Language : Javascript*\n*🐣My Birthday : 12-04-2006*\n\n╭──「 _*SELF NASA BOT*_」─── \n│\n├ *sticker*\n├ *stickergif*\n├ *attp*\n├ *toimg*\n├ *runtime*\n├ *ping*\n├ *ssweb*\n├ *blocklist*\n├ *shutdown*\n├ *fdeface*\n├ *chatlist*\n├ *owner*\n├ *hidetag Text*\n├ *stctag Tag Stc*\n├ *imgtag Tag Img*\n├ *kontag Text*\n├ *upswtext*\n├ *upswimg*\n├ *upsvideo*\n├ *linkgroup*\n├ *group tutup/buka*\n├ *add 6281xxx*\n├ *headsot @tag*\n├ *promote @tag*\n├ *demote @tagadmin*\n├ *edotensei @tag*\n├ *listadmin*\n├ *infoall*\n├ *thksto*\n├ *artinama*\n│\n╰──「 _*SELF BY MHYCKA*_ 」───\n\n\n© BotWhatsApp By ᴹᴿ°᭄Mhyckaོ", gam, but)
+        sendButLocation(from, menu, "_*Hai Kak Berikut Adalah Menu SELF-NASA-BOT*_\n\n👑 *Owner Name : Mhycka*\n*🤖 Bot Name : SELF-NASA-BOT*\n*👑 No Owner : 6285340409831*\n*🌐 Browser : Linux*\n*📊 Language : Javascript*\n*🐣My Birthday : 12-04-2006*\n\n╭──「 _*SELF NASA BOT*_」─── \n│\n├ *sticker*\n├ *stickergif*\n├ *attp*\n├ *toimg*\n├ *runtime*\n├ *ping*\n├ *ssweb*\n├ *blocklist*\n├ *shutdown*\n├ *fdeface*\n├ *chatlist*\n├ *owner*\n├ *hidetag Text*\n├ *stctag Tag Stc*\n├ *imgtag Tag Img*\n├ *kontag Text*\n├ *upswtext*\n├ *upswimg*\n├ *upsvideo*\n├ *linkgroup*\n├ *group tutup/buka*\n├ *add 6281xxx*\n├ *headsot @tag*\n├ *promote @tag*\n├ *demote @tagadmin*\n├ *edotensei @tag*\n├ *listadmin*\n├ *infoall*\n├ *thxto*\n├ *artinama*\n│\n╰──「 _*SELF BY MHYCKA*_ 」───\n\n\n© BotWhatsApp By ᴹᴿ°᭄Mhyckaོ", gam, but)
 break
                 case '-':
 					Zitsraa.sendMessage(from, help(prefix), text,{contextInfo: {forwardingScore : 508, isForwarded: true},quoted : freply})
@@ -543,13 +543,13 @@ break
                 reply('*succes unmute this chat*')
                 console.log('succes unmute chat = ' + from)
                 break
-                        case 'thksto':
+                        case 'thxto':
 teks =
 `┏━➤ 「 *Thanks To*」
-┃┃✯ *1. Mhycka Herviananda*😎
-┃┃✯ *2. Rizky Faisal*😎
-┃┃✯ *3. Aisyah Ahmad*??
-┃┃✯ *4. Adilla Paramita*😎
+┃┃✯ *1. Mhycka Herviananda*😼
+┃┃✯ *2. Rizky Faisal*😼
+┃┃✯ *3. Aisyah Ahmad*😼 
+┃┃✯ *4. Adilla Paramita*😼 
 ┗━━━━━━━
 ┏━➤ 「 *Follow Instagram*」
 ┃┃✯ *bit.ly/instagramhycka*
@@ -774,7 +774,7 @@ case 'artinama':
 				  case 'listblock':
 					teks = 'This is list of blocked number :\n'
 					for (let block of blocked) {
-						teks += `┣❥  @${block.split('@')[0]}\n`
+						teks += `➳  @${block.split('@')[0]}\n`
 					}
 					teks += `Total : ${blocked.length}`
 					Zitsraa.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": blocked}})
@@ -814,19 +814,6 @@ case 'artinama':
 					fs.unlinkSync(`./sticker/takestick_${sender}.exif`)
 				})
 				break
-				
-				case 'togif':
-                                        if (!isQuotedSticker) return reply('Reply stiker nya')
-                                        reply(mess.wait)
-                                        if (mek.message.extendedTextMessage.contextInfo.quotedMessage.stickerMessage.isAnimated === true){
-                                        const encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-                                        const media = await Zitsraa.downloadAndSaveMediaMessage(encmedia)
-                                        const upload = await uploadimg(media, Date.now() + '.webp')
-                                        const rume = await axios.get(`http://nzcha-apii.herokuapp.com/webp-to-mp4?url=${upload.result.image}`)
-                                        const buff = await getBuffer(rume.data.result)
-                                        Zitsraa.sendMessage(from, buff, video, { mimetype: Mimetype.gif, caption: 'Nih', quoted: freply})
-                                }
-                                break
 					
 					case 'fdeface':
 					var nn = body.slice(9)
@@ -1022,7 +1009,7 @@ const term = {
 contextInfo: {
 participant: itsme,
 quotedMessage: {
-extendedTextMessage: {
+extendedTextMessage: {7
 text: split,
 }
 }
@@ -1317,10 +1304,10 @@ break
 					members_id = []
 					teks = '\n'
 					for (let mem of groupMembers) {
-						teks += `│➳  @${mem.jid.split('@')[0]}\n`
+						teks += `*│* ➳  @${mem.jid.split('@')[0]}\n`
 						members_id.push(mem.jid)
 					}
-					mentions(`*From :* - [ 𝙎𝙀𝙇𝙁 𝘽𝙊𝙏 ] -\n*Info :*  ${body.slice(9)}\n*Total Member :* ${groupMembers.length} \n\n┏━━━⟪ *INFORMATION* ⟫━━━┓`+teks+'╚═ *「 By Mhycka 」* ', members_id, true)
+					mentions(`*From :* -𝙎𝙀𝙇𝙁 𝘽𝙊𝙏-\n*Info :*  ${body.slice(9)}\n*Total Member :* ${groupMembers.length} \n\n┏━━━⟪ *INFORMATION* ⟫━━━┓`+teks+'╚═ *「 By Mhycka 」* ', members_id, true)
 					break
 					
 					case 'edotensei':
@@ -1340,11 +1327,6 @@ break
 						Zitsraa.groupRemove(from, mentioned)
 					}
 					break
-
-      case 'leave': 
-				    if (!isGroup) return reply(mess.only.group)
-			    	anu = await Zitsraa.groupLeave(from, `Bye All Member *${groupMetadata.subject}*`, groupId)
-	                break 
 			
 				//********** DOWNLOAD **********//
 
