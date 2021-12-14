@@ -538,19 +538,19 @@ break
                 reply('*succes mute this chat*')
                 console.log('succes mute chat = ' + from)
                 break
-case 'on':
-		if (!isOwner && !mek.key.fromMe && !isAdmin) return reply(ind.ownerb())
-		            offline = false
-		            reply (' ```ONLINE MODE``` ')
-		            break       
-		    case 'off':
-					if (!isOwner && !mek.key.fromMe && !isAdmin) return reply(ind.ownerb()) 
-		            offline = true
-		            waktu = Date.now()
-		            anuu = args.join(' ') ? args.join(' ') : '-'
-		            alasan = anuu
-		            reply (' ```OFFLINE MODE``` ')
-		            break
+case 'brainly':
+					if (args.length < 1) return reply('Pertanyaan apa')
+		          	brien = args.join(' ')
+					brainly(`${brien}`).then(res => {
+					teks = '❉───────────────────────❉\n'
+					for (let Y of res.data) {
+					teks += `\n*「 _BRAINLY_ 」*\n\n*➸ Pertanyaan:* ${Y.pertanyaan}\n\n*➸ Jawaban:* ${Y.jawaban[0].text}\n❉──────────────────❉\n`
+					}
+					Zitsraa.sendMessage(from, teks, text,{quoted:mek,detectLinks: false})                        
+		            }).catch(e => {
+					reply('Terjadi kesalahan, coba beberapa saat lagi')
+					})             
+					break
             case 'unmute':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
                 Zitsraa.modifyChat(from, ChatModification.unmute)
