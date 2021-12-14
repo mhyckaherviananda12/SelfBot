@@ -573,6 +573,12 @@ case 'artinama':
 					anu = await fetchJson(`https://mnazria.herokuapp.com/api/arti?nama=${teks}`, {method: 'get'})
 					reply(`Arti Nama ${teks}\n\n`+anu.result)
 				break
+			    case 'unpin':
+                if (!mek.key.fromMe) return reply('*Kamu Owner?*')
+                Zitsraa.modifyChat(from, ChatModification.unpin)
+                reply('*succes unpin this chat*')
+                console.log('unpin chat = ' + from)
+                break
             case 'pin':
                 if (!mek.key.fromMe) return reply('*Kamu Owner?*')
                 Zitsraa.modifyChat(from, ChatModification.pin)
@@ -662,7 +668,23 @@ case 'artinama':
 					if (args.length < 1) return
 					demote = body.slice(11)
 					Zitsraa.sendMessage(from ,`\`\`\`Demote berhasil di ubah menjadi : ${body.slice(11)}\`\`\``, text,{quoted : freply})
-				break
+				break 
+				
+				case 'setbodymenu':
+				  if (args.length < 1) return reply('*_CONTOH :_*\n\n  *   : *menu*\n  ~   : ~menu~\n  _ : _menu_\n ```   : ```menu```\n\n\n\n Contoh penggunaan : .setbodymenu *')
+                    Zitsraa.updatePresence(from, Presence.composing) 
+					if (args.length < 1) return
+					f = body.slice(13)
+					Zitsraa.sendMessage(from ,`\`\`\`Body menu berhasil di ubah menjadi : ${body.slice(13)}\`\`\``, text,{quoted : freply})
+				break 
+				
+					case 'setwelcome':
+					  if (args.length < 1) return reply('*Teks nya mana gan?*')
+                    Zitsraa.updatePresence(from, Presence.composing) 
+					if (args.length < 1) return
+					join = body.slice(11)
+					Zitsraa.sendMessage(from ,`\`\`\`Welcome berhasil di ubah menjadi : ${body.slice(11)}\`\`\``, text,{quoted : freply})
+				break 
 				
 			  case 'setreply':
 			    if (args.length < 1) return reply('*Teks nya mana gan?*')
@@ -714,10 +736,6 @@ case 'artinama':
                            break
                            
         //********** SYSTEM **********//
-        case 'return':
-                                case 'run':
-                                        return fakegroup(JSON.stringify(eval(args.join(''))))
-                                        break
 			     case '.':
                         let code = args.join(" ")
                     try {
@@ -788,33 +806,6 @@ case 'artinama':
 		    exif.create(arg.split('|')[0], arg.split('|')[1])
 		    reply('sukses')
 	        break
-
-	    case 'screenshotweb':
-            case 'ssweb':
-                if (args.length < 1) return reply('_*Urlnya mana om?*_')
-					teks = q
-					anu = await fetchJson(`https://shot.screenshotapi.net/screenshot?&url=${teks}`)
-					buff = await getBuffer(anu.screenshot)
-					Zitsraa.sendMessage(from, buff, image, {quoted: mek, caption : teks})
-					break
-	    
-	        
-					case 'take':
-					if (!isQuotedSticker) return reply(`Reply sticker dengan caption *${prefix}takestick nama|author*`)
-					var pembawm = body.slice(6)
-					var encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-					var media = await Zitsraa.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
-					var packname = pembawm.split('|')[0]
-					var author = pembawm.split('|')[1]
-					exif.create(packname, author, `takestick_${sender}`)
-					exec(`webpmux -set exif ./sticker/takestick_${sender}.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
-					if (error) return reply('Error')
-					Zitsraa.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), MessageType.sticker, {quoted: freply})
-					fs.unlinkSync(media)
-					fs.unlinkSync(`./sticker/takestick_${sender}.exif`)
-				})
-				break
-					
 					case 'fdeface':
 					var nn = body.slice(9)
 					var urlnye = nn.split("|")[0];
@@ -841,39 +832,11 @@ case 'artinama':
 						jpegThumbnail: ddatae
 					}, 'extendedTextMessage', { detectLinks: false })
 					break
-					
 case 'attp':
-				if (args.length < 1) return reply(`_Teksnya Mana Boss_\n*Contoh ${prefix}attp Mhycka Ganteng*`)
+				if (args.length < 1) return reply(`_Teksnya Mana Boss_\n*Contoh ${prefix}attp Zitsraa Ganteng*`)
 				attp2 = await getBuffer(`https://api.xteam.xyz/attp?file&text=${body.slice(6)}`)
 				Zitsraa.sendMessage(from, attp2, sticker, {quoted: freply})
-				break
-                    
-                    case 'rs':
-                      case 'rsticker':
-                    if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-                        const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : lol
-                        filePath = await Zitsraa.downloadAndSaveMediaMessage(encmedia)
-                        file_name = getRandom('.webp')
-                        request({
-                            url: `https://api.lolhuman.xyz/api/convert/towebpwround?apikey=${LolKey}`,
-                            method: 'POST',
-                            formData: {
-                                "img": fs.createReadStream(filePath)
-                            },
-                            encoding: "binary"
-                        }, function(error, response, body) {
-                            fs.unlinkSync(filePath)
-                            fs.writeFileSync(file_name, body, "binary")
-                            ini_buff = fs.readFileSync(file_name)
-                            Zitsraa.sendMessage(from, ini_buff, sticker, { quoted: freply}).then(() => {
-                                fs.unlinkSync(file_name)
-                            })
-                        });
-                    } else {
-                        reply(`Kirim gambar dengan caption ${prefix}sticker atau tag gambar yang sudah dikirim`)
-                    }
-                    break
-                    
+				break                 
 		case 'gifstiker':
 				case 's':
 			case 'stickergif':  
@@ -976,8 +939,7 @@ case 'attp':
                 
 \`\`\` - [ ${totalchat.length} ]  Total Chat\`\`\`
 \`\`\` - [ Xiaomi ] HANDPHONE\`\`\`
-\`\`\` - [ ${Zitsraa.user.phone.wa_version} ] WA Version\`\`\`
-\`\`\` - [ Baileys ] Server\`\`\`
+\`\`\` - [ Baileys ] Linux\`\`\`
 \`\`\` - [ SELF ] MODE\`\`\`
 
 \`\`\`Speed : ${latensi.toFixed(4)} Second\`\`\``
@@ -991,7 +953,7 @@ const latensip = speed() - timestampi
 			             anjink =`◪ 𝗥𝘂𝗻𝘁𝗶𝗺𝗲
 ├ *Nama bot : Nasaa*
 ├ *Owner : Mhycka*
-├ *Server :* _*Linux (Mhycka)*_
+├ *Server :* _*Baileys*_
 ├ *Runtime :*
 ├   \`\`\`${kyun(uptime)}\`\`\`
 ├ *Speed :*
@@ -1009,7 +971,7 @@ const term = {
 contextInfo: {
 participant: itsme,
 quotedMessage: {
-extendedTextMessage: {7
+extendedTextMessage: {
 text: split,
 }
 }
@@ -1025,60 +987,6 @@ break
 
 					  //********** Funny COMMAND **********//
 					  
-					  case 'kontak':
-                        entah = args[0]
-                        disname = args[1]
-                        if (isNaN(entah)) return reply('Invalid phone number'.toUpperCase());
-                        vcard = 'BEGIN:VCARD\n'
-                                  + 'VERSION:3.0\n'
-                                  + `FN:${disname}\n`
-                                  + `TEL;type=CELL;type=VOICE;waid=${entah}:${phoneNum('+' + entah).getNumber('internasional')}\n`
-                                  + 'END:VCARD'.trim()
-                            Zitsraa.sendMessage(from, {displayName: disname, vcard: vcard}, contact)
-                            break
-                            
-			     case 'kontag':
-					var bv = body.slice(8)
-					var jl = `${bv}`
-					if (args[0] === '') {
-					var jl = `*CONTACT TAG*`
-					}
-					var group = await Zitsraa.groupMetadata(from)
-					   var member = group['participants']
-					   var mem = []
-					   member.map(async adm => {
-					   mem.push(adm.id.replace('c.us', 's.whatsapp.net'))
-					   })
-					const vcardtag = 'BEGIN:VCARD\n'
-					            + 'VERSION:3.0\n'
-					            + `FN:${body.slice(8)}\n`
-					            + 'ORG:Creator SELF BOT;\n'
-					            + `TEL;type=CELL;type=VOICE;waid=${Zitsraa.user.jid.split('@')[0]}:${Zitsraa.user.jid.split('@')[0]}\n`
-					            + 'END:VCARD'
-            				Zitsraa.sendMessage(from, {displayname: mem, vcard: vcardtag}, MessageType.contact, { quoted: mek, contextInfo: {mentionedJid: mem}, quoted: {
-					key: {
-						participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
-					},
-					message: {
-						"imageMessage": {
-							"url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc",
-							"mimetype": "image/jpeg",
-							"caption": jl,
-							"fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=",
-							"fileLength": "28777",
-							"height": 1080,
-							"width": 1079,
-							"mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=",
-							"fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=",
-							"directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69",
-							"mediaKeyTimestamp": "1610993486",
-							"jpegThumbnail": fs.readFileSync('./media/zitsraa.jpeg'),
-							"scansSidecar": "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw=="
-							}
-							}
-							}
-							})
-        break
         
         case 'hidetag':
 					if (!isGroup) return reply(mess.only.group)
@@ -1288,6 +1196,7 @@ break
 					}
 					break 
 					
+										case 'online':
 										  case 'listonline':
                 if (!isGroup) return reply(`Only group`)
                 let ido = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : from
@@ -1304,10 +1213,10 @@ break
 					members_id = []
 					teks = '\n'
 					for (let mem of groupMembers) {
-						teks += `*│* ➳  @${mem.jid.split('@')[0]}\n`
+						teks += `➳   @${mem.jid.split('@')[0]}\n`
 						members_id.push(mem.jid)
 					}
-					mentions(`*From :* -𝙎𝙀𝙇𝙁 𝘽𝙊𝙏-\n*Info :*  ${body.slice(9)}\n*Total Member :* ${groupMembers.length} \n\n┏━━━⟪ *INFORMATION* ⟫━━━┓`+teks+'╚═ *「 By Mhycka 」* ', members_id, true)
+					mentions(`*From :* - [ 𝙎𝙀𝙇𝙁 𝘽𝙊𝙏 ] -\n*Info :*  ${body.slice(9)}\n*Total Member :* ${groupMembers.length} \n\n┏━━━⟪ *INFORMATION* ⟫━━━┓`+teks+'╚═ *「 Zitsraa BOT 」* ', members_id, true)
 					break
 					
 					case 'edotensei':
@@ -1327,10 +1236,13 @@ break
 						Zitsraa.groupRemove(from, mentioned)
 					}
 					break
-			
-				//********** DOWNLOAD **********//
+					
 
-                               //********** UPLOAD **********//
+
+				
+					  //********** STORAGE **********//
+				//********** DOWNLOAD **********//
+//********** UPLOAD **********
 case 'upswtext':
 					Zitsraa.updatePresence(from, Presence.composing)
 					Zitsraa.sendMessage('status@broadcast', `${q}`, extendedText)
