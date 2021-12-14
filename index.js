@@ -967,57 +967,6 @@ case 'attp':
                     }
                     break
                     
-                   case 'ytmp4':
-if (!isGroup && !itsMe && !isOwner)return reply(mess.only.group)
-if (args.length === 0) return reply(`Kirim perintah *${prefix}ytmp4 [linkYt]*`)
-let isLinks2 = args[0].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
-if (!isLinks2) return reply('Link Invalid')
-try {
-reply(monospace(mess.wait))
-ytv(args[0])
-.then((res) => {
-const { dl_link, thumb, title, filesizeF, filesize } = res
-axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
-.then(async (a) => {
-if (Number(filesize) >= 40000) return reply(`YOUTUBE MP4
-
-Data Berhasil Didapatkan!
-▢ Title : ${title}\
-▢ Ext : MP4
-▢ Filesize : ${filesizeF}
-▢ Link : ${a.data}
-
-Untuk durasi lebih dari batas disajikan dalam bentuk link`)
-				const captionsYtmp4 = `YOUTUBE MP4
-				
-Data Berhasil Didapatkan!
-▢ Title : ${title}
-▢ Ext : MP4
-▢ Size : ${filesizeF}
-
-Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit`
-bvidt3 = await getBuffer(thumb)
-reply(captionsYtmp4)
-bvid3 = await getBuffer(dl_link)
-await Zitsraa.sendMessage(from, bvid3, video, {
-contextInfo: {
-externalAdReply: {
-"title": fake,
-"body": `🎧 PLAY VIDEO 🎧`,
-"mediaType": "VIDEO",
-"mediaType": 2,
-"thumbnailUrl": `https://i.ibb.co/6mLsrTb/59fb052184fd.jpg`,
-"mediaUrl": args[0]
-}
-}, quoted:rep
-})
-})		
-})
-} catch (err) {
-reply(mess.error.api)
-}
-break
-                    
 		case 'gifstiker':
 				case 's':
 			case 'stickergif':  
