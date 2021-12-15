@@ -1,30 +1,59 @@
-//RECODE BY MHANKBARBAR
-//SELF BOT BY ZITSRAA
-//YANG PASTI DISINI BANYAK YANG GUA COPAS
-//TAMBAHIN NICK GUA LAH "ZITSRAA"
-//JANGAN CUMA PAKE DOANG
-const sotoy = [
-		'🍊 : 🍒 : 🍐',
-		'🍒 : 🔔 : 🍊',
-		'🍇 : 🍇 : 🍇',
-		'🍊 : 🍋 : 🔔',
-		'🔔 : 🍒 : 🍐',
-		'🔔 : 🍒 : 🍊',
-        '🍊 : 🍋 : 🔔',		
-		'🍐 : 🍒 : 🍋',
-		'🍐 : 🍐 : 🍐',
-		'🍊 : 🍒 : 🍒',
-		'🔔 : 🔔 : 🍇',
-		'🍌 : 🍒 : 🔔',
-		'🍐 : 🔔 : 🔔',
-		'🍊 : 🍋 : 🍒',
-		'🍋 : 🍋 : 🍌',
-		'🔔 : 🔔 : 🍇',
-		'🔔 : 🍐 : 🍇',
-		'🔔 : 🔔 : 🔔',
-		'🍒 : 🍒 : 🍒',
-		'🍌 : 🍌 : 🍌',
-		]
+const afk = JSON.parse(fs.readFileSync('./database/afk.json'))
+const addafk = (from) => {
+    const obj = { id: from, expired: Date.now() + toMs('10m') }
+    afk.push(obj)
+    fs.writeFileSync('./database/afk.json', JSON.stringify(afk))
+}
+const cekafk = (_dir) => {
+    setInterval(() => {
+        let position = null
+        Object.keys(_dir).forEach((i) => {
+            if (Date.now() >= _dir[i].expired) {
+                position = i
+            }
+        })
+        if (position !== null) {
+            _dir.splice(position, 1)
+            fs.writeFileSync('./database/afk.json', JSON.stringify(_dir))
+        }
+    }, 1000)
+}
+
+const isAfk = (idi) => {
+    let status = false
+    Object.keys(afk).forEach((i) => {
+        if (afk[i].id === idi) {
+            status = true
+        }
+    })
+    return status
+}
+if (!mek.key.remoteJid.endsWith('@g.us') && offline){
+			if (!mek.key.fromMe){
+            if (isAfk(mek.key.remoteJid)) return
+            addafk(mek.key.remoteJid)
+			heheh = ms(Date.now() - waktuafk)
+		  sendButMessage(from, `Hai ${pushname}, Maaf sepertinya saat ini Mhycka sedang Offline\n\n*Alasan :* ${alasanafk}\n*Sejak :* ${heheh.hours} Jam, ${heheh.minutes} Menit, ${heheh.seconds} Detik\n\nSilahkan hubungi lagi setelah Online`, "*©Bot WhatsApp by ᴹᴿ°᭄Mhycka*", [{buttonId: 'simi', buttonText: {displayText: 'Oke👌'}, type: 1}], {quoted:ftrol, contextInfo: { forwardingScore: 508, isForwarded: true}})
+			}
+		}
+		if (mek.key.remoteJid.endsWith('@g.us') && offline) {
+			if (!mek.key.fromMe){
+				if (mek.message.extendedTextMessage != undefined){
+					if (mek.message.extendedTextMessage.contextInfo != undefined){
+						if (mek.message.extendedTextMessage.contextInfo.mentionedJid != undefined){
+				for (let ment of mek.message.extendedTextMessage.contextInfo.mentionedJid) {
+					if (ment === gura.user.jid){
+                        if (isAfk(mek.key.remoteJid)) return
+                        addafk(mek.key.remoteJid)
+						heheh = ms(Date.now() - waktuafk)
+			       sendButMessage(from, `Hai ${pushname}, Maaf sepertinya saat ini Mhycka sedang Offline\n\n*Alasan :* ${alasanafk}\n*Sejak :* ${heheh.hours} Jam, ${heheh.minutes} Menit, ${heheh.seconds} Detik\n\nSilahkan hubungi lagi setelah Online`, "*©Bot WhatsApp by ᴹᴿ°᭄Mhycka*", [{buttonId: 'simi', buttonText: {displayText: 'Oke👌'}, type: 1}], {quoted:ftrol, contextInfo: { forwardingScore: 508, isForwarded: true}})
+					}
+				}
+						}
+					}
+				}
+			}
+		}
 const {
     WAConnection,
   MessageType,
@@ -957,6 +986,19 @@ const latensip = speed() - timestampi
 └─────────────`
 			             Zitsraa.sendMessage(from, anjink, text,{quoted : freply})
 			           break
+			case 'online':
+            if (!isOwner && !mek.key.fromMe) return sticOwner(from)
+				offline = false
+				reply('Status : ONLINE')
+				break
+			case 'offline':
+			if (!isOwner && !mek.key.fromMe) return sticOwner(from)
+				offline = true
+                waktuafk = Date.now()
+                anuu = body.slice(9) ? body.slice(9) : '-'
+                alasanafk = anuu
+				reply('Fitur OFFLINE diaktifkan')
+				break
 			           
 			           case 'term': 
 case 'exec':
