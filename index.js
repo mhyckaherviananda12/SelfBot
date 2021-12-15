@@ -75,6 +75,7 @@ const samih = JSON.parse(fs.readFileSync('./src/simi.json'))
 const setting = JSON.parse(fs.readFileSync('./src/settings.json'))
 const setiker = JSON.parse(fs.readFileSync('./temp/stik.json'))
 const audionye = JSON.parse(fs.readFileSync('./temp/vn.json'))
+const afk = JSON.parse(fs.readFileSync('./database/afk.json'))
 const imagenye = JSON.parse(fs.readFileSync('./temp/image.json'))
 const videonye = JSON.parse(fs.readFileSync('./temp/video.json'))
 const sleep = async (ms) => {
@@ -238,6 +239,35 @@ ini mhycka`
 	    	blocked.push(i.replace('c.us','s.whatsapp.net'))
 	    }
 	})
+	const addafk = (from) => {
+    const obj = { id: from, expired: Date.now() + toMs('10m') }
+    afk.push(obj)
+    fs.writeFileSync('./database/afk.json', JSON.stringify(afk))
+}
+const cekafk = (_dir) => {
+    setInterval(() => {
+        let position = null
+        Object.keys(_dir).forEach((i) => {
+            if (Date.now() >= _dir[i].expired) {
+                position = i
+            }
+        })
+        if (position !== null) {
+            _dir.splice(position, 1)
+            fs.writeFileSync('./database/afk.json', JSON.stringify(_dir))
+        }
+    }, 1000)
+}
+
+const isAfk = (idi) => {
+    let status = false
+    Object.keys(afk).forEach((i) => {
+        if (afk[i].id === idi) {
+            status = true
+        }
+    })
+    return status
+}
 
 	Zitsraa.on('chat-update', async (mek) => {
 		try {
@@ -314,6 +344,32 @@ ini mhycka`
 			const mentions = (teks, memberr, id) => {
 				(id == null || id == undefined || id == false) ? Zitsraa.sendMessage(from, teks.trim(), extendedText, {contextInfo: {"mentionedJid": memberr}}) : Zitsraa.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": memberr}})
 			}
+			if (!mek.key.remoteJid.endsWith('@g.us') && offline){
+			if (!mek.key.fromMe){
+            if (isAfk(mek.key.remoteJid)) return
+            addafk(mek.key.remoteJid)
+			heheh = ms(Date.now() - waktuafk)
+		  sendButMessage(from, `Hai ${pushname}, Maaf sepertinya saat ini ArulGanz sedang Offline\n\n*Alasan :* ${alasanafk}\n*Sejak :* ${heheh.hours} Jam, ${heheh.minutes} Menit, ${heheh.seconds} Detik\n\nSilahkan hubungi lagi setelah Online`, "*©Bot WhatsApp*", [{buttonId: 'simi', buttonText: {displayText: 'Oke'}, type: 1}], {quoted:ftrol, contextInfo: { forwardingScore: 508, isForwarded: true}})
+			}
+		}
+		if (mek.key.remoteJid.endsWith('@g.us') && offline) {
+			if (!mek.key.fromMe){
+				if (mek.message.extendedTextMessage != undefined){
+					if (mek.message.extendedTextMessage.contextInfo != undefined){
+						if (mek.message.extendedTextMessage.contextInfo.mentionedJid != undefined){
+				for (let ment of mek.message.extendedTextMessage.contextInfo.mentionedJid) {
+					if (ment === Zitsraa .user.jid){
+                        if (isAfk(mek.key.remoteJid)) return
+                        addafk(mek.key.remoteJid)
+						heheh = ms(Date.now() - waktuafk)
+			       sendButMessage(from, `Hai ${pushname}, Maaf sepertinya saat ini ArulGanz sedang Offline\n\n*Alasan :* ${alasanafk}\n*Sejak :* ${heheh.hours} Jam, ${heheh.minutes} Menit, ${heheh.seconds} Detik\n\nSilahkan hubungi lagi setelah Online`, "*©Bot WhatsApp*", [{buttonId: 'simi', buttonText: {displayText: 'Oke'}, type: 1}], {quoted:ftrol, contextInfo: { forwardingScore: 508, isForwarded: true}})
+					}
+				}
+						}
+					}
+				}
+			}
+		}
 
 const fakegroup = (teks) => {
 			Zitsraa.sendMessage(from, teks, text, {
@@ -539,6 +595,19 @@ break
                 reply('*succes unmute this chat*')
                 console.log('succes unmute chat = ' + from)
                 break
+                case 'online':
+            if (!isOwner && !mek.key.fromMe) return sticOwner(from)
+				offline = false
+				reply('Status : ONLINE')
+				break
+			case 'offline':
+			if (!isOwner && !mek.key.fromMe) return sticOwner(from)
+				offline = true
+                waktuafk = Date.now()
+                anuu = body.slice(9) ? body.slice(9) : '-'
+                alasanafk = anuu
+				reply('Fitur OFFLINE diaktifkan')
+				break
                         case 'thxto':
 teks =
 `┏━➤ 「 *Thanks To*」
@@ -1226,7 +1295,7 @@ case 'towame':
 					}
 					break 
 					
-										
+										case 'online':
 										  case 'listonline':
                 if (!isGroup) return reply(`Only group`)
                 let ido = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : from
@@ -1246,7 +1315,7 @@ case 'towame':
 						teks += `➳   @${mem.jid.split('@')[0]}\n`
 						members_id.push(mem.jid)
 					}
-					mentions(`*From :* - [ 𝙎𝙀𝙇𝙁 𝘽𝙊𝙏 ] -\n*Info :*  ${body.slice(9)}\n*Total Member :* ${groupMembers.length} \n\n┏━━━⟪ *INFORMATION* ⟫━━━┓`+teks+'╚═ *「 NASA BOT 」* ', members_id, true)
+					mentions(`*From :* - [ 𝙎𝙀𝙇𝙁 𝘽𝙊𝙏 ] -\n*Info :*  ${body.slice(9)}\n*Total Member :* ${groupMembers.length} \n\n┏━━━⟪ *INFORMATION* ⟫━━━┓`+teks+'╚═ *「 Zitsraa BOT 」* ', members_id, true)
 					break
 					
 					case 'edotensei':
