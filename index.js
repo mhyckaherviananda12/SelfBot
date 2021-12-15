@@ -512,12 +512,8 @@ gam = fs.readFileSync('./media/gambar/patner.png')
 but = [
           { buttonId: `$(prefix)owner`, buttonText: { displayText: '𝐈𝐍𝐒𝐓𝐀𝐆𝐑𝐀𝐌\n_*instagram.com/mhyckaherviananda*_' }, type: 1 },
         ]
-        sendButLocation(from, menu, "_*Hai Kak Berikut Adalah Menu SELF-NASA-BOT*_\n\n👑 *Owner Name : Mhycka*\n*🤖 Bot Name : SELF-NASA-BOT*\n*👑 No Owner : 6285340409831*\n*🌐 Browser : Linux*\n*📊 Language : Javascript*\n*🐣My Birthday : 12-04-2006*\n\n╭──「 _*SELF NASA BOT*_」─── \n│\n├ *sticker*\n├ *stickergif*\n├ *attp*\n├ *toimg*\n├ *runtime*\n├ *ping*\n├ *ssweb*\n├ *blocklist*\n├ *shutdown*\n├ *fdeface*\n├ *chatlist*\n├ *owner*\n├ *hidetag Text*\n├ *stctag Tag Stc*\n├ *imgtag Tag Img*\n├ *kontag Text*\n├ *upswtext*\n├ *upswimg*\n├ *upsvideo*\n├ *linkgroup*\n├ *group tutup/buka*\n├ *add 6281xxx*\n├ *headsot @tag*\n├ *promote @tag*\n├ *demote @tagadmin*\n├ *edotensei @tag*\n├ *listadmin*\n├ *infoall*\n├ *thxto*\n├ *artinama*\n│\n╰──「 _*SELF BY MHYCKA*_ 」───\n\n\n© BotWhatsApp By ᴹᴿ°᭄Mhyckaོ", gam, but)
-break
-                case '-':
-					Zitsraa.sendMessage(from, help(prefix), text,{contextInfo: {forwardingScore : 508, isForwarded: true},quoted : freply})
-					break
-			  
+        sendButLocation(from, menu, "_*Hai Kak Berikut Adalah Menu SELF-NASA-BOT*_\n\n👑 *Owner Name : Mhycka*\n*🤖 Bot Name : SELF-NASA-BOT*\n*👑 No Owner : 6285340409831*\n*🌐 Browser : Linux*\n*📊 Language : Javascript*\n*🐣My Birthday : 12-04-2006*\n\n╭──「 _*SELF NASA BOT*_」─── \n│\n├ *sticker*\n├ *stickergif*\n├ *attp*\n├ *toimg*\n├ *runtime*\n├ *ping*\n├ *ssweb*\n├ *blocklist*\n├ *shutdown*\n├ *fdeface*\n├ *chatlist*\n├ *owner*\n├ *hidetag Text*\n├ *stctag Tag Stc*\n├ *imgtag Tag Img*\n├ *kontag Text*\n├ *upswtext*\n├ *upswimg*\n├ *upsvideo*\n├ *linkgroup*\n├ *group tutup/buka*\n├ *add 6281xxx*\n├ *headsot @tag*\n├ *promote @tag*\n├ *demote @tagadmin*\n├ *edotensei @tag*\n├ *listadmin*\n├ *infoall*\n├ *towame*\n├ *tinyurl*\n├ *thxto*\n├ *artinama*\n│\n╰──「 _*SELF BY MHYCKA*_ 」───\n\n\n© BotWhatsApp By ᴹᴿ°᭄Mhyckaོ", gam, but)
+break		  
 			  //********** SELF&PUBLIC **********//
 			  case 'self':
 			  if (!mek.key.fromMe) return reply('*Kamu Owner?*')
@@ -1075,11 +1071,11 @@ break
 				    Zitsraa.sendMessage(from, yeh, text, {quoted: freply})
 			        break
 case 'ssweb':
-                if (args.length < 1) return reply('*Urlnya mana om*?')
+                if (args.length < 1) return reply('*Urlnya mana kak?*')
 					teks = q
 					anu = await fetchJson(`https://shot.screenshotapi.net/screenshot?&url=${teks}`)
 					buff = await getBuffer(anu.screenshot)
-					Zitsraa.sendMessage(from, buff, image, {quoted: Ofc, caption : teks})
+					Zitsraa.sendMessage(from, buff, image, {quoted: mek, caption : teks})
 					break
 case 'tinyurl':{
 									if (args.length < 1) return reply(`Masukkan link`)
@@ -1105,13 +1101,9 @@ case 'towame':
 										mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid[0]
 										reply(`wa.me/`+mentioned.split("@")[0])
 										} else {
-											reply(`${prefix+command} @tag atau reply`)
+											reply(`*Example*\n${prefix+command} @tag`)
 											}
 											break
-						case 'wame':
-									wamo = q.replace(new RegExp("[()/ ]", "gi"), "+")
-									reply(q?`wa.me/`+sender.split("@")[0]+'?text='+wamo: `wa.me/`+sender.split("@")[0])
-									break
 			        
         case 'grup':
 					case 'gc':
