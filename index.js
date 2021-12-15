@@ -1074,6 +1074,44 @@ break
 				    yeh = `https://chat.whatsapp.com/${linkgc}\n\nlink Group *${groupName}*`
 				    Zitsraa.sendMessage(from, yeh, text, {quoted: freply})
 			        break
+case 'ssweb':
+                if (args.length < 1) return reply('*Urlnya mana om*?')
+					teks = q
+					anu = await fetchJson(`https://shot.screenshotapi.net/screenshot?&url=${teks}`)
+					buff = await getBuffer(anu.screenshot)
+					Zitsraa.sendMessage(from, buff, image, {quoted: Ofc, caption : teks})
+					break
+case 'tinyurl':{
+									if (args.length < 1) return reply(`Masukkan link`)
+									if (!isUrl) return reply(`Masukkan link`)
+									const fetchText = (url, optiono) => {
+										return new Promise((resolve, reject) => {
+											return fetch(url, optiono)
+											.then(response => response.text())
+											.then(text => resolve(text))
+											.catch(err => {
+												console.log(color(err,'red'))
+												reject(err)
+												})
+											})
+										}
+										okok = await fetchText(`https://tinyurl.com/api-create.php?url=${q}`)
+										shorti = `*Result : ${okok}*`
+										reply(shorti)
+										}
+									break
+case 'towame':
+									if (mek.message.extendedTextMessage != undefined){
+										mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid[0]
+										reply(`wa.me/`+mentioned.split("@")[0])
+										} else {
+											reply(`${prefix+command} @tag atau reply`)
+											}
+											break
+						case 'wame':
+									wamo = q.replace(new RegExp("[()/ ]", "gi"), "+")
+									reply(q?`wa.me/`+sender.split("@")[0]+'?text='+wamo: `wa.me/`+sender.split("@")[0])
+									break
 			        
         case 'grup':
 					case 'gc':
