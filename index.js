@@ -631,24 +631,6 @@ case 'artinama':
 		await sleep(3000)
                 Zitsraa.close()
 		break
-case'twitterhd':
-            if (!isUrl(args[0]) && !args[0].includes('twitter.com')) return reply(mess.Iv)
-            if (!q) return fakevo('Linknya?')
-            ten = args[0]
-            var res = await hx.twitter(`${ten}`)
-            ren = `${res.HD}`
-            sendMediaURL(from,ren,'DONE')
-            break
-case 'twittersd': 
-if (args.length < 1) return reply('Link?')
-lin = args[0]
-hx.twitter(lin).then(res => {
-console.log('[ TWITTER ] downloader')
-Anu = res.SD
-fto = fs.readFileSync('./media/Zitsraa.jpeg')
-sendMediaURL(from, Anu, 'Done!')
-})
-break
 		
 		case 'demoteall':
                 members_id = []
@@ -847,7 +829,7 @@ break
 					}, 'extendedTextMessage', { detectLinks: false })
 					break
 case 'attp':
-				if (args.length < 1) return reply(`_Teksnya Mana Boss_\n*Contoh ${prefix}attp Zitsraa Ganteng*`)
+				if (args.length < 1) return reply(`_Teksnya Mana Boss_\n*Contoh ${prefix}attp Lord Mhycka*`)
 				attp2 = await getBuffer(`https://api.xteam.xyz/attp?file&text=${body.slice(6)}`)
 				Zitsraa.sendMessage(from, attp2, sticker, {quoted: freply})
 				break                 
@@ -1318,6 +1300,57 @@ case 'upswtext':
 					bur = `Sukses Upload Story Video dengan Caption: ${q}`
 					Zitsraa.sendMessage(from, bur, text, { quoted: mek })
 					break
+					case 'playmp3': 
+case 'ytmp3':
+if (!isGroup && !itsMe && !isOwner)return reply(mess.only.group)
+try {
+reply(monospace(mess.wait))
+let yut = await yts(q)
+yta(yut.videos[0].url)
+.then((res) => {
+const { dl_link, thumb, title, filesizeF, filesize } = res
+axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
+.then((a) => {
+if (Number(filesize) >= 100000) return sendMediaURL(from, thumb, `*P L A YM P 3*\n\n${shp} Title : ${title}\n${shp} Ext : MP3\n${shp} Filesize : ${filesizeF}\n${shp} Upload : ${yut.videos[0].ago}\n${shp} Views : ${yut.videos[0].views}\n${shp} Duration : ${yut.videos[0].timestamp}\n${shp} Link : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam bentuk link_`)
+
+const captionis = `*P L A YM P 3*\n\n${mot} Title : ${title}\n${mot} Size : ${filesizeF}\n${mot} Views: ${yut.videos[0].views}\n${mot} Duration : ${yut.videos[0].timestamp}\n${mot} URL : ${yut.videos[0].url}\n\n*_Permintaan Anda Sedang Di Prosess!_*`
+//sendMediaURL(from, thumb, captionis)
+sendMediaURL(from, dl_link, '')
+
+})
+})
+.catch((err) => reply(`${err}`))
+} catch (err) {
+sendMess(ownerNumber, 'PlayMp3 Error : ' + err)
+console.log(color('[PlayMp3]', 'red'), err)
+reply(mess.error.api)
+}
+break
+case 'playmp4':
+case 'ytmp4':
+try {
+reply(monospace(mess.wait))
+let yut = await yts(q)
+ytv(yut.videos[0].url)
+.then((res) => {
+const { dl_link, thumb, title, filesizeF, filesize } = res
+axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
+.then((a) => {
+if (Number(filesize) >= 120000) return sendMediaURL(from, thumb, `*P L A YM P 4*\n\n • Judul : ${title}\n • Upload : ${yut.videos[0].ago}\n • Ditonton : ${yut.videos[0].views}\n • Duration : ${yut.videos[0].timestamp}\n • Link : ${a.data}\n\n_Ukuran File Terlalu besar, anda bisa download sendiri lewat Link Diatas!!_`)
+ 
+const mp4 = `
+*PLAY VIDEO*\n\n Judul : ${title}\n\n Upload : ${yut.videos[0].ago}\n\n Ditonton : ${yut.videos[0].views}\n\n Duration : ${yut.videos[0].timestamp}\n\n Url : ${yut.videos[0].url}`
+//sendMediaURL(from, thumb, mp4)
+sendMediaURL(from, dl_link, mp4)
+})
+})
+.catch((err) => reply(`${err}`))
+} catch (err) {
+sendMess(ownerNumber, 'PlayMp4 Error : ' + err)
+console.log(color('[PlayMp4]', 'red'), err)
+reply(mess.error)
+}
+break
 
 				default:
 					if (isGroup && isSimi && budy != undefined) {
