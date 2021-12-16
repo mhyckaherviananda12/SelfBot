@@ -631,6 +631,24 @@ case 'artinama':
 		await sleep(3000)
                 Zitsraa.close()
 		break
+case'twitterhd':
+            if (!isUrl(args[0]) && !args[0].includes('twitter.com')) return reply(mess.Iv)
+            if (!q) return fakevo('Linknya?')
+            ten = args[0]
+            var res = await hx.twitter(`${ten}`)
+            ren = `${res.HD}`
+            sendMediaURL(from,ren,'DONE')
+            break
+case 'twittersd': 
+if (args.length < 1) return reply('Link?')
+lin = args[0]
+hx.twitter(lin).then(res => {
+console.log('[ TWITTER ] downloader')
+Anu = res.SD
+fto = fs.readFileSync('./media/Zitsraa.jpeg')
+sendMediaURL(from, Anu, 'Done!')
+})
+break
 		
 		case 'demoteall':
                 members_id = []
@@ -1236,7 +1254,7 @@ case 'towame':
                     contextInfo: { mentionedJid: online }
                 })
                 break
-                
+                case 'tagall':
                 case 'infoall':
 					if (!isGroup) return reply(mess.only.group)
 					var nom = mek.participant
